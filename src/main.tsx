@@ -2,6 +2,7 @@ import {StrictMode} from 'react';
 import {createRoot} from 'react-dom/client';
 import App from './App.tsx';
 import './index.css';
+import { ErrorBoundary } from './components/common/ErrorBoundary';
 
 // Registro do Service Worker para suporte PWA
 if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
@@ -14,7 +15,9 @@ if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <App />
+    <ErrorBoundary>
+      <App />
+    </ErrorBoundary>
   </StrictMode>,
 );
 

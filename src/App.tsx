@@ -76,7 +76,6 @@ import { BandsModule } from './components/bands/BandsModule';
 import { BillsModule } from './components/bills/BillsModule';
 import { FinanceModule } from './components/finance/FinanceModule';
 import { StaffModule } from './components/staff/StaffModule';
-import { Equipe } from './pages/Equipe';
 import { ProfileModule } from './components/profile/ProfileModule';
 import { LiveActivityDrawer } from './components/common/LiveActivityDrawer';
 import { Check } from 'lucide-react';
@@ -860,36 +859,19 @@ function DashboardApp() {
         )}
 
         {activeTab === 'equipe' && (
-          (role === 'criador' || role === 'dono') ? (
-            <Equipe
-              shifts={shifts}
-              staffMembers={staffMembers}
-              onAddShift={handleAddShift}
-              onUpdateShift={handleUpdateShift}
-              onDeleteShift={handleDeleteShift}
-              onDeleteMultipleShifts={handleDeleteMultipleShifts}
-              onBatchAddShifts={handleBatchAddShifts}
-              onAddStaffMember={handleAddStaffMember}
-              onUpdateStaffMember={handleUpdateStaffMember}
-              onDeleteStaffMember={handleDeleteStaffMember}
-              onDeleteMultipleStaffMembers={handleDeleteMultipleStaffMembers}
-              onNavigateTab={handleNavigateTab}
-            />
-          ) : (
-            <StaffModule
-              shifts={shifts}
-              staffMembers={staffMembers}
-              onAddShift={handleAddShift}
-              onUpdateShift={handleUpdateShift}
-              onDeleteShift={handleDeleteShift}
-              onDeleteMultipleShifts={handleDeleteMultipleShifts}
-              onBatchAddShifts={handleBatchAddShifts}
-              onAddStaffMember={handleAddStaffMember}
-              onUpdateStaffMember={handleUpdateStaffMember}
-              onDeleteStaffMember={handleDeleteStaffMember}
-              onDeleteMultipleStaffMembers={handleDeleteMultipleStaffMembers}
-            />
-          )
+          <StaffModule
+            shifts={shifts}
+            staffMembers={staffMembers}
+            onAddShift={handleAddShift}
+            onUpdateShift={handleUpdateShift}
+            onDeleteShift={handleDeleteShift}
+            onDeleteMultipleShifts={handleDeleteMultipleShifts}
+            onBatchAddShifts={handleBatchAddShifts}
+            onAddStaffMember={handleAddStaffMember}
+            onUpdateStaffMember={handleUpdateStaffMember}
+            onDeleteStaffMember={handleDeleteStaffMember}
+            onDeleteMultipleStaffMembers={handleDeleteMultipleStaffMembers}
+          />
         )}
 
         {(activeTab === 'perfil' || activeTab === 'usuarios') && (

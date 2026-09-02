@@ -149,34 +149,51 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }, []);
 
   useEffect(() => {
+    // Timeout defensivo para garantir que a interface nunca fique travada em tela branca/carregando
+    const safetyTimeout = setTimeout(() => {
+      setLoading(false);
+    }, 1500);
+
     // Listener oficial do Firebase Authentication
     const unsubscribe = onAuthStateChanged(
       auth,
       async (fbUser) => {
+        clearTimeout(safetyTimeout);
         if (fbUser) {
           setFirebaseUser(fbUser);
-          await syncUserDataFromFirestore(fbUser);
+          try {
+            await syncUserDataFromFirestore(fbUser);
+          } catch (e) {
+            console.error('Erro ao sincronizar usuário do Firebase:', e);
+          }
         } else {
           setFirebaseUser(null);
-          setUser(null);
+          // Só limpa o usuário do storage se não houver sessão local válida
           try {
-            localStorage.removeItem(STORAGE_USER_KEY);
-            localStorage.removeItem('@BarDaTenda:token');
-            localStorage.removeItem('bardatenda_user_role');
-            localStorage.removeItem('bardatenda_is_authenticated');
+            const hasLocalAuth = localStorage.getItem('bardatenda_is_authenticated');
+            if (!hasLocalAuth) {
+              setUser(null);
+              localStorage.removeItem(STORAGE_USER_KEY);
+              localStorage.removeItem('@BarDaTenda:token');
+              localStorage.removeItem('bardatenda_user_role');
+            }
           } catch (e) {
-            console.error('Erro ao limpar sessão no localStorage:', e);
+            console.error('Erro ao gerenciar sessão no localStorage:', e);
           }
         }
         setLoading(false);
       },
       (error) => {
         console.error('Erro no listener de autenticação do Firebase:', error);
+        clearTimeout(safetyTimeout);
         setLoading(false);
       }
     );
 
-    return () => unsubscribe();
+    return () => {
+      clearTimeout(safetyTimeout);
+      unsubscribe();
+    };
   }, [syncUserDataFromFirestore]);
 
   const refreshUserData = async () => {
