@@ -135,7 +135,9 @@ export interface CashTransaction {
   notes?: string;
 }
 
-export type ActiveTab = 'dashboard' | 'estoque' | 'bandas' | 'contas' | 'financeiro' | 'equipe' | 'perfil';
+export type UserRole = 'criador' | 'dono' | 'administrador';
+
+export type ActiveTab = 'dashboard' | 'estoque' | 'bandas' | 'contas' | 'financeiro' | 'equipe' | 'perfil' | 'usuarios';
 
 export interface NotificationSettings {
   mobileNotifications: boolean;
@@ -149,6 +151,7 @@ export interface UserAuth {
   username: string;
   passwordHash: string;
   isLoggedIn: boolean;
+  role?: UserRole;
 }
 
 export interface ActivityLog {

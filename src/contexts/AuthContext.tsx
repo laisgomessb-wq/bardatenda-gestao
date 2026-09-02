@@ -1,17 +1,19 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 import {
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
   User as FirebaseUser,
 } from 'firebase/auth';
-import { auth } from '../services/firebase';
+import { doc, getDoc, collection, query, where, getDocs } from 'firebase/firestore';
+import { auth, db } from '../services/firebase';
+import { UserRole } from '../types';
 
 export interface User {
   uid: string;
   email: string;
   name: string;
-  role?: string;
+  role: UserRole;
   avatar?: string;
   loginTime?: string;
 }
@@ -21,64 +23,146 @@ export interface AuthContextData {
   firebaseUser: FirebaseUser | null;
   signed: boolean;
   loading: boolean;
+  role: UserRole;
+  isCriador: boolean;
+  isDono: boolean;
+  isAdministrador: boolean;
+  canAccessFinance: boolean;
   login: (email: string, password?: string) => Promise<{ success: boolean; message?: string }>;
   logout: () => Promise<void>;
   updateUserProfile: (data: Partial<User>) => void;
+  refreshUserData: () => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 
 const STORAGE_USER_KEY = '@BarDaTenda:user';
 
+/**
+ * Normaliza o valor da role para um dos três perfis oficiais do sistema:
+ * - 'criador' (acesso total)
+ * - 'dono' (acesso total)
+ * - 'administrador' (apenas Banda, Estoque e Equipe; sem Contas e Caixa)
+ */
+export function sanitizeRole(rawRole: any): UserRole {
+  if (!rawRole) return 'administrador';
+  const str = String(rawRole).toLowerCase().trim();
+  if (str === 'criador' || str === 'creator') return 'criador';
+  if (str === 'dono' || str === 'owner') return 'dono';
+  return 'administrador';
+}
+
+/**
+ * Busca dados adicionais do usuário na coleção 'users' do Firestore
+ * para identificar a propriedade 'role' ('criador', 'dono' ou 'administrador').
+ */
+export async function fetchUserRoleAndProfile(
+  uid: string,
+  email?: string | null
+): Promise<{ role: UserRole; name?: string }> {
+  try {
+    // 1. Busca prioritária pelo UID: doc /users/{uid}
+    if (uid) {
+      const userDocRef = doc(db, 'users', uid);
+      const snap = await getDoc(userDocRef);
+      if (snap.exists()) {
+        const data = snap.data();
+        return {
+          role: sanitizeRole(data.role),
+          name: data.name || data.displayName,
+        };
+      }
+    }
+
+    // 2. Busca secundária por e-mail na coleção 'users'
+    if (email) {
+      const cleanEmail = email.toLowerCase().trim();
+      const q = query(collection(db, 'users'), where('email', '==', cleanEmail));
+      const querySnap = await getDocs(q);
+      if (!querySnap.empty) {
+        const data = querySnap.docs[0].data();
+        return {
+          role: sanitizeRole(data.role),
+          name: data.name || data.displayName,
+        };
+      }
+    }
+  } catch (error) {
+    console.warn('Aviso: Não foi possível buscar perfil do usuário no Firestore:', error);
+  }
+
+  // Padrão de segurança estrito: 'administrador'
+  return { role: 'administrador' };
+}
+
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<User | null>(() => {
     try {
       const stored = localStorage.getItem(STORAGE_USER_KEY);
-      return stored ? JSON.parse(stored) : null;
+      if (stored) {
+        const parsed = JSON.parse(stored);
+        return {
+          ...parsed,
+          role: sanitizeRole(parsed.role),
+        };
+      }
+      return null;
     } catch {
       return null;
     }
   });
+
   const [firebaseUser, setFirebaseUser] = useState<FirebaseUser | null>(null);
   const [loading, setLoading] = useState(true);
+
+  // Carrega e atualiza dados do Firestore para o usuário autenticado
+  const syncUserDataFromFirestore = useCallback(async (fbUser: FirebaseUser) => {
+    const formattedName =
+      fbUser.displayName ||
+      (fbUser.email
+        ? fbUser.email.split('@')[0].charAt(0).toUpperCase() +
+          fbUser.email.split('@')[0].slice(1).replace(/[._-]/g, ' ')
+        : 'Gestor Bar da Tenda');
+
+    // Busca permissões no Firestore na coleção 'users'
+    const firestoreData = await fetchUserRoleAndProfile(fbUser.uid, fbUser.email);
+
+    const authenticatedUser: User = {
+      uid: fbUser.uid,
+      email: fbUser.email || '',
+      name: firestoreData.name || formattedName,
+      role: firestoreData.role,
+      avatar: fbUser.photoURL || undefined,
+      loginTime: new Date().toISOString(),
+    };
+
+    setUser(authenticatedUser);
+    try {
+      localStorage.setItem(STORAGE_USER_KEY, JSON.stringify(authenticatedUser));
+      localStorage.setItem('bardatenda_auth_user', authenticatedUser.name);
+      localStorage.setItem('bardatenda_user_role', authenticatedUser.role);
+      localStorage.setItem('bardatenda_is_authenticated', 'true');
+    } catch (e) {
+      console.error('Erro ao gravar sessão no localStorage:', e);
+    }
+    return authenticatedUser;
+  }, []);
 
   useEffect(() => {
     // Listener oficial do Firebase Authentication
     const unsubscribe = onAuthStateChanged(
       auth,
-      (fbUser) => {
+      async (fbUser) => {
         if (fbUser) {
           setFirebaseUser(fbUser);
-          const formattedName =
-            fbUser.displayName ||
-            (fbUser.email
-              ? fbUser.email.split('@')[0].charAt(0).toUpperCase() +
-                fbUser.email.split('@')[0].slice(1).replace(/[._-]/g, ' ')
-              : 'Gestor Bar da Tenda');
-
-          const authenticatedUser: User = {
-            uid: fbUser.uid,
-            email: fbUser.email || '',
-            name: formattedName,
-            role: 'Administrador / Gestor',
-            avatar: fbUser.photoURL || undefined,
-            loginTime: new Date().toISOString(),
-          };
-
-          setUser(authenticatedUser);
-          try {
-            localStorage.setItem(STORAGE_USER_KEY, JSON.stringify(authenticatedUser));
-            localStorage.setItem('bardatenda_auth_user', authenticatedUser.name);
-            localStorage.setItem('bardatenda_is_authenticated', 'true');
-          } catch (e) {
-            console.error('Erro ao gravar sessão no localStorage:', e);
-          }
+          await syncUserDataFromFirestore(fbUser);
         } else {
           setFirebaseUser(null);
           setUser(null);
           try {
             localStorage.removeItem(STORAGE_USER_KEY);
             localStorage.removeItem('@BarDaTenda:token');
+            localStorage.removeItem('bardatenda_user_role');
             localStorage.removeItem('bardatenda_is_authenticated');
           } catch (e) {
             console.error('Erro ao limpar sessão no localStorage:', e);
@@ -93,7 +177,13 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     );
 
     return () => unsubscribe();
-  }, []);
+  }, [syncUserDataFromFirestore]);
+
+  const refreshUserData = async () => {
+    if (firebaseUser) {
+      await syncUserDataFromFirestore(firebaseUser);
+    }
+  };
 
   const login = async (email: string, password = ''): Promise<{ success: boolean; message?: string }> => {
     const trimmedEmail = email.trim();
@@ -108,31 +198,14 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
 
     try {
-      // Autenticação direta e real com o Firebase Authentication
+      // 1. Autenticação direta e real com o Firebase Authentication
       const userCredential = await signInWithEmailAndPassword(auth, trimmedEmail, trimmedPassword);
       const fbUser = userCredential.user;
 
-      const formattedName =
-        fbUser.displayName ||
-        (fbUser.email
-          ? fbUser.email.split('@')[0].charAt(0).toUpperCase() +
-            fbUser.email.split('@')[0].slice(1).replace(/[._-]/g, ' ')
-          : 'Gestor Bar da Tenda');
-
-      const authenticatedUser: User = {
-        uid: fbUser.uid,
-        email: fbUser.email || trimmedEmail,
-        name: formattedName,
-        role: 'Administrador / Gestor',
-        avatar: fbUser.photoURL || undefined,
-        loginTime: new Date().toISOString(),
-      };
-
-      setUser(authenticatedUser);
       setFirebaseUser(fbUser);
-      localStorage.setItem(STORAGE_USER_KEY, JSON.stringify(authenticatedUser));
-      localStorage.setItem('bardatenda_auth_user', authenticatedUser.name);
-      localStorage.setItem('bardatenda_is_authenticated', 'true');
+
+      // 2. Busca na coleção 'users' para recuperar a propriedade 'role' ('criador', 'dono', 'administrador')
+      const authenticatedUser = await syncUserDataFromFirestore(fbUser);
 
       return { success: true };
     } catch (err: any) {
@@ -176,6 +249,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     } finally {
       localStorage.removeItem(STORAGE_USER_KEY);
       localStorage.removeItem('@BarDaTenda:token');
+      localStorage.removeItem('bardatenda_user_role');
       localStorage.removeItem('bardatenda_is_authenticated');
       setUser(null);
       setFirebaseUser(null);
@@ -185,16 +259,28 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const updateUserProfile = (data: Partial<User>) => {
     if (!user) return;
     const updated = { ...user, ...data };
+    if (data.role) {
+      updated.role = sanitizeRole(data.role);
+    }
     setUser(updated);
     try {
       localStorage.setItem(STORAGE_USER_KEY, JSON.stringify(updated));
       if (updated.name) {
         localStorage.setItem('bardatenda_auth_user', updated.name);
       }
+      if (updated.role) {
+        localStorage.setItem('bardatenda_user_role', updated.role);
+      }
     } catch (error) {
       console.error('Erro ao atualizar perfil do usuário:', error);
     }
   };
+
+  const currentRole: UserRole = user?.role ? sanitizeRole(user.role) : 'administrador';
+  const isCriador = currentRole === 'criador';
+  const isDono = currentRole === 'dono';
+  const isAdministrador = currentRole === 'administrador';
+  const canAccessFinance = isCriador || isDono;
 
   return (
     <AuthContext.Provider
@@ -203,9 +289,15 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         firebaseUser,
         signed: !!user,
         loading,
+        role: currentRole,
+        isCriador,
+        isDono,
+        isAdministrador,
+        canAccessFinance,
         login,
         logout,
         updateUserProfile,
+        refreshUserData,
       }}
     >
       {children}

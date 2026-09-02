@@ -75,15 +75,87 @@ import { BandsModule } from './components/bands/BandsModule';
 import { BillsModule } from './components/bills/BillsModule';
 import { FinanceModule } from './components/finance/FinanceModule';
 import { StaffModule } from './components/staff/StaffModule';
+import { Equipe } from './pages/Equipe';
+import { Usuarios } from './pages/Usuarios';
 import { ProfileModule } from './components/profile/ProfileModule';
 import { LiveActivityDrawer } from './components/common/LiveActivityDrawer';
 import { Check } from 'lucide-react';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { ProtectedRoute } from './routes/ProtectedRoute';
+import { RoleGuard } from './components/common/RoleGuard';
 
 function DashboardApp() {
-  const { user, logout } = useAuth();
-  const [activeTab, setActiveTab] = useState<ActiveTab>('dashboard');
+  const { user, logout, role, canAccessFinance } = useAuth();
+
+  // Detecção de Rota Inicial pela URL (/usuarios, /equipe, etc.)
+  const getInitialTab = (): ActiveTab => {
+    if (typeof window !== 'undefined') {
+      const path = window.location.pathname.toLowerCase();
+      const hash = window.location.hash.toLowerCase();
+      if (path === '/usuarios' || hash === '#/usuarios' || hash === '#usuarios') return 'usuarios';
+      if (path === '/equipe' || hash === '#/equipe' || hash === '#equipe') return 'equipe';
+      if (path === '/estoque' || hash === '#/estoque' || hash === '#estoque') return 'estoque';
+      if (path === '/bandas' || hash === '#/bandas' || hash === '#bandas') return 'bandas';
+      if (path === '/contas' || hash === '#/contas' || hash === '#contas') return 'contas';
+      if (path === '/financeiro' || hash === '#/financeiro' || hash === '#caixa') return 'financeiro';
+      if (path === '/perfil' || hash === '#/perfil' || hash === '#perfil') return 'perfil';
+    }
+    return 'dashboard';
+  };
+
+  const [activeTab, setActiveTab] = useState<ActiveTab>(getInitialTab);
+
+  // Sincronização com o histórico do navegador (popstate / hashchange)
+  useEffect(() => {
+    const handleLocationChange = () => {
+      const path = window.location.pathname.toLowerCase();
+      const hash = window.location.hash.toLowerCase();
+      if (path === '/usuarios' || hash === '#/usuarios' || hash === '#usuarios') {
+        setActiveTab('usuarios');
+      }
+    };
+    window.addEventListener('popstate', handleLocationChange);
+    window.addEventListener('hashchange', handleLocationChange);
+    return () => {
+      window.removeEventListener('popstate', handleLocationChange);
+      window.removeEventListener('hashchange', handleLocationChange);
+    };
+  }, []);
+
+  // Proteção automática de acesso baseado em papel (RBAC):
+  // Usuários com papel 'administrador' NÃO podem visualizar nem acessar as abas/dados de "Contas", "Caixa" e "Usuários"
+  useEffect(() => {
+    if (role === 'administrador' && (activeTab === 'contas' || activeTab === 'financeiro' || activeTab === 'usuarios')) {
+      setActiveTab('estoque');
+      if (window.location.pathname === '/usuarios') {
+        window.history.replaceState(null, '', '/estoque');
+      }
+      setToastMessage('Acesso restrito: seu perfil de Administrador tem permissão apenas para Banda, Estoque e Equipe.');
+      setTimeout(() => setToastMessage(null), 4000);
+    }
+  }, [role, activeTab]);
+
+  const handleNavigateTab = (targetTab: ActiveTab) => {
+    if (role === 'administrador' && (targetTab === 'contas' || targetTab === 'financeiro' || targetTab === 'usuarios')) {
+      setToastMessage('Acesso restrito: seu perfil de Administrador não possui permissão para este módulo.');
+      setTimeout(() => setToastMessage(null), 4000);
+      setActiveTab('estoque');
+      return;
+    }
+    // Atualiza a URL do navegador para permitir acesso direto e roteamento limpo
+    try {
+      if (targetTab === 'usuarios') {
+        window.history.pushState(null, '', '/usuarios');
+      } else if (targetTab === 'dashboard') {
+        window.history.pushState(null, '', '/');
+      } else {
+        window.history.pushState(null, '', `/${targetTab}`);
+      }
+    } catch (e) {
+      // Silencioso em caso de restrição de iframe
+    }
+    setActiveTab(targetTab);
+  };
   const [products, setProducts] = useState<Product[]>(() => loadProducts());
   const [gigs, setGigs] = useState<BandGig[]>(() => loadGigs());
   const [staffMembers, setStaffMembers] = useState<StaffMember[]>(() => loadStaffMembers());
@@ -658,7 +730,7 @@ function DashboardApp() {
         lowStockCount={lowStockCount}
         onResetData={handleResetData}
         activeTab={activeTab}
-        onNavigateTab={setActiveTab}
+        onNavigateTab={handleNavigateTab}
         theme={theme}
         onToggleTheme={handleToggleTheme}
         onShareLink={handleShareLink}
@@ -677,7 +749,7 @@ function DashboardApp() {
             shifts={shifts}
             bills={bills}
             transactions={transactions}
-            onNavigateTab={setActiveTab}
+            onNavigateTab={handleNavigateTab}
             onQuickRestock={handleQuickRestock}
             onToggleBillPaid={handleToggleBillPaid}
           />
@@ -707,41 +779,82 @@ function DashboardApp() {
         )}
 
         {activeTab === 'contas' && (
-          <BillsModule
-            bills={bills}
-            onAddBill={handleAddBill}
-            onUpdateBill={handleUpdateBill}
-            onDeleteBill={handleDeleteBill}
-            onDeleteMultipleBills={handleDeleteMultipleBills}
-            onClearAllBills={handleClearAllBills}
-          />
+          <RoleGuard
+            allowedRoles={['criador', 'dono']}
+            moduleName="Contas a Pagar e Receber"
+            fallbackTab="estoque"
+            onRedirect={handleNavigateTab}
+          >
+            <BillsModule
+              bills={bills}
+              onAddBill={handleAddBill}
+              onUpdateBill={handleUpdateBill}
+              onDeleteBill={handleDeleteBill}
+              onDeleteMultipleBills={handleDeleteMultipleBills}
+              onClearAllBills={handleClearAllBills}
+            />
+          </RoleGuard>
         )}
 
         {activeTab === 'financeiro' && (
-          <FinanceModule
-            transactions={transactions}
-            onAddTransaction={handleAddTransaction}
-            onUpdateTransaction={handleUpdateTransaction}
-            onDeleteTransaction={handleDeleteTransaction}
-            onDeleteMultipleTransactions={handleDeleteMultipleTransactions}
-            onClearAllTransactions={handleClearAllTransactions}
-          />
+          <RoleGuard
+            allowedRoles={['criador', 'dono']}
+            moduleName="Fluxo de Caixa (Vendas e Despesas)"
+            fallbackTab="estoque"
+            onRedirect={handleNavigateTab}
+          >
+            <FinanceModule
+              transactions={transactions}
+              onAddTransaction={handleAddTransaction}
+              onUpdateTransaction={handleUpdateTransaction}
+              onDeleteTransaction={handleDeleteTransaction}
+              onDeleteMultipleTransactions={handleDeleteMultipleTransactions}
+              onClearAllTransactions={handleClearAllTransactions}
+            />
+          </RoleGuard>
         )}
 
         {activeTab === 'equipe' && (
-          <StaffModule
-            shifts={shifts}
-            staffMembers={staffMembers}
-            onAddShift={handleAddShift}
-            onUpdateShift={handleUpdateShift}
-            onDeleteShift={handleDeleteShift}
-            onDeleteMultipleShifts={handleDeleteMultipleShifts}
-            onBatchAddShifts={handleBatchAddShifts}
-            onAddStaffMember={handleAddStaffMember}
-            onUpdateStaffMember={handleUpdateStaffMember}
-            onDeleteStaffMember={handleDeleteStaffMember}
-            onDeleteMultipleStaffMembers={handleDeleteMultipleStaffMembers}
-          />
+          (role === 'criador' || role === 'dono') ? (
+            <Equipe
+              shifts={shifts}
+              staffMembers={staffMembers}
+              onAddShift={handleAddShift}
+              onUpdateShift={handleUpdateShift}
+              onDeleteShift={handleDeleteShift}
+              onDeleteMultipleShifts={handleDeleteMultipleShifts}
+              onBatchAddShifts={handleBatchAddShifts}
+              onAddStaffMember={handleAddStaffMember}
+              onUpdateStaffMember={handleUpdateStaffMember}
+              onDeleteStaffMember={handleDeleteStaffMember}
+              onDeleteMultipleStaffMembers={handleDeleteMultipleStaffMembers}
+              onNavigateTab={handleNavigateTab}
+            />
+          ) : (
+            <StaffModule
+              shifts={shifts}
+              staffMembers={staffMembers}
+              onAddShift={handleAddShift}
+              onUpdateShift={handleUpdateShift}
+              onDeleteShift={handleDeleteShift}
+              onDeleteMultipleShifts={handleDeleteMultipleShifts}
+              onBatchAddShifts={handleBatchAddShifts}
+              onAddStaffMember={handleAddStaffMember}
+              onUpdateStaffMember={handleUpdateStaffMember}
+              onDeleteStaffMember={handleDeleteStaffMember}
+              onDeleteMultipleStaffMembers={handleDeleteMultipleStaffMembers}
+            />
+          )
+        )}
+
+        {activeTab === 'usuarios' && (
+          <ProtectedRoute
+            allowedRoles={['criador', 'dono']}
+            fallbackTabName="Estoque"
+            onRedirect={() => handleNavigateTab('estoque')}
+          >
+            <Usuarios onNavigateTab={handleNavigateTab} />
+          </ProtectedRoute>
         )}
 
         {activeTab === 'perfil' && (
@@ -775,7 +888,7 @@ function DashboardApp() {
       {/* Bottom Navigation */}
       <Navigation
         activeTab={activeTab}
-        setActiveTab={setActiveTab}
+        setActiveTab={handleNavigateTab}
         lowStockCount={lowStockCount}
         confirmedGigsCount={confirmedGigsCount}
         overdueBillsCount={overdueBillsCount}

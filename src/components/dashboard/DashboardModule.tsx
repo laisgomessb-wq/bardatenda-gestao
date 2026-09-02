@@ -42,6 +42,7 @@ import {
   BILL_CATEGORY_LABELS,
   calculateBillEffectiveStatus,
 } from '../../utils/formatters';
+import { useAuth } from '../../contexts/AuthContext';
 
 interface DashboardModuleProps {
   products: Product[];
@@ -64,9 +65,21 @@ export const DashboardModule: React.FC<DashboardModuleProps> = ({
   onQuickRestock,
   onToggleBillPaid,
 }) => {
+  const { role, canAccessFinance } = useAuth();
+  // Regra de Permissões: 'administrador' NÃO pode visualizar nem acessar dados de "Contas" e "Caixa"
+  const showFinance = canAccessFinance ?? (role === 'criador' || role === 'dono');
+
   const today = getTodayISO();
   const [quickRestockModalProduct, setQuickRestockModalProduct] = useState<Product | null>(null);
   const [restockQty, setRestockQty] = useState<number>(5);
+
+  const handleSafeNavigate = (tab: ActiveTab) => {
+    if (!showFinance && (tab === 'contas' || tab === 'financeiro')) {
+      onNavigateTab('estoque');
+      return;
+    }
+    onNavigateTab(tab);
+  };
 
   // 1. ESTOQUE KPIS & ALERTAS
   const totalProducts = products.length;
@@ -208,11 +221,11 @@ export const DashboardModule: React.FC<DashboardModuleProps> = ({
           </span>
         </div>
 
-        {/* 5 Indicadores Principais Solicitados */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 pt-1 border-t border-zinc-800/80">
+        {/* Indicadores Principais */}
+        <div className={`grid grid-cols-2 ${showFinance ? 'sm:grid-cols-3 md:grid-cols-5' : 'sm:grid-cols-3 md:grid-cols-4'} gap-2 pt-1 border-t border-zinc-800/80`}>
           {/* 1. Próxima Banda */}
           <div
-            onClick={() => onNavigateTab('bandas')}
+            onClick={() => handleSafeNavigate('bandas')}
             className="bg-zinc-900/90 hover:bg-zinc-800/90 cursor-pointer rounded-xl p-2.5 border border-purple-500/20 text-left transition-all col-span-2 sm:col-span-1"
           >
             <div className="flex items-center gap-1 text-[10px] text-purple-300 font-medium">
@@ -229,7 +242,7 @@ export const DashboardModule: React.FC<DashboardModuleProps> = ({
 
           {/* 2. Equipe de Hoje */}
           <div
-            onClick={() => onNavigateTab('equipe')}
+            onClick={() => handleSafeNavigate('equipe')}
             className="bg-zinc-900/90 hover:bg-zinc-800/90 cursor-pointer rounded-xl p-2.5 border border-blue-500/20 text-left transition-all"
           >
             <div className="flex items-center gap-1 text-[10px] text-blue-300 font-medium">
@@ -246,7 +259,7 @@ export const DashboardModule: React.FC<DashboardModuleProps> = ({
 
           {/* 3. Produtos Abaixo do Estoque Mínimo */}
           <div
-            onClick={() => onNavigateTab('estoque')}
+            onClick={() => handleSafeNavigate('estoque')}
             className={`rounded-xl p-2.5 border text-left transition-all cursor-pointer ${
               criticalProducts.length > 0
                 ? 'bg-rose-950/30 border-rose-700/50 hover:bg-rose-950/50'
@@ -265,48 +278,71 @@ export const DashboardModule: React.FC<DashboardModuleProps> = ({
             </span>
           </div>
 
-          {/* 4. Vendas Hoje */}
-          <div
-            onClick={() => onNavigateTab('caixa')}
-            className="bg-zinc-900/90 hover:bg-zinc-800/90 cursor-pointer rounded-xl p-2.5 border border-emerald-500/20 text-left transition-all"
-          >
-            <div className="flex items-center gap-1 text-[10px] text-emerald-300 font-medium">
-              <TrendingUp className="w-3 h-3 text-emerald-400" />
-              <span>Vendas Hoje</span>
+          {/* 4. Total de Produtos no Estoque (Exibido para perfil sem acesso financeiro) */}
+          {!showFinance && (
+            <div
+              onClick={() => handleSafeNavigate('estoque')}
+              className="bg-zinc-900/90 hover:bg-zinc-800/90 cursor-pointer rounded-xl p-2.5 border border-amber-500/20 text-left transition-all"
+            >
+              <div className="flex items-center gap-1 text-[10px] text-amber-300 font-medium">
+                <Package className="w-3 h-3 text-amber-400" />
+                <span>Total Estoque</span>
+              </div>
+              <div className="text-xs font-black text-amber-400 mt-1">
+                {totalProducts} produtos
+              </div>
+              <span className="text-[10px] text-zinc-400 block truncate">
+                Itens cadastrados
+              </span>
             </div>
-            <div className="text-xs font-black text-emerald-400 mt-1">
-              {formatCurrency(todayVendas)}
-            </div>
-            <span className="text-[10px] text-zinc-400 block truncate">
-              {todayTransactions.filter((t) => t.type === 'venda').length} lançamentos
-            </span>
-          </div>
+          )}
 
-          {/* 5. A Pagar Pend. */}
-          <div
-            onClick={() => onNavigateTab('contas')}
-            className="bg-zinc-900/90 hover:bg-zinc-800/90 cursor-pointer rounded-xl p-2.5 border border-rose-500/20 text-left transition-all"
-          >
-            <div className="flex items-center gap-1 text-[10px] text-rose-300 font-medium">
-              <DollarSign className="w-3 h-3 text-rose-400" />
-              <span>A Pagar Pend.</span>
+          {/* 4. Vendas Hoje - Exibido apenas para 'criador' e 'dono' */}
+          {showFinance && (
+            <div
+              onClick={() => handleSafeNavigate('financeiro')}
+              className="bg-zinc-900/90 hover:bg-zinc-800/90 cursor-pointer rounded-xl p-2.5 border border-emerald-500/20 text-left transition-all"
+            >
+              <div className="flex items-center gap-1 text-[10px] text-emerald-300 font-medium">
+                <TrendingUp className="w-3 h-3 text-emerald-400" />
+                <span>Vendas Hoje</span>
+              </div>
+              <div className="text-xs font-black text-emerald-400 mt-1">
+                {formatCurrency(todayVendas)}
+              </div>
+              <span className="text-[10px] text-zinc-400 block truncate">
+                {todayTransactions.filter((t) => t.type === 'venda').length} lançamentos
+              </span>
             </div>
-            <div className="text-xs font-black text-rose-400 mt-1">
-              {formatCurrency(totalPendingAPagar)}
+          )}
+
+          {/* 5. A Pagar Pend. - Exibido apenas para 'criador' e 'dono' */}
+          {showFinance && (
+            <div
+              onClick={() => handleSafeNavigate('contas')}
+              className="bg-zinc-900/90 hover:bg-zinc-800/90 cursor-pointer rounded-xl p-2.5 border border-rose-500/20 text-left transition-all"
+            >
+              <div className="flex items-center gap-1 text-[10px] text-rose-300 font-medium">
+                <DollarSign className="w-3 h-3 text-rose-400" />
+                <span>A Pagar Pend.</span>
+              </div>
+              <div className="text-xs font-black text-rose-400 mt-1">
+                {formatCurrency(totalPendingAPagar)}
+              </div>
+              <span className="text-[10px] text-zinc-400 block truncate">
+                {processedBills.filter((b) => b.type === 'a_pagar' && b.effectiveStatus !== 'pago').length} pendências
+              </span>
             </div>
-            <span className="text-[10px] text-zinc-400 block truncate">
-              {processedBills.filter((b) => b.type === 'a_pagar' && b.effectiveStatus !== 'pago').length} pendências
-            </span>
-          </div>
+          )}
         </div>
 
         {/* ⚠️ Alertas Críticos Junto ao Painel */}
-        {(overdueBills.length > 0 || criticalProducts.length > 0) && (
+        {((showFinance && overdueBills.length > 0) || criticalProducts.length > 0) && (
           <div className="space-y-2 pt-1 border-t border-zinc-800/60">
-            {/* Alerta de Contas Vencidas */}
-            {overdueBills.length > 0 && (
+            {/* Alerta de Contas Vencidas - Oculto para Administrador */}
+            {showFinance && overdueBills.length > 0 && (
               <div
-                onClick={() => onNavigateTab('contas')}
+                onClick={() => handleSafeNavigate('contas')}
                 className="bg-rose-950/60 border border-rose-700 rounded-xl p-2.5 flex items-center justify-between cursor-pointer hover:bg-rose-950/80 transition-colors shadow-lg shadow-rose-950/40"
               >
                 <div className="flex items-center gap-2">
@@ -332,7 +368,7 @@ export const DashboardModule: React.FC<DashboardModuleProps> = ({
             {/* Alerta de Produtos Abaixo do Mínimo */}
             {criticalProducts.length > 0 && (
               <div
-                onClick={() => onNavigateTab('estoque')}
+                onClick={() => handleSafeNavigate('estoque')}
                 className="bg-amber-950/50 border border-amber-600/70 rounded-xl p-2.5 flex items-center justify-between cursor-pointer hover:bg-amber-950/70 transition-colors shadow-md shadow-amber-950/30"
               >
                 <div className="flex items-center gap-2">
@@ -522,7 +558,8 @@ export const DashboardModule: React.FC<DashboardModuleProps> = ({
           </div>
         </section>
 
-        {/* 🧾 SEÇÃO 3: CONTAS A PAGAR / RECEBER */}
+        {/* 🧾 SEÇÃO 3: CONTAS A PAGAR / RECEBER - Visível apenas para 'criador' e 'dono' */}
+        {showFinance && (
         <section id="dash-section-bills" className="bg-zinc-900/90 rounded-2xl border border-zinc-800 p-4 space-y-3 shadow-md flex flex-col justify-between">
           <div className="space-y-3">
             <div className="flex items-center justify-between">
@@ -605,8 +642,10 @@ export const DashboardModule: React.FC<DashboardModuleProps> = ({
             </div>
           </div>
         </section>
+        )}
 
-        {/* 💰 SEÇÃO 4: VENDAS E DESPESAS (FLUXO DO CAIXA) */}
+        {/* 💰 SEÇÃO 4: VENDAS E DESPESAS (FLUXO DO CAIXA) - Visível apenas para 'criador' e 'dono' */}
+        {showFinance && (
         <section id="dash-section-finance" className="bg-zinc-900/90 rounded-2xl border border-zinc-800 p-4 space-y-3 shadow-md flex flex-col justify-between">
           <div className="space-y-3">
             <div className="flex items-center justify-between">
@@ -653,6 +692,7 @@ export const DashboardModule: React.FC<DashboardModuleProps> = ({
             </div>
           </div>
         </section>
+        )}
       </div>
 
       {/* ========================================================================= */}
@@ -735,7 +775,7 @@ export const DashboardModule: React.FC<DashboardModuleProps> = ({
       {/* ⚡ AÇÕES RÁPIDAS DO GERENTE */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-1">
         <button
-          onClick={() => onNavigateTab('estoque')}
+          onClick={() => handleSafeNavigate('estoque')}
           className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 p-3 rounded-2xl flex items-center gap-2.5 text-left transition-all active:scale-95 shadow-sm"
         >
           <div className="w-8 h-8 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0">
@@ -743,38 +783,68 @@ export const DashboardModule: React.FC<DashboardModuleProps> = ({
           </div>
           <div>
             <span className="text-xs font-bold text-zinc-200 block">Estoque Geral</span>
-            <span className="text-[10px] text-zinc-500">40 produtos</span>
+            <span className="text-[10px] text-zinc-500">{totalProducts} produtos</span>
           </div>
         </button>
 
-        <button
-          onClick={() => onNavigateTab('financeiro')}
-          className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 p-3 rounded-2xl flex items-center gap-2.5 text-left transition-all active:scale-95 shadow-sm"
-        >
-          <div className="w-8 h-8 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
-            <DollarSign className="w-4 h-4" />
-          </div>
-          <div>
-            <span className="text-xs font-bold text-zinc-200 block">Novo Lançamento</span>
-            <span className="text-[10px] text-zinc-500">Venda / Despesa</span>
-          </div>
-        </button>
+        {showFinance ? (
+          <button
+            onClick={() => handleSafeNavigate('financeiro')}
+            className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 p-3 rounded-2xl flex items-center gap-2.5 text-left transition-all active:scale-95 shadow-sm"
+          >
+            <div className="w-8 h-8 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
+              <DollarSign className="w-4 h-4" />
+            </div>
+            <div>
+              <span className="text-xs font-bold text-zinc-200 block">Novo Lançamento</span>
+              <span className="text-[10px] text-zinc-500">Venda / Despesa</span>
+            </div>
+          </button>
+        ) : (
+          <button
+            onClick={() => handleSafeNavigate('bandas')}
+            className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 p-3 rounded-2xl flex items-center gap-2.5 text-left transition-all active:scale-95 shadow-sm"
+          >
+            <div className="w-8 h-8 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center shrink-0">
+              <Music2 className="w-4 h-4" />
+            </div>
+            <div>
+              <span className="text-xs font-bold text-zinc-200 block">Agenda Shows</span>
+              <span className="text-[10px] text-zinc-500">Bandas do Bar</span>
+            </div>
+          </button>
+        )}
+
+        {showFinance ? (
+          <button
+            onClick={() => handleSafeNavigate('contas')}
+            className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 p-3 rounded-2xl flex items-center gap-2.5 text-left transition-all active:scale-95 shadow-sm"
+          >
+            <div className="w-8 h-8 rounded-xl bg-rose-500/20 text-rose-400 flex items-center justify-center shrink-0">
+              <Receipt className="w-4 h-4" />
+            </div>
+            <div>
+              <span className="text-xs font-bold text-zinc-200 block">Contas & Boletos</span>
+              <span className="text-[10px] text-zinc-500">Pagar e Receber</span>
+            </div>
+          </button>
+        ) : (
+          <button
+            onClick={() => handleSafeNavigate('equipe')}
+            className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 p-3 rounded-2xl flex items-center gap-2.5 text-left transition-all active:scale-95 shadow-sm"
+          >
+            <div className="w-8 h-8 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0">
+              <Users className="w-4 h-4" />
+            </div>
+            <div>
+              <span className="text-xs font-bold text-zinc-200 block">Escala Equipe</span>
+              <span className="text-[10px] text-zinc-500">Planner Diário</span>
+            </div>
+          </button>
+        )}
 
         <button
-          onClick={() => onNavigateTab('contas')}
-          className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 p-3 rounded-2xl flex items-center gap-2.5 text-left transition-all active:scale-95 shadow-sm"
-        >
-          <div className="w-8 h-8 rounded-xl bg-rose-500/20 text-rose-400 flex items-center justify-center shrink-0">
-            <Receipt className="w-4 h-4" />
-          </div>
-          <div>
-            <span className="text-xs font-bold text-zinc-200 block">Contas & Boletos</span>
-            <span className="text-[10px] text-zinc-500">Pagar e Receber</span>
-          </div>
-        </button>
-
-        <button
-          onClick={() => onNavigateTab('perfil')}
+          onClick={() => handleSafeNavigate('perfil')}
           className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 p-3 rounded-2xl flex items-center gap-2.5 text-left transition-all active:scale-95 shadow-sm"
         >
           <div className="w-8 h-8 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center shrink-0">
@@ -782,7 +852,7 @@ export const DashboardModule: React.FC<DashboardModuleProps> = ({
           </div>
           <div>
             <span className="text-xs font-bold text-zinc-200 block">Meu Perfil & Acesso</span>
-            <span className="text-[10px] text-zinc-500">Login, senha e alertas</span>
+            <span className="text-[10px] text-zinc-500">Login, senha e perfil</span>
           </div>
         </button>
       </div>

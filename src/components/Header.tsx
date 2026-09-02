@@ -12,9 +12,11 @@ import {
   Share2,
   Check,
   LogOut,
+  UserCheck,
 } from 'lucide-react';
 import { formatDateBR, getTodayISO } from '../utils/formatters';
 import { ActiveTab } from '../types';
+import { useAuth } from '../contexts/AuthContext';
 
 interface HeaderProps {
   lowStockCount: number;
@@ -47,6 +49,7 @@ export const Header: React.FC<HeaderProps> = ({
   const [showConfirmReset, setShowConfirmReset] = useState(false);
   const [showInfo, setShowInfo] = useState(false);
   const [copiedLink, setCopiedLink] = useState(false);
+  const { user, role } = useAuth();
   const today = getTodayISO();
 
   const handleConfirmReset = () => {
@@ -193,8 +196,32 @@ export const Header: React.FC<HeaderProps> = ({
             {showMenu && (
               <div
                 id="header-dropdown-menu"
-                className="absolute right-0 mt-2 w-56 bg-zinc-900 border border-zinc-800 rounded-xl shadow-xl p-1.5 z-50 text-xs"
+                className="absolute right-0 mt-2 w-60 bg-zinc-900 border border-zinc-800 rounded-xl shadow-xl p-2 z-50 text-xs"
               >
+                {user && (
+                  <div className="px-2 py-2 border-b border-zinc-800/80 mb-2">
+                    <p className="font-bold text-zinc-100 truncate">{user.name || user.email}</p>
+                    <div className="flex items-center gap-1.5 mt-1">
+                      <span
+                        className={`text-[10px] font-extrabold px-2 py-0.5 rounded-md border ${
+                          role === 'criador'
+                            ? 'bg-purple-500/20 text-purple-300 border-purple-500/40'
+                            : role === 'dono'
+                            ? 'bg-amber-500/20 text-amber-300 border-amber-500/40'
+                            : 'bg-blue-500/20 text-blue-300 border-blue-500/40'
+                        }`}
+                      >
+                        {role === 'criador' ? '👑 Criador' : role === 'dono' ? '⭐ Dono' : '🛡️ Administrador'}
+                      </span>
+                    </div>
+                    <p className="text-[10px] text-zinc-400 mt-1">
+                      {role === 'administrador'
+                        ? 'Acesso: Banda, Estoque e Equipe'
+                        : 'Acesso total: Caixa, Contas e Operações'}
+                    </p>
+                  </div>
+                )}
+
                 <button
                   id="menu-item-share"
                   onClick={() => {
@@ -206,6 +233,20 @@ export const Header: React.FC<HeaderProps> = ({
                   <Share2 className="w-3.5 h-3.5 text-amber-400" />
                   <span>Copiar Link de Compartilhamento</span>
                 </button>
+
+                {(role === 'criador' || role === 'dono') && onNavigateTab && (
+                  <button
+                    id="menu-item-usuarios"
+                    onClick={() => {
+                      onNavigateTab('usuarios');
+                      setShowMenu(false);
+                    }}
+                    className="w-full text-left px-3 py-2 rounded-lg text-amber-400 hover:bg-zinc-800 flex items-center gap-2 font-bold"
+                  >
+                    <UserCheck className="w-3.5 h-3.5 text-amber-400" />
+                    <span>Gestão de Usuários (/usuarios)</span>
+                  </button>
+                )}
 
                 {onNavigateTab && (
                   <button
