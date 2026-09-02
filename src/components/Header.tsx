@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import {
-  GlassWater,
   AlertCircle,
   RotateCcw,
   HelpCircle,
@@ -17,6 +16,7 @@ import {
 import { formatDateBR, getTodayISO } from '../utils/formatters';
 import { ActiveTab } from '../types';
 import { useAuth } from '../contexts/AuthContext';
+import { BarDaTendaLogo } from './common/BarDaTendaLogo';
 
 interface HeaderProps {
   lowStockCount: number;
@@ -74,9 +74,7 @@ export const Header: React.FC<HeaderProps> = ({
     <header id="app-header" className="sticky top-0 z-30 bg-zinc-950/90 backdrop-blur-md border-b border-zinc-800/80 px-2.5 sm:px-6 lg:px-8 py-2 sm:py-2.5 safe-area-top">
       <div className="max-w-7xl mx-auto flex items-center justify-between gap-2">
         <div className="flex items-center gap-2 sm:gap-2.5 min-w-0">
-          <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-gradient-to-br from-amber-500 to-amber-700 flex items-center justify-center shadow-md shadow-amber-950/40 text-zinc-950 font-bold border border-amber-400/30 shrink-0">
-            <GlassWater className="w-4 h-4 sm:w-5 sm:h-5 text-zinc-950" />
-          </div>
+          <BarDaTendaLogo id="header-bar-da-tenda-logo" size="sm" showGlow />
           <div className="min-w-0">
             <div className="flex items-center gap-1.5">
               <h1 className="text-xs sm:text-base font-bold text-zinc-100 tracking-tight leading-none truncate">
@@ -310,9 +308,7 @@ export const Header: React.FC<HeaderProps> = ({
         <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
           <div className="bg-zinc-900 border border-zinc-800 rounded-2xl max-w-sm w-full p-5 shadow-2xl text-zinc-200">
             <div className="flex items-center gap-3 mb-3">
-              <div className="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 border border-amber-500/30 flex items-center justify-center">
-                <GlassWater className="w-6 h-6" />
-              </div>
+              <BarDaTendaLogo id="modal-about-logo" size="md" showGlow />
               <div>
                 <h3 className="font-bold text-base text-zinc-100">Gestão Bar da tenda</h3>
                 <p className="text-xs text-zinc-400">Versão 2.0 • Gestão Completa Mobile</p>

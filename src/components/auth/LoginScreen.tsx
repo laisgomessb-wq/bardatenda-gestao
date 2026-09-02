@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { GlassWater, Lock, User, Eye, EyeOff, LogIn, AlertCircle, Sparkles, ShieldCheck } from 'lucide-react';
+import { Lock, User, Eye, EyeOff, LogIn, AlertCircle, Sparkles, ShieldCheck } from 'lucide-react';
+import { BarDaTendaLogo } from '../common/BarDaTendaLogo';
 
 interface LoginScreenProps {
   onLoginSuccess: () => void;
@@ -86,10 +87,8 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({
 
       <div className="max-w-md w-full bg-zinc-900/90 border border-zinc-800/90 rounded-3xl p-6 sm:p-8 shadow-2xl backdrop-blur-xl relative z-10 space-y-6 animate-in fade-in zoom-in-95 duration-300">
         {/* Brand Header */}
-        <div className="text-center space-y-2">
-          <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-amber-500 to-amber-700 mx-auto flex items-center justify-center shadow-lg shadow-amber-950/50 border border-amber-400/40 text-zinc-950">
-            <GlassWater className="w-9 h-9" />
-          </div>
+        <div className="text-center space-y-2 flex flex-col items-center">
+          <BarDaTendaLogo id="loginscreen-logo" size="lg" showGlow className="mx-auto" />
           <div>
             <h1 className="text-2xl font-black tracking-tight text-zinc-100">
               Bar da Tenda

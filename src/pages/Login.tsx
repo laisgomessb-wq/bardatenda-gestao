@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import {
-  GlassWater,
   Mail,
   Lock,
   Eye,
@@ -12,6 +11,7 @@ import {
   ShieldCheck,
   Sparkles,
 } from 'lucide-react';
+import { BarDaTendaLogo } from '../components/common/BarDaTendaLogo';
 
 export const Login: React.FC = () => {
   const { login } = useAuth();
@@ -64,10 +64,8 @@ export const Login: React.FC = () => {
 
       <div className="w-full max-w-md relative z-10">
         {/* Logo & Header */}
-        <div className="text-center mb-6">
-          <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-500 to-amber-700 shadow-xl shadow-amber-950/60 border border-amber-400/30 text-zinc-950 font-bold mb-3">
-            <GlassWater className="w-7 h-7 text-zinc-950" />
-          </div>
+        <div className="text-center mb-6 flex flex-col items-center">
+          <BarDaTendaLogo id="login-page-logo" size="lg" showGlow className="mb-3" />
           <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-100">
             Bar da Tenda
           </h1>

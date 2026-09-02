@@ -1,0 +1,245 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Gradiente da Tampinha Metálica Vermelha -->
+    <radialGradient id="capRedGradient" cx="42%" cy="38%" r="60%">
+      <stop offset="0%" stop-color="#EF233C" />
+      <stop offset="60%" stop-color="#D90429" />
+      <stop offset="90%" stop-color="#9B0018" />
+      <stop offset="100%" stop-color="#67000F" />
+    </radialGradient>
+
+    <!-- Gradiente do Fundo Dourado / Cerveja com Brilho -->
+    <radialGradient id="beerGold" cx="50%" cy="46%" r="52%">
+      <stop offset="0%" stop-color="#FFFDF0" />
+      <stop offset="35%" stop-color="#FFF4C2" />
+      <stop offset="70%" stop-color="#FCD34D" />
+      <stop offset="92%" stop-color="#F59E0B" />
+      <stop offset="100%" stop-color="#D97706" />
+    </radialGradient>
+
+    <!-- Gradiente da Tenda Azul -->
+    <linearGradient id="tentBlue" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#00D2FF" />
+      <stop offset="35%" stop-color="#0077FF" />
+      <stop offset="100%" stop-color="#003D99" />
+    </linearGradient>
+
+    <!-- Sombra suave para relevo 3D -->
+    <filter id="dropShadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#000" flood-opacity="0.45" />
+    </filter>
+    <filter id="capShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000" flood-opacity="0.6" />
+    </filter>
+
+    <!-- Padrão de Gotículas e Bolhas de Cerveja -->
+    <radialGradient id="bubble" cx="30%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.8" />
+      <stop offset="70%" stop-color="#F59E0B" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#B45309" stop-opacity="0.8" />
+    </radialGradient>
+  </defs>
+
+  <!-- ============================================================= -->
+  <!-- 1. TAMPINHA DE GARRAFA (COROA METÁLICA COM 21 DENTES) -->
+  <!-- ============================================================= -->
+  <g filter="url(#capShadow)">
+    <!-- 21 Ondas da Coroa da Tampinha -->
+    <path d="
+      M 256 16
+      C 272 16, 284 32, 298 32
+      C 312 32, 330 20, 344 26
+      C 358 32, 364 51, 376 56
+      C 388 61, 408 56, 420 66
+      C 432 76, 432 96, 442 108
+      C 452 120, 471 127, 477 141
+      C 483 155, 475 174, 480 190
+      C 485 206, 501 221, 501 237
+      C 501 253, 488 268, 484 284
+      C 480 300, 490 318, 483 333
+      C 476 348, 458 357, 449 370
+      C 440 383, 441 403, 429 414
+      C 417 425, 397 423, 384 433
+      C 371 443, 364 462, 350 469
+      C 336 476, 318 466, 304 471
+      C 290 476, 276 496, 256 496
+      C 236 496, 222 476, 208 471
+      C 194 466, 176 476, 162 469
+      C 148 462, 141 443, 128 433
+      C 115 423, 95 425, 83 414
+      C 71 403, 72 383, 63 370
+      C 54 357, 36 348, 29 333
+      C 22 318, 32 300, 28 284
+      C 24 268, 11 253, 11 237
+      C 11 221, 27 206, 32 190
+      C 37 174, 29 155, 35 141
+      C 41 127, 60 120, 70 108
+      C 80 96, 80 76, 92 66
+      C 104 56, 124 61, 136 56
+      C 148 51, 154 32, 168 26
+      C 182 20, 200 32, 214 32
+      C 228 32, 240 16, 256 16 Z"
+      fill="url(#capRedGradient)"
+      stroke="#7F0909"
+      stroke-width="3"
+    />
+
+    <!-- Relevo e Destaque da Borda da Tampinha -->
+    <circle cx="256" cy="256" r="226" fill="none" stroke="#FF5C67" stroke-width="4" opacity="0.5" />
+    <circle cx="256" cy="256" r="222" fill="none" stroke="#66000B" stroke-width="6" opacity="0.6" />
+    <circle cx="256" cy="256" r="216" fill="none" stroke="#FBBF24" stroke-width="3" opacity="0.85" />
+  </g>
+
+  <!-- ============================================================= -->
+  <!-- 2. FUNDO DOURADO DE CERVEJA E BOLHAS -->
+  <!-- ============================================================= -->
+  <g filter="url(#dropShadow)">
+    <!-- Círculo Central Dourado -->
+    <circle cx="256" cy="256" r="210" fill="url(#beerGold)" />
+    
+    <!-- Gotículas e Textura de Cerveja -->
+    <g opacity="0.5">
+      <circle cx="160" cy="180" r="3" fill="url(#bubble)" />
+      <circle cx="180" cy="150" r="2.5" fill="url(#bubble)" />
+      <circle cx="210" cy="190" r="4" fill="url(#bubble)" />
+      <circle cx="290" cy="160" r="3.5" fill="url(#bubble)" />
+      <circle cx="330" cy="180" r="2" fill="url(#bubble)" />
+      <circle cx="350" cy="210" r="4" fill="url(#bubble)" />
+      <circle cx="150" cy="250" r="3" fill="url(#bubble)" />
+      <circle cx="360" cy="260" r="3.5" fill="url(#bubble)" />
+      <circle cx="170" cy="310" r="3" fill="url(#bubble)" />
+      <circle cx="340" cy="320" r="4.5" fill="url(#bubble)" />
+      <circle cx="190" cy="360" r="2.5" fill="url(#bubble)" />
+      <circle cx="320" cy="370" r="3" fill="url(#bubble)" />
+      <circle cx="256" cy="150" r="2" fill="url(#bubble)" />
+      <circle cx="220" cy="380" r="3" fill="url(#bubble)" />
+      <circle cx="290" cy="385" r="2.5" fill="url(#bubble)" />
+    </g>
+
+    <!-- Aro interno fino vermelho de acabamento -->
+    <circle cx="256" cy="256" r="202" fill="none" stroke="#DC2626" stroke-width="2" opacity="0.4" />
+  </g>
+
+  <!-- ============================================================= -->
+  <!-- 3. TEXTO SUPERIOR: "BAR DA" -->
+  <!-- ============================================================= -->
+  <g>
+    <path id="curveBarDa" d="M 175 142 Q 256 126 337 142" fill="none" />
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="32" fill="#1D4ED8" letter-spacing="4">
+      <textPath href="#curveBarDa" startOffset="50%" text-anchor="middle">
+        BAR DA
+      </textPath>
+    </text>
+  </g>
+
+  <!-- ============================================================= -->
+  <!-- 4. A TENDA (TETO AZUL ESTILIZADO EM DEGRADÊ) -->
+  <!-- ============================================================= -->
+  <g filter="url(#dropShadow)">
+    <!-- Tenda Azul com Cume e Curvas Laterais -->
+    <path d="
+      M 256 148
+      C 252 175, 218 206, 172 216
+      C 224 204, 288 204, 340 216
+      C 294 206, 260 175, 256 148 Z"
+      fill="url(#tentBlue)"
+      stroke="#002D72"
+      stroke-width="2.5"
+      stroke-linejoin="round"
+    />
+    
+    <!-- Brilho no Topo da Tenda -->
+    <ellipse cx="256" cy="165" rx="6" ry="12" fill="#E0F2FE" opacity="0.8" />
+    
+    <!-- Linha vermelha curva do teto da tenda -->
+    <path d="M 166 226 C 220 212, 292 212, 346 226" fill="none" stroke="#D90429" stroke-width="4.5" stroke-linecap="round" />
+  </g>
+
+  <!-- ============================================================= -->
+  <!-- 5. TIPOGRAFIA PRINCIPAL: "TENDA" (COM O "T" ESTILIZADO) -->
+  <!-- ============================================================= -->
+  <g filter="url(#dropShadow)">
+    <!-- O T estilizado em vermelho vibrante -->
+    <!-- Haste inclinada do T que cruza e forma a tenda -->
+    <path d="
+      M 204 230
+      C 192 230, 176 242, 172 258
+      L 154 316
+      C 152 322, 156 326, 162 326
+      C 168 326, 174 320, 178 312
+      L 194 258
+      C 196 250, 202 246, 210 246
+      L 226 246
+      C 232 246, 234 240, 230 236
+      C 226 232, 216 230, 204 230 Z"
+      fill="#D90429"
+    />
+
+    <!-- Letras E N D A -->
+    <!-- E -->
+    <path d="
+      M 218 248 L 244 248 C 248 248, 250 244, 250 240 C 250 236, 248 234, 244 234 L 208 234 C 204 234, 202 236, 200 240 L 184 298 C 182 304, 186 308, 192 308 L 232 308 C 236 308, 238 304, 238 300 C 238 296, 236 294, 232 294 L 198 294 L 205 272 L 230 272 C 234 272, 236 268, 236 264 C 236 260, 234 258, 230 258 L 209 258 Z"
+      fill="#D90429"
+    />
+
+    <!-- N -->
+    <path d="
+      M 248 308 L 264 240 C 266 234, 262 230, 256 230 C 252 230, 248 234, 246 238 L 232 296 C 230 302, 234 308, 240 308 Z
+      M 248 250 L 282 298 C 286 304, 292 308, 298 308 C 304 308, 308 304, 308 298 L 320 240 C 322 234, 318 230, 312 230 C 306 230, 302 234, 300 240 L 290 286 L 262 244 C 258 238, 252 234, 246 236 Z"
+      fill="#D90429"
+    />
+
+    <!-- D -->
+    <path d="
+      M 314 308 L 328 240 C 330 234, 326 230, 320 230 L 298 230 C 292 230, 288 234, 286 240 L 272 298 C 270 304, 274 308, 280 308 L 314 308 Z
+      M 302 294 L 312 246 C 326 246, 344 252, 340 274 C 336 292, 318 294, 302 294 Z"
+      fill="#D90429"
+    />
+
+    <!-- A -->
+    <path d="
+      M 346 308 L 366 240 C 368 234, 364 230, 358 230 C 352 230, 348 234, 346 238 L 326 296 C 324 302, 328 308, 334 308 Z
+      M 342 276 L 366 276 L 358 252 Z
+      M 358 234 L 382 300 C 384 306, 390 308, 396 308 C 402 308, 404 302, 402 298 L 378 238 C 374 232, 368 230, 362 232 Z"
+      fill="#D90429"
+    />
+
+    <!-- Sublinhado Duplo Azul Curvo -->
+    <path d="M 160 334 C 220 348, 292 348, 352 334" fill="none" stroke="#1D4ED8" stroke-width="4" stroke-linecap="round" />
+    <path d="M 185 348 C 228 358, 284 358, 327 348" fill="none" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round" />
+  </g>
+
+  <!-- ============================================================= -->
+  <!-- 6. BRINDE DOS DOIS CANECOS DE CHOPP (PARTE INFERIOR) -->
+  <!-- ============================================================= -->
+  <g transform="translate(256, 396)" filter="url(#dropShadow)">
+    <!-- Brilho / Estrelas do Brinde -->
+    <path d="M 0 -22 L 2 -16 L 8 -14 L 2 -12 L 0 -6 L -2 -12 L -8 -14 L -2 -16 Z" fill="#F59E0B" />
+    <circle cx="-10" cy="-20" r="1.5" fill="#F59E0B" />
+    <circle cx="10" cy="-20" r="1.5" fill="#F59E0B" />
+
+    <!-- Caneco Esquerdo (Inclinado para a direita) -->
+    <g transform="rotate(12)">
+      <!-- Alça -->
+      <path d="M -24 -2 C -32 -2, -34 16, -24 18" fill="none" stroke="#1E293B" stroke-width="3" stroke-linecap="round" />
+      <!-- Corpo de Cerveja -->
+      <path d="M -22 -4 L -8 -4 L -10 22 L -20 22 Z" fill="#F59E0B" stroke="#1E293B" stroke-width="2.5" stroke-linejoin="round" />
+      <!-- Linha de detalhe do vidro -->
+      <line x1="-15" y1="0" x2="-15" y2="18" stroke="#FEF08A" stroke-width="2" opacity="0.7" />
+      <!-- Colarinho de Espuma -->
+      <path d="M -24 -4 C -24 -12, -18 -12, -15 -8 C -13 -13, -7 -13, -7 -4 Z" fill="#FFFFFF" stroke="#1E293B" stroke-width="2.5" stroke-linejoin="round" />
+    </g>
+
+    <!-- Caneco Direito (Inclinado para a esquerda) -->
+    <g transform="rotate(-12)">
+      <!-- Alça -->
+      <path d="M 24 -2 C 32 -2, 34 16, 24 18" fill="none" stroke="#1E293B" stroke-width="3" stroke-linecap="round" />
+      <!-- Corpo de Cerveja -->
+      <path d="M 8 -4 L 22 -4 L 20 22 L 10 22 Z" fill="#F59E0B" stroke="#1E293B" stroke-width="2.5" stroke-linejoin="round" />
+      <!-- Linha de detalhe do vidro -->
+      <line x1="15" y1="0" x2="15" y2="18" stroke="#FEF08A" stroke-width="2" opacity="0.7" />
+      <!-- Colarinho de Espuma -->
+      <path d="M 7 -4 C 7 -13, 13 -13, 15 -8 C 18 -12, 24 -12, 24 -4 Z" fill="#FFFFFF" stroke="#1E293B" stroke-width="2.5" stroke-linejoin="round" />
+    </g>
+  </g>
+</svg>
