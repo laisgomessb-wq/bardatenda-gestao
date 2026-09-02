@@ -1,0 +1,8 @@
+{
+  "name": "Gestão Bar da tenda",
+  "description": "App de gestão completo para o Bar da Tenda",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

@@ -1,0 +1,2855 @@
+{
+  "exportedAt": "2026-09-02T12:11:51.192Z",
+  "sourceProjectId": "trusty-grail-09v0l",
+  "sourceDatabaseId": "ai-studio-gestobardatenda-9b9152d4-272c-42e5-aeca-9cf56f7e6cd5",
+  "products": [
+    {
+      "id": "prod-beb-1",
+      "notes": "",
+      "minQuantity": 12,
+      "supplier": "REPON",
+      "unit": "UNID",
+      "currentQuantity": 36,
+      "lastRestockedDate": "",
+      "unitPrice": 2.5,
+      "name": "Guaraná lata",
+      "category": "bebidas"
+    },
+    {
+      "id": "prod-beb-10",
+      "unit": "UN",
+      "name": "Monster",
+      "currentQuantity": 12,
+      "lastRestockedDate": "",
+      "unitPrice": 8.65,
+      "category": "bebidas",
+      "supplier": "REPON",
+      "minQuantity": 6,
+      "notes": ""
+    },
+    {
+      "id": "prod-beb-11",
+      "notes": "",
+      "minQuantity": 4,
+      "supplier": "REPON",
+      "unit": "UN",
+      "currentQuantity": 9,
+      "lastRestockedDate": "2026-08-24",
+      "unitPrice": 4,
+      "name": "Pitu lata",
+      "category": "bebidas"
+    },
+    {
+      "id": "prod-beb-12",
+      "unitPrice": 2.92,
+      "notes": "",
+      "minQuantity": 4,
+      "currentQuantity": 6,
+      "lastRestockedDate": "2026-08-24",
+      "category": "bebidas",
+      "unit": "UN",
+      "supplier": "REPON",
+      "name": "Tonica lata"
+    },
+    {
+      "id": "prod-beb-13",
+      "lastRestockedDate": "",
+      "unit": "G",
+      "supplier": "Grupo Petrópolis",
+      "notes": "",
+      "unitPrice": 92,
+      "category": "bebidas",
+      "minQuantity": 4,
+      "name": "Itaipava normal",
+      "currentQuantity": 2
+    },
+    {
+      "id": "prod-beb-14",
+      "unit": "G",
+      "supplier": "Grupo Petrópolis",
+      "category": "bebidas",
+      "name": "Itaipava Premium",
+      "minQuantity": 4,
+      "currentQuantity": 21,
+      "lastRestockedDate": "2026-07-31",
+      "notes": "",
+      "unitPrice": 130
+    },
+    {
+      "id": "prod-beb-15",
+      "currentQuantity": 11,
+      "minQuantity": 4,
+      "unitPrice": 127,
+      "unit": "G",
+      "category": "bebidas",
+      "notes": "",
+      "name": "Petra",
+      "supplier": "Grupo Petrópolis",
+      "lastRestockedDate": "2026-07-31"
+    },
+    {
+      "id": "prod-beb-16",
+      "name": "Vodka Orloff",
+      "currentQuantity": 10,
+      "notes": "",
+      "lastRestockedDate": "2026-08-24",
+      "unit": "UN",
+      "unitPrice": 26.5,
+      "supplier": "REPON",
+      "minQuantity": 3,
+      "category": "bebidas"
+    },
+    {
+      "id": "prod-beb-17",
+      "currentQuantity": 3,
+      "minQuantity": 2,
+      "supplier": "REPON",
+      "notes": "",
+      "unit": "UN",
+      "lastRestockedDate": "2026-08-28",
+      "unitPrice": 69.5,
+      "name": "Johnnie",
+      "category": "bebidas"
+    },
+    {
+      "id": "prod-beb-18",
+      "name": "Black White",
+      "unitPrice": 53.5,
+      "supplier": "REPON",
+      "unit": "UN",
+      "category": "bebidas",
+      "minQuantity": 1,
+      "lastRestockedDate": "2026-08-24",
+      "notes": "",
+      "currentQuantity": 1
+    },
+    {
+      "id": "prod-beb-19",
+      "name": "Cavalo Branco",
+      "notes": "",
+      "currentQuantity": 1,
+      "unit": "UN",
+      "lastRestockedDate": "2026-08-24",
+      "unitPrice": 52.9,
+      "category": "bebidas",
+      "supplier": "REPON",
+      "minQuantity": 1
+    },
+    {
+      "id": "prod-beb-2",
+      "category": "bebidas",
+      "name": "Sprite lata",
+      "currentQuantity": 3,
+      "supplier": "REPON",
+      "unit": "CX",
+      "lastRestockedDate": "2026-08-28",
+      "unitPrice": 17.7,
+      "notes": "",
+      "minQuantity": 1
+    },
+    {
+      "id": "prod-beb-20",
+      "supplier": "REPON",
+      "unitPrice": 48.9,
+      "lastRestockedDate": "2026-08-14",
+      "category": "bebidas",
+      "name": "Campari",
+      "notes": "",
+      "minQuantity": 1,
+      "currentQuantity": 4,
+      "unit": "UN"
+    },
+    {
+      "id": "prod-beb-21",
+      "unit": "UN",
+      "currentQuantity": 18,
+      "supplier": "REPON",
+      "lastRestockedDate": "2026-08-24",
+      "name": "Alcatrão",
+      "category": "bebidas",
+      "notes": "",
+      "minQuantity": 6,
+      "unitPrice": 14.9
+    },
+    {
+      "id": "prod-beb-22",
+      "notes": "",
+      "category": "bebidas",
+      "currentQuantity": 2,
+      "unitPrice": 139,
+      "supplier": "REPON",
+      "name": "Heineken Zero",
+      "minQuantity": 1,
+      "unit": "CX",
+      "lastRestockedDate": "2026-08-28"
+    },
+    {
+      "id": "prod-beb-23",
+      "notes": "",
+      "category": "bebidas",
+      "unitPrice": 84,
+      "supplier": "Grupo Petrópolis",
+      "lastRestockedDate": "2026-08-07",
+      "minQuantity": 2,
+      "unit": "CX",
+      "name": "Ice Cabaré Limão",
+      "currentQuantity": 7
+    },
+    {
+      "id": "prod-beb-24",
+      "minQuantity": 3,
+      "unitPrice": 19.5,
+      "name": "Coca-Cola Lata",
+      "notes": "",
+      "lastRestockedDate": "2026-08-24",
+      "currentQuantity": 7,
+      "supplier": "REPON",
+      "unit": "CX",
+      "category": "bebidas"
+    },
+    {
+      "id": "prod-beb-25",
+      "unitPrice": 20.45,
+      "notes": "",
+      "minQuantity": 2,
+      "currentQuantity": 5,
+      "lastRestockedDate": "2026-08-24",
+      "category": "bebidas",
+      "unit": "CX",
+      "supplier": "REPON",
+      "name": "Coca-Cola Zero Lata"
+    },
+    {
+      "id": "prod-beb-26",
+      "supplier": "REPON",
+      "lastRestockedDate": "2026-08-24",
+      "minQuantity": 1,
+      "unitPrice": 15.9,
+      "category": "bebidas",
+      "notes": "",
+      "unit": "CX",
+      "name": "Fanta Lata",
+      "currentQuantity": 1
+    },
+    {
+      "id": "prod-beb-3",
+      "minQuantity": 1,
+      "unit": "PCT",
+      "notes": "",
+      "unitPrice": 45,
+      "supplier": "REPON",
+      "category": "bebidas",
+      "lastRestockedDate": "2026-08-24",
+      "name": "Limoneto",
+      "currentQuantity": 1
+    },
+    {
+      "id": "prod-beb-4",
+      "unit": "UN",
+      "currentQuantity": 36,
+      "supplier": "REPON",
+      "lastRestockedDate": "2026-08-28",
+      "name": "Coca Cola 1L",
+      "category": "bebidas",
+      "minQuantity": 6,
+      "notes": "",
+      "unitPrice": 6.32
+    },
+    {
+      "id": "prod-beb-5",
+      "category": "bebidas",
+      "lastRestockedDate": "2026-08-24",
+      "notes": "",
+      "minQuantity": 6,
+      "unitPrice": 6.3,
+      "supplier": "REPON",
+      "unit": "UN",
+      "name": "Coca Cola 1L Zero",
+      "currentQuantity": 12
+    },
+    {
+      "id": "prod-beb-6",
+      "currentQuantity": 12,
+      "minQuantity": 6,
+      "unitPrice": 9.79,
+      "unit": "UN",
+      "category": "bebidas",
+      "notes": "",
+      "name": "Coca Cola 2L",
+      "supplier": "REPON",
+      "lastRestockedDate": "2026-08-24"
+    },
+    {
+      "id": "prod-beb-7",
+      "name": "Coca Cola 2L Zero",
+      "lastRestockedDate": "2026-08-24",
+      "unit": "UN",
+      "notes": "",
+      "currentQuantity": 12,
+      "supplier": "REPON",
+      "unitPrice": 9.8,
+      "minQuantity": 6,
+      "category": "bebidas"
+    },
+    {
+      "id": "prod-beb-8",
+      "supplier": "REPON",
+      "unitPrice": 7.25,
+      "lastRestockedDate": "2026-08-24",
+      "category": "bebidas",
+      "name": "Red Bull pequeno",
+      "notes": "",
+      "minQuantity": 4,
+      "currentQuantity": 12,
+      "unit": "UN"
+    },
+    {
+      "id": "prod-beb-9",
+      "lastRestockedDate": "2026-08-24",
+      "supplier": "REPON",
+      "minQuantity": 4,
+      "unitPrice": 13.25,
+      "category": "bebidas",
+      "notes": "",
+      "unit": "UN",
+      "name": "Red Bull latão",
+      "currentQuantity": 5
+    },
+    {
+      "id": "prod-beb-alcatrao",
+      "unit": "unid",
+      "currentQuantity": 22,
+      "supplier": "Distribuidora Central de Bebidas",
+      "unitPrice": 14.9,
+      "minQuantity": 4,
+      "category": "bebidas",
+      "name": "Alcatrão"
+    },
+    {
+      "id": "prod-beb-black-white",
+      "currentQuantity": 1,
+      "supplier": "REPON",
+      "name": "Black White 1L",
+      "lastRestockedDate": "2026-08-24",
+      "unitPrice": 53.5,
+      "unit": "unid",
+      "minQuantity": 1,
+      "category": "bebidas"
+    },
+    {
+      "id": "prod-beb-campari",
+      "category": "bebidas",
+      "minQuantity": 4,
+      "unit": "unid",
+      "unitPrice": 48.9,
+      "name": "Campari",
+      "currentQuantity": 5,
+      "supplier": "Distribuidora Central de Bebidas"
+    },
+    {
+      "id": "prod-beb-cavalo-branco",
+      "unitPrice": 52.9,
+      "unit": "unid",
+      "supplier": "Adega Imperial Distribuidora",
+      "minQuantity": 1,
+      "category": "bebidas",
+      "currentQuantity": 1,
+      "name": "Cavalo Branco 1L"
+    },
+    {
+      "id": "prod-beb-coca-1l",
+      "supplier": "Solar Coca-Cola",
+      "name": "Coca-Cola 1L",
+      "currentQuantity": 36,
+      "unitPrice": 38.9,
+      "unit": "unid",
+      "category": "bebidas",
+      "minQuantity": 6
+    },
+    {
+      "id": "prod-beb-coca-1l-zero",
+      "minQuantity": 6,
+      "supplier": "Solar Coca-Cola",
+      "currentQuantity": 12,
+      "unitPrice": 38.5,
+      "name": "Coca-Cola 1L Zero",
+      "category": "bebidas",
+      "unit": "unid"
+    },
+    {
+      "id": "prod-beb-coca-2l",
+      "unitPrice": 58.7,
+      "name": "Coca-Cola 2L",
+      "category": "bebidas",
+      "supplier": "Solar Coca-Cola",
+      "minQuantity": 6,
+      "currentQuantity": 12,
+      "unit": "unid"
+    },
+    {
+      "id": "prod-beb-coca-2l-zero",
+      "name": "Coca-Cola 2L Zero",
+      "currentQuantity": 12,
+      "supplier": "Solar Coca-Cola",
+      "minQuantity": 6,
+      "category": "bebidas",
+      "unit": "unid",
+      "unitPrice": 58.9
+    },
+    {
+      "id": "prod-beb-coca-lata",
+      "unit": "CX",
+      "supplier": "Solar Coca-Cola",
+      "unitPrice": 17.7,
+      "name": "Coca-Cola Lata",
+      "currentQuantity": 13,
+      "category": "bebidas",
+      "minQuantity": 4
+    },
+    {
+      "id": "prod-beb-coca-zero-lata",
+      "unit": "CX",
+      "supplier": "Solar Coca-Cola",
+      "category": "bebidas",
+      "currentQuantity": 7,
+      "unitPrice": 19.9,
+      "minQuantity": 4,
+      "name": "Coca-Cola Zero Lata"
+    },
+    {
+      "id": "prod-beb-fanta-lata",
+      "name": "Fanta Lata",
+      "currentQuantity": 3,
+      "supplier": "Solar Coca-Cola",
+      "minQuantity": 4,
+      "unit": "CX",
+      "category": "bebidas",
+      "unitPrice": 15.5
+    },
+    {
+      "id": "prod-beb-guarana-lata",
+      "supplier": "Ambev Distribuidora",
+      "name": "Guaraná Lata",
+      "currentQuantity": 24,
+      "unit": "unid",
+      "minQuantity": 8,
+      "unitPrice": 29.9,
+      "category": "bebidas"
+    },
+    {
+      "id": "prod-beb-heineken-zero",
+      "minQuantity": 12,
+      "category": "bebidas",
+      "unit": "unid",
+      "currentQuantity": 48,
+      "unitPrice": 139.9,
+      "supplier": "Heineken Brasil Distribuidora",
+      "name": "Heineken Zero Long"
+    },
+    {
+      "id": "prod-beb-ice-cabare",
+      "unitPrice": 0,
+      "name": "Ice Cabaré Limão",
+      "currentQuantity": 7,
+      "category": "bebidas",
+      "minQuantity": 4,
+      "supplier": "Adega Imperial Distribuidora",
+      "unit": "CX"
+    },
+    {
+      "id": "prod-beb-itaipava-normal",
+      "minQuantity": 5,
+      "category": "bebidas",
+      "unit": "GRADE",
+      "unitPrice": 92,
+      "name": "Itaipava Normal",
+      "currentQuantity": 2,
+      "supplier": "Grupo Petrópolis"
+    },
+    {
+      "id": "prod-beb-itaipava-premium",
+      "supplier": "Grupo Petrópolis",
+      "unitPrice": 130,
+      "minQuantity": 5,
+      "unit": "GRADE",
+      "currentQuantity": 21,
+      "name": "Itaipava Premium",
+      "category": "bebidas"
+    },
+    {
+      "id": "prod-beb-johnnie",
+      "minQuantity": 4,
+      "unit": "unid",
+      "currentQuantity": 6,
+      "supplier": "Adega Imperial Distribuidora",
+      "unitPrice": 67.9,
+      "name": "Johnnie",
+      "category": "bebidas"
+    },
+    {
+      "id": "prod-beb-limoneto",
+      "category": "bebidas",
+      "name": "Limoneto",
+      "currentQuantity": 3,
+      "supplier": "Distribuidora Central de Bebidas",
+      "minQuantity": 4,
+      "unitPrice": 42.5,
+      "unit": "pct"
+    },
+    {
+      "id": "prod-beb-monster",
+      "minQuantity": 6,
+      "unit": "unid",
+      "unitPrice": 8.65,
+      "category": "bebidas",
+      "currentQuantity": 18,
+      "name": "Monster",
+      "supplier": "Distribuidora Central de Bebidas"
+    },
+    {
+      "id": "prod-beb-petra",
+      "minQuantity": 5,
+      "currentQuantity": 11,
+      "supplier": "Grupo Petrópolis",
+      "name": "Petra",
+      "category": "bebidas",
+      "unit": "GRADE",
+      "unitPrice": 124
+    },
+    {
+      "id": "prod-beb-pitu-lata",
+      "name": "Pitu Lata",
+      "category": "bebidas",
+      "supplier": "Engarrafamento Pitú",
+      "unitPrice": 46.5,
+      "unit": "unid",
+      "minQuantity": 6,
+      "currentQuantity": 12
+    },
+    {
+      "id": "prod-beb-redbull-latao",
+      "supplier": "Red Bull Brasil",
+      "currentQuantity": 12,
+      "minQuantity": 6,
+      "unit": "unid",
+      "category": "bebidas",
+      "name": "Red Bull Latão",
+      "unitPrice": 13.25
+    },
+    {
+      "id": "prod-beb-redbull-p",
+      "name": "Red Bull Pequeno",
+      "category": "bebidas",
+      "currentQuantity": 19,
+      "supplier": "Red Bull Brasil",
+      "minQuantity": 8,
+      "unitPrice": 7.19,
+      "unit": "unid"
+    },
+    {
+      "id": "prod-beb-sprite-lata",
+      "currentQuantity": 19,
+      "minQuantity": 4,
+      "supplier": "Solar Coca-Cola",
+      "unitPrice": 17.7,
+      "unit": "CX",
+      "category": "bebidas",
+      "name": "Sprite Lata"
+    },
+    {
+      "id": "prod-beb-tonica-lata",
+      "category": "bebidas",
+      "name": "Tônica Lata",
+      "currentQuantity": 8,
+      "minQuantity": 4,
+      "unitPrice": 34.25,
+      "supplier": "Ambev Distribuidora",
+      "unit": "unid"
+    },
+    {
+      "id": "prod-beb-vodka-orloff",
+      "name": "Vodka Orloff",
+      "supplier": "Distribuidora Central de Bebidas",
+      "minQuantity": 4,
+      "unit": "unid",
+      "category": "bebidas",
+      "currentQuantity": 14,
+      "unitPrice": 26.5
+    },
+    {
+      "id": "prod-desc-1",
+      "category": "descartaveis",
+      "name": "Copo Caipirosca",
+      "unitPrice": 0,
+      "minQuantity": 1,
+      "supplier": "Plásticos & Descartáveis Silva",
+      "unit": "PCT",
+      "currentQuantity": 3
+    },
+    {
+      "id": "prod-desc-10",
+      "category": "descartaveis",
+      "unit": "PCT",
+      "unitPrice": 0,
+      "currentQuantity": 7,
+      "minQuantity": 2,
+      "supplier": "Central das cestas",
+      "name": "Bandeja P"
+    },
+    {
+      "id": "prod-desc-11",
+      "name": "Sacola M 5kg",
+      "currentQuantity": 5,
+      "category": "descartaveis",
+      "unit": "KG",
+      "supplier": "Central das cestas",
+      "minQuantity": 1,
+      "unitPrice": 0
+    },
+    {
+      "id": "prod-desc-12",
+      "name": "Sacola G 5kg",
+      "currentQuantity": 5,
+      "unitPrice": 0,
+      "category": "descartaveis",
+      "supplier": "Central das cestas",
+      "unit": "KG",
+      "minQuantity": 1
+    },
+    {
+      "id": "prod-desc-13",
+      "unitPrice": 0,
+      "category": "descartaveis",
+      "unit": "KG",
+      "currentQuantity": 5,
+      "minQuantity": 1,
+      "supplier": "Plásticos & Cia",
+      "name": "Sacola GG lixo 5kg"
+    },
+    {
+      "id": "prod-desc-14",
+      "name": "Quentinha de Alumínio",
+      "category": "descartaveis",
+      "unitPrice": 0,
+      "currentQuantity": 2,
+      "minQuantity": 1,
+      "unit": "CX",
+      "supplier": "Central das cestas"
+    },
+    {
+      "id": "prod-desc-2",
+      "unitPrice": 0,
+      "unit": "PCT",
+      "currentQuantity": 11,
+      "minQuantity": 4,
+      "category": "descartaveis",
+      "supplier": "Central das cestas",
+      "name": "Copo 300ml"
+    },
+    {
+      "id": "prod-desc-3",
+      "supplier": "Edilson",
+      "name": "Copo 150ml",
+      "currentQuantity": 2,
+      "unit": "CX",
+      "unitPrice": 0,
+      "minQuantity": 1,
+      "category": "descartaveis"
+    },
+    {
+      "id": "prod-desc-4",
+      "minQuantity": 4,
+      "category": "descartaveis",
+      "unit": "PCT",
+      "currentQuantity": 9,
+      "supplier": "Central das cestas",
+      "name": "Pote 100ml",
+      "unitPrice": 0
+    },
+    {
+      "id": "prod-desc-5",
+      "supplier": "Central das cestas",
+      "minQuantity": 5,
+      "currentQuantity": 20,
+      "name": "Colher Descartável P",
+      "unitPrice": 0,
+      "unit": "Pct",
+      "category": "descartaveis"
+    },
+    {
+      "id": "prod-desc-6",
+      "unit": "PCT",
+      "supplier": "Central das cestas",
+      "name": "Colher Descartável G",
+      "category": "descartaveis",
+      "unitPrice": 0,
+      "currentQuantity": 20,
+      "minQuantity": 5
+    },
+    {
+      "id": "prod-desc-7",
+      "name": "MR500",
+      "minQuantity": 2,
+      "category": "descartaveis",
+      "currentQuantity": 11,
+      "unitPrice": 0,
+      "supplier": "Central das cestas",
+      "unit": "PCT"
+    },
+    {
+      "id": "prod-desc-8",
+      "supplier": "Central das cestas",
+      "unit": "PCT",
+      "category": "descartaveis",
+      "name": "M50",
+      "minQuantity": 1,
+      "currentQuantity": 2,
+      "unitPrice": 0
+    },
+    {
+      "id": "prod-desc-9",
+      "category": "descartaveis",
+      "unitPrice": 0,
+      "unit": "PCT",
+      "name": "M65",
+      "minQuantity": 1,
+      "currentQuantity": 3,
+      "supplier": "Central das cestas"
+    }
+  ],
+  "gigs": [
+    {
+      "id": "gig-1788013534741",
+      "status": "confirmada",
+      "startTime": "14:00",
+      "endTime": "17:25",
+      "bandName": "Luana",
+      "cacheValue": 600,
+      "date": "2026-09-20"
+    },
+    {
+      "id": "gig-herminho",
+      "contact": "(71) 99123-4567",
+      "cacheValue": 1000,
+      "startTime": "19:00",
+      "bandName": "Herminho",
+      "notes": "Domingo fim de tarde especial.",
+      "endTime": "22:30",
+      "musicalStyle": "Sertanejo & Arrocha",
+      "status": "confirmada",
+      "date": "2026-08-30"
+    },
+    {
+      "id": "gig-luana",
+      "contact": "(71) 99777-8899",
+      "bandName": "Luana",
+      "notes": "Feriado de 7 de Setembro no Bar da Tenda.",
+      "cacheValue": 600,
+      "status": "confirmada",
+      "date": "2026-09-07",
+      "musicalStyle": "Pop Rock & Axé Acústico",
+      "startTime": "18:30",
+      "endTime": "22:00"
+    },
+    {
+      "id": "gig-pablo-1",
+      "date": "2026-09-05",
+      "bandName": "Pablo",
+      "status": "confirmada",
+      "cacheValue": 600
+    },
+    {
+      "id": "gig-pablo-2",
+      "cacheValue": 600,
+      "date": "2026-09-19",
+      "status": "confirmada",
+      "bandName": "Pablo"
+    },
+    {
+      "id": "gig-samba6",
+      "status": "confirmada",
+      "date": "2026-09-27",
+      "startTime": "18:00",
+      "musicalStyle": "Roda de Samba Tradicional",
+      "notes": "Roda de samba no deck externo.",
+      "contact": "(71) 98111-9900",
+      "cacheValue": 800,
+      "bandName": "Samba 6",
+      "endTime": "22:30"
+    },
+    {
+      "id": "gig-sambadomes",
+      "musicalStyle": "Samba & Pagode de Mesa",
+      "date": "2026-10-04",
+      "contact": "(71) 98444-1122",
+      "cacheValue": 800,
+      "notes": "Evento especial mensal do Bar da Tenda.",
+      "bandName": "Samba do Mês",
+      "startTime": "17:30",
+      "status": "confirmada",
+      "endTime": "22:00"
+    },
+    {
+      "id": "gig-thiaguinho",
+      "cacheValue": 800,
+      "bandName": "Thiaguinho",
+      "status": "confirmada",
+      "date": "2026-09-06"
+    },
+    {
+      "id": "gig-valdir",
+      "musicalStyle": "Voz e Violão / MPB & Pop",
+      "bandName": "Valdir",
+      "contact": "(71) 98765-4321",
+      "startTime": "21:00",
+      "status": "confirmada",
+      "notes": "Passagem de som às 19h30. Mesa reservada para equipe.",
+      "cacheValue": 600,
+      "date": "2026-08-29",
+      "endTime": "00:30"
+    }
+  ],
+  "shifts": [
+    {
+      "id": "shift-29-1",
+      "endTime": "03:00",
+      "status": "confirmado",
+      "date": "2026-08-29",
+      "name": "Jane",
+      "startTime": "18:00",
+      "dailyPay": 200,
+      "role": "cozinha"
+    },
+    {
+      "id": "shift-29-10",
+      "startTime": "18:00",
+      "dailyPay": 150,
+      "status": "confirmado",
+      "date": "2026-08-29",
+      "name": "Isadora",
+      "role": "garcom",
+      "endTime": "03:00"
+    },
+    {
+      "id": "shift-29-11",
+      "startTime": "18:00",
+      "name": "Ingrid",
+      "dailyPay": 150,
+      "role": "atendente",
+      "endTime": "02:30",
+      "date": "2026-08-29",
+      "status": "confirmado"
+    },
+    {
+      "id": "shift-29-12",
+      "date": "2026-08-29",
+      "dailyPay": 150,
+      "role": "cozinha",
+      "startTime": "18:00",
+      "name": "Isabela",
+      "status": "confirmado",
+      "endTime": "03:00"
+    },
+    {
+      "id": "shift-29-13",
+      "startTime": "19:00",
+      "date": "2026-08-29",
+      "dailyPay": 170,
+      "status": "confirmado",
+      "endTime": "03:00",
+      "role": "motoqueiro",
+      "name": "João"
+    },
+    {
+      "id": "shift-29-14",
+      "startTime": "19:00",
+      "date": "2026-08-29",
+      "dailyPay": 250,
+      "status": "confirmado",
+      "role": "garcom",
+      "name": "Deivison",
+      "endTime": "03:00"
+    },
+    {
+      "id": "shift-29-2",
+      "name": "Nathalia",
+      "startTime": "18:00",
+      "role": "cozinha",
+      "dailyPay": 200,
+      "endTime": "02:30",
+      "status": "confirmado",
+      "date": "2026-08-29"
+    },
+    {
+      "id": "shift-29-3",
+      "dailyPay": 200,
+      "date": "2026-08-29",
+      "name": "Sued",
+      "status": "confirmado",
+      "endTime": "02:30",
+      "role": "cozinha",
+      "startTime": "17:30"
+    },
+    {
+      "id": "shift-29-4",
+      "startTime": "18:00",
+      "date": "2026-08-29",
+      "dailyPay": 150,
+      "endTime": "02:30",
+      "name": "Adrielly",
+      "status": "confirmado",
+      "role": "cozinha"
+    },
+    {
+      "id": "shift-29-5",
+      "dailyPay": 150,
+      "endTime": "03:00",
+      "name": "Leda",
+      "startTime": "18:00",
+      "role": "cozinha",
+      "date": "2026-08-29",
+      "status": "confirmado"
+    },
+    {
+      "id": "shift-29-6",
+      "endTime": "03:00",
+      "date": "2026-08-29",
+      "dailyPay": 350,
+      "role": "gerente",
+      "startTime": "18:00",
+      "status": "confirmado",
+      "name": "Igor"
+    },
+    {
+      "id": "shift-29-7",
+      "status": "confirmado",
+      "date": "2026-08-29",
+      "startTime": "18:00",
+      "role": "garcom",
+      "endTime": "02:30",
+      "dailyPay": 150,
+      "name": "Douglas"
+    },
+    {
+      "id": "shift-29-8",
+      "dailyPay": 150,
+      "date": "2026-08-29",
+      "role": "garcom",
+      "endTime": "02:30",
+      "startTime": "18:00",
+      "status": "confirmado",
+      "name": "Nayra"
+    },
+    {
+      "id": "shift-29-9",
+      "role": "garcom",
+      "name": "Cauã",
+      "date": "2026-08-29",
+      "status": "confirmado",
+      "endTime": "02:30",
+      "startTime": "18:00",
+      "dailyPay": 150
+    },
+    {
+      "id": "shift-30-1",
+      "dailyPay": 150,
+      "date": "2026-08-30",
+      "endTime": "01:00",
+      "status": "confirmado",
+      "name": "Isabela",
+      "startTime": "17:00",
+      "role": "cozinha"
+    },
+    {
+      "id": "shift-30-10",
+      "date": "2026-08-30",
+      "status": "confirmado",
+      "endTime": "01:00",
+      "startTime": "17:00",
+      "role": "garcom",
+      "dailyPay": 150,
+      "name": "Cauã"
+    },
+    {
+      "id": "shift-30-11",
+      "dailyPay": 150,
+      "date": "2026-08-30",
+      "status": "confirmado",
+      "name": "Segundo",
+      "startTime": "18:00",
+      "role": "garcom",
+      "endTime": "01:30"
+    },
+    {
+      "id": "shift-30-12",
+      "date": "2026-08-30",
+      "startTime": "17:00",
+      "status": "confirmado",
+      "role": "garcom",
+      "dailyPay": 150,
+      "endTime": "01:00",
+      "name": "Douglas"
+    },
+    {
+      "id": "shift-30-13",
+      "endTime": "01:30",
+      "dailyPay": 150,
+      "role": "garcom",
+      "startTime": "17:00",
+      "name": "Isadora",
+      "date": "2026-08-30",
+      "status": "confirmado"
+    },
+    {
+      "id": "shift-30-14",
+      "endTime": "01:00",
+      "dailyPay": 150,
+      "startTime": "17:00",
+      "date": "2026-08-30",
+      "name": "Karen",
+      "role": "garcom",
+      "status": "confirmado"
+    },
+    {
+      "id": "shift-30-15",
+      "startTime": "17:00",
+      "endTime": "01:00",
+      "date": "2026-08-30",
+      "role": "garcom",
+      "status": "confirmado",
+      "dailyPay": 150,
+      "name": "Nayra"
+    },
+    {
+      "id": "shift-30-16",
+      "dailyPay": 200,
+      "startTime": "17:00",
+      "date": "2026-08-30",
+      "endTime": "01:30",
+      "status": "confirmado",
+      "name": "Allan",
+      "role": "garcom"
+    },
+    {
+      "id": "shift-30-2",
+      "role": "cozinha",
+      "endTime": "01:30",
+      "name": "Jane",
+      "status": "confirmado",
+      "date": "2026-08-30",
+      "dailyPay": 200,
+      "startTime": "17:00"
+    },
+    {
+      "id": "shift-30-3",
+      "name": "Sued",
+      "endTime": "01:00",
+      "role": "cozinha",
+      "status": "confirmado",
+      "startTime": "16:30",
+      "dailyPay": 200,
+      "date": "2026-08-30"
+    },
+    {
+      "id": "shift-30-4",
+      "status": "confirmado",
+      "name": "Adrielly",
+      "endTime": "01:00",
+      "role": "cozinha",
+      "dailyPay": 150,
+      "date": "2026-08-30",
+      "startTime": "17:00"
+    },
+    {
+      "id": "shift-30-5",
+      "date": "2026-08-30",
+      "status": "confirmado",
+      "dailyPay": 200,
+      "startTime": "17:00",
+      "role": "cozinha",
+      "endTime": "01:00",
+      "name": "Nathalia"
+    },
+    {
+      "id": "shift-30-6",
+      "endTime": "01:00",
+      "date": "2026-08-30",
+      "name": "Leda",
+      "dailyPay": 150,
+      "status": "confirmado",
+      "role": "cozinha",
+      "startTime": "17:00"
+    },
+    {
+      "id": "shift-30-7",
+      "role": "gerente",
+      "endTime": "01:30",
+      "name": "Igor",
+      "status": "confirmado",
+      "dailyPay": 350,
+      "date": "2026-08-30",
+      "startTime": "17:00"
+    },
+    {
+      "id": "shift-30-8",
+      "date": "2026-08-30",
+      "endTime": "01:00",
+      "status": "confirmado",
+      "role": "atendente",
+      "startTime": "17:00",
+      "dailyPay": 150,
+      "name": "Ingrid"
+    },
+    {
+      "id": "shift-30-9",
+      "status": "confirmado",
+      "role": "garcom",
+      "startTime": "16:30",
+      "name": "Jefferson",
+      "date": "2026-08-30",
+      "dailyPay": 150,
+      "endTime": "01:00"
+    }
+  ],
+  "staff_members": [
+    {
+      "id": "staff-1787937718104",
+      "name": "Bruno",
+      "active": true,
+      "defaultDailyPay": 150,
+      "role": "garcom"
+    },
+    {
+      "id": "staff-adrielly",
+      "active": true,
+      "notes": "Atendimento de salão e mesas",
+      "defaultDailyPay": 150,
+      "role": "cozinha",
+      "name": "Adrielly",
+      "phone": "(71) 99120-2121"
+    },
+    {
+      "id": "staff-allan",
+      "phone": "(71) 99115-1616",
+      "defaultDailyPay": 200,
+      "role": "garcom",
+      "name": "Allan",
+      "active": true
+    },
+    {
+      "id": "staff-caua",
+      "name": "Cauã",
+      "phone": "(71) 99108-8888",
+      "role": "garcom",
+      "notes": "Deck e área externa",
+      "active": true,
+      "defaultDailyPay": 150
+    },
+    {
+      "id": "staff-deivison",
+      "role": "dj",
+      "notes": "Som ambiente, intervalos e iluminação",
+      "name": "Deivison",
+      "active": true,
+      "phone": "(71) 99118-1919",
+      "defaultDailyPay": 250
+    },
+    {
+      "id": "staff-douglas",
+      "defaultDailyPay": 150,
+      "notes": "Atendimento de salão",
+      "name": "Douglas",
+      "active": true,
+      "role": "garcom",
+      "phone": "(71) 99106-6666"
+    },
+    {
+      "id": "staff-igor",
+      "name": "Igor",
+      "active": true,
+      "notes": "Bar central e choppeiras",
+      "role": "gerente",
+      "defaultDailyPay": 350,
+      "phone": "(71) 99105-5555"
+    },
+    {
+      "id": "staff-ingrid",
+      "active": true,
+      "role": "atendente",
+      "name": "Ingrid",
+      "phone": "(71) 99110-1010",
+      "defaultDailyPay": 150
+    },
+    {
+      "id": "staff-irani",
+      "active": true,
+      "notes": "Chefe de cozinha e mise en place de porções",
+      "defaultDailyPay": 190,
+      "role": "cozinheiro",
+      "phone": "(71) 99103-3333",
+      "name": "Irani"
+    },
+    {
+      "id": "staff-isabela",
+      "phone": "(71) 99111-1212",
+      "role": "cozinha",
+      "name": "Isabela",
+      "defaultDailyPay": 150,
+      "notes": "Caixa balcão",
+      "active": true
+    },
+    {
+      "id": "staff-isadora",
+      "phone": "(71) 99109-9999",
+      "role": "garcom",
+      "active": true,
+      "name": "Isadora",
+      "notes": "Drinks rápidos e cervejas",
+      "defaultDailyPay": 150
+    },
+    {
+      "id": "staff-jane",
+      "active": true,
+      "name": "Jane",
+      "notes": "Responsável pelo preparo de drinks e caipiroskas",
+      "role": "cozinha",
+      "defaultDailyPay": 200,
+      "phone": "(71) 99101-1111"
+    },
+    {
+      "id": "staff-jefferson",
+      "phone": "(71) 99121-2222",
+      "name": "Jefferson",
+      "role": "garcom",
+      "notes": "Apoio geral de cozinha e preparação",
+      "active": true,
+      "defaultDailyPay": 150
+    },
+    {
+      "id": "staff-joao",
+      "phone": "(71) 99113-1414",
+      "active": true,
+      "name": "João",
+      "role": "motoqueiro",
+      "notes": "Apoio de segurança e fluxo",
+      "defaultDailyPay": 125
+    },
+    {
+      "id": "staff-jordan",
+      "name": "Jordan",
+      "role": "motoqueiro",
+      "active": true,
+      "phone": "(71) 99112-1313",
+      "defaultDailyPay": 125
+    },
+    {
+      "id": "staff-kaio",
+      "name": "Kaio",
+      "defaultDailyPay": 130,
+      "role": "garcom",
+      "active": true,
+      "phone": "(71) 99119-2020"
+    },
+    {
+      "id": "staff-karen",
+      "active": true,
+      "phone": "(71) 99117-1818",
+      "name": "Karen",
+      "defaultDailyPay": 150,
+      "role": "garcom"
+    },
+    {
+      "id": "staff-leda",
+      "defaultDailyPay": 150,
+      "notes": "Fechamento e conferência de caixa",
+      "role": "cozinha",
+      "active": true,
+      "phone": "(71) 99104-4444",
+      "name": "Leda"
+    },
+    {
+      "id": "staff-nathalia",
+      "defaultDailyPay": 200,
+      "phone": "(71) 99102-2222",
+      "name": "Nathalia",
+      "role": "cozinha",
+      "notes": "Atendimento de mesas e comandas",
+      "active": true
+    },
+    {
+      "id": "staff-nayra",
+      "defaultDailyPay": 150,
+      "phone": "(71) 99116-1717",
+      "active": true,
+      "role": "garcom",
+      "name": "Nayra"
+    },
+    {
+      "id": "staff-segundo",
+      "name": "Segundo",
+      "defaultDailyPay": 150,
+      "phone": "(71) 99107-7777",
+      "active": true,
+      "role": "garcom",
+      "notes": "Portaria e controle de entrada/saída"
+    },
+    {
+      "id": "staff-sued",
+      "name": "Sued",
+      "phone": "(71) 99114-1515",
+      "active": true,
+      "role": "cozinha",
+      "notes": "Chapa e fritadeira",
+      "defaultDailyPay": 200
+    }
+  ],
+  "bills": [],
+  "transactions": [
+    {
+      "id": "tx-1788173345958",
+      "description": "Movimento 29/08 e 30/08",
+      "type": "venda",
+      "date": "2026-08-31",
+      "category": "vendas_geral",
+      "paymentMethod": "pix",
+      "amount": 27000,
+      "status": "concluido"
+    },
+    {
+      "id": "tx-1788173482431",
+      "status": "concluido",
+      "amount": 5370,
+      "description": "Pagamento funcionário",
+      "paymentMethod": "pix",
+      "date": "2026-08-31",
+      "type": "despesa",
+      "category": "salario"
+    },
+    {
+      "id": "tx-1788173576381",
+      "amount": 3000,
+      "date": "2026-08-31",
+      "type": "despesa",
+      "category": "outros",
+      "description": "Feira para o proximo FDS",
+      "status": "concluido",
+      "paymentMethod": "pix"
+    },
+    {
+      "id": "tx-1788173602732",
+      "status": "concluido",
+      "type": "despesa",
+      "date": "2026-08-31",
+      "amount": 1000,
+      "category": "outros",
+      "description": "Pagamento de banda",
+      "paymentMethod": "pix"
+    }
+  ],
+  "activities": [
+    {
+      "id": "act-1787863747768-6xex3",
+      "description": "Conta \"teste\" (A Pagar) salva - Status: pendente",
+      "module": "contas",
+      "userName": "bardatenda",
+      "timestamp": "2026-08-27T20:49:07.768Z",
+      "action": "update"
+    },
+    {
+      "id": "act-1787863890281-8geqy",
+      "module": "contas",
+      "userName": "bardatenda",
+      "timestamp": "2026-08-27T20:51:30.281Z",
+      "description": "Conta \"teste\" removida",
+      "action": "delete"
+    },
+    {
+      "id": "act-1787863916423-czzx0",
+      "action": "delete",
+      "userName": "bardatenda",
+      "description": "13 plantões removidos da escala",
+      "module": "equipe",
+      "timestamp": "2026-08-27T20:51:56.423Z"
+    },
+    {
+      "id": "act-1787863924787-pbea5",
+      "description": "15 plantões removidos da escala",
+      "module": "equipe",
+      "timestamp": "2026-08-27T20:52:04.787Z",
+      "action": "delete",
+      "userName": "bardatenda"
+    },
+    {
+      "id": "act-1787863933256-zrqir",
+      "description": "7 plantões removidos da escala",
+      "userName": "bardatenda",
+      "module": "equipe",
+      "action": "delete",
+      "timestamp": "2026-08-27T20:52:13.256Z"
+    },
+    {
+      "id": "act-1787865204833-n23t2",
+      "action": "create",
+      "description": "Escalas de 29.08 (12 pessoas) e 30.08 (16 pessoas) sincronizadas com sucesso",
+      "timestamp": "2026-08-27T21:13:24.833Z",
+      "userName": "Sistema",
+      "module": "equipe"
+    },
+    {
+      "id": "act-1787865204912-r9tgt",
+      "action": "create",
+      "userName": "Sistema",
+      "module": "equipe",
+      "timestamp": "2026-08-27T21:13:24.912Z",
+      "description": "Escalas de 29.08 (12 pessoas) e 30.08 (16 pessoas) sincronizadas com sucesso"
+    },
+    {
+      "id": "act-1787865378102-4izii",
+      "action": "update",
+      "description": "Escala de \"João\" (motoqueiro) para 2026-08-29 salva",
+      "timestamp": "2026-08-27T21:16:18.102Z",
+      "userName": "bardatenda",
+      "module": "equipe"
+    },
+    {
+      "id": "act-1787865425413-w8paj",
+      "userName": "bardatenda",
+      "action": "update",
+      "module": "equipe",
+      "description": "Escala de \"Deivison\" (garcom) para 2026-08-29 salva",
+      "timestamp": "2026-08-27T21:17:05.413Z"
+    },
+    {
+      "id": "act-1787865860708-rzsm5",
+      "timestamp": "2026-08-27T21:24:20.708Z",
+      "description": "13 plantões removidos da escala",
+      "action": "delete",
+      "module": "equipe",
+      "userName": "bardatenda"
+    },
+    {
+      "id": "act-1787865926262-7sxi8",
+      "module": "bandas",
+      "timestamp": "2026-08-27T21:25:26.262Z",
+      "description": "Show \"Pablo\" em 2026-09-19 atualizado/agendado",
+      "userName": "bardatenda",
+      "action": "update"
+    },
+    {
+      "id": "act-1787865939477-ad2p4",
+      "module": "bandas",
+      "description": "Show \"Pablo\" em 2026-09-19 atualizado/agendado",
+      "timestamp": "2026-08-27T21:25:39.477Z",
+      "action": "update",
+      "userName": "bardatenda"
+    },
+    {
+      "id": "act-1787865953098-kctqx",
+      "description": "Show \"Pablo\" em 2026-09-19 atualizado/agendado",
+      "action": "update",
+      "module": "bandas",
+      "timestamp": "2026-08-27T21:25:53.098Z",
+      "userName": "bardatenda"
+    },
+    {
+      "id": "act-1787913969559-5cto3",
+      "userName": "bardatenda",
+      "action": "delete",
+      "description": "6 produtos excluídos do estoque",
+      "module": "estoque",
+      "timestamp": "2026-08-28T10:46:09.559Z"
+    },
+    {
+      "id": "act-1787913999835-lx6n9",
+      "userName": "bardatenda",
+      "action": "update",
+      "timestamp": "2026-08-28T10:46:39.835Z",
+      "description": "Produto \"Coca-Cola Lata\" salvo no estoque (13 CX)",
+      "module": "estoque"
+    },
+    {
+      "id": "act-1787914010615-0e97h",
+      "userName": "bardatenda",
+      "action": "update",
+      "module": "estoque",
+      "timestamp": "2026-08-28T10:46:50.615Z",
+      "description": "Produto \"Coca-Cola Zero Lata\" salvo no estoque (7 CX)"
+    },
+    {
+      "id": "act-1787914022526-zx7z4",
+      "action": "update",
+      "userName": "bardatenda",
+      "description": "Produto \"Limoneto\" salvo no estoque (3 PCT)",
+      "timestamp": "2026-08-28T10:47:02.526Z",
+      "module": "estoque"
+    },
+    {
+      "id": "act-1787914053357-kia7r",
+      "description": "Produto \"Itaipava normal\" salvo no estoque (2 G)",
+      "module": "estoque",
+      "userName": "bardatenda",
+      "timestamp": "2026-08-28T10:47:33.357Z",
+      "action": "update"
+    },
+    {
+      "id": "act-1787914072535-9wf3w",
+      "userName": "bardatenda",
+      "timestamp": "2026-08-28T10:47:52.535Z",
+      "action": "update",
+      "module": "estoque",
+      "description": "Produto \"Fanta Lata\" salvo no estoque (3 CX)"
+    },
+    {
+      "id": "act-1787937684767-5h2wt",
+      "userName": "bardatenda",
+      "module": "equipe",
+      "description": "Colaborador(a) \"Irani\" atualizado(a)",
+      "action": "update",
+      "timestamp": "2026-08-28T17:21:24.767Z"
+    },
+    {
+      "id": "act-1787937692648-pyav2",
+      "module": "equipe",
+      "description": "Colaborador(a) \"Kaio\" atualizado(a)",
+      "action": "update",
+      "timestamp": "2026-08-28T17:21:32.648Z",
+      "userName": "bardatenda"
+    },
+    {
+      "id": "act-1787937718390-x2ot0",
+      "description": "Colaborador(a) \"Bruno\" atualizado(a)",
+      "module": "equipe",
+      "timestamp": "2026-08-28T17:21:58.390Z",
+      "action": "update",
+      "userName": "bardatenda"
+    },
+    {
+      "id": "act-1787937820263-4mu52",
+      "timestamp": "2026-08-28T17:23:40.263Z",
+      "userName": "bardatenda",
+      "action": "update",
+      "module": "equipe",
+      "description": "Colaborador(a) \"Deivison\" atualizado(a)"
+    },
+    {
+      "id": "act-1787937978498-n89az",
+      "module": "equipe",
+      "description": "Colaborador(a) \"João\" atualizado(a)",
+      "timestamp": "2026-08-28T17:26:18.498Z",
+      "action": "update",
+      "userName": "bardatenda"
+    },
+    {
+      "id": "act-1787937981752-d5fev",
+      "action": "update",
+      "timestamp": "2026-08-28T17:26:21.752Z",
+      "userName": "bardatenda",
+      "description": "Colaborador(a) \"Deivison\" atualizado(a)",
+      "module": "equipe"
+    },
+    {
+      "id": "act-1787937990504-ddpt9",
+      "timestamp": "2026-08-28T17:26:30.505Z",
+      "module": "equipe",
+      "userName": "bardatenda",
+      "description": "Colaborador(a) \"Isadora\" atualizado(a)",
+      "action": "update"
+    },
+    {
+      "id": "act-1787937994084-z563q",
+      "action": "update",
+      "description": "Colaborador(a) \"Jefferson\" atualizado(a)",
+      "userName": "bardatenda",
+      "timestamp": "2026-08-28T17:26:34.084Z",
+      "module": "equipe"
+    },
+    {
+      "id": "act-1787937997982-kbff6",
+      "module": "equipe",
+      "action": "update",
+      "userName": "bardatenda",
+      "timestamp": "2026-08-28T17:26:37.982Z",
+      "description": "Colaborador(a) \"Douglas\" atualizado(a)"
+    },
+    {
+      "id": "act-1787938002468-45q3k",
+      "timestamp": "2026-08-28T17:26:42.468Z",
+      "action": "update",
+      "userName": "bardatenda",
+      "module": "equipe",
+      "description": "Colaborador(a) \"Segundo\" atualizado(a)"
+    },
+    {
+      "id": "act-1787938009821-8tcc0",
+      "timestamp": "2026-08-28T17:26:49.821Z",
+      "module": "equipe",
+      "action": "update",
+      "userName": "bardatenda",
+      "description": "Colaborador(a) \"Cauã\" atualizado(a)"
+    },
+    {
+      "id": "act-1787938017751-h68ku",
+      "description": "Colaborador(a) \"Igor\" atualizado(a)",
+      "module": "equipe",
+      "action": "update",
+      "timestamp": "2026-08-28T17:26:57.751Z",
+      "userName": "bardatenda"
+    },
+    {
+      "id": "act-1787938022950-hhrag",
+      "description": "Colaborador(a) \"Adrielly\" atualizado(a)",
+      "action": "update",
+      "module": "equipe",
+      "timestamp": "2026-08-28T17:27:02.950Z",
+      "userName": "bardatenda"
+    },
+    {
+      "id": "act-1787938025935-80knb",
+      "userName": "bardatenda",
+      "action": "update",
+      "timestamp": "2026-08-28T17:27:05.935Z",
+      "description": "Colaborador(a) \"Isabela\" atualizado(a)",
+      "module": "equipe"
+    },
+    {
+      "id": "act-1787938029166-m6m4f",
+      "description": "Colaborador(a) \"Jane\" atualizado(a)",
+      "module": "equipe",
+      "userName": "bardatenda",
+      "timestamp": "2026-08-28T17:27:09.166Z",
+      "action": "update"
+    },
+    {
+      "id": "act-1787938032735-obssm",
+      "description": "Colaborador(a) \"Leda\" atualizado(a)",
+      "action": "update",
+      "module": "equipe",
+      "timestamp": "2026-08-28T17:27:12.735Z",
+      "userName": "bardatenda"
+    },
+    {
+      "id": "act-1787938035900-6felf",
+      "timestamp": "2026-08-28T17:27:15.900Z",
+      "action": "update",
+      "module": "equipe",
+      "userName": "bardatenda",
+      "description": "Colaborador(a) \"Nathalia\" atualizado(a)"
+    },
+    {
+      "id": "act-1787938039131-zmrrw",
+      "description": "Colaborador(a) \"Sued\" atualizado(a)",
+      "action": "update",
+      "userName": "bardatenda",
+      "timestamp": "2026-08-28T17:27:19.131Z",
+      "module": "equipe"
+    },
+    {
+      "id": "act-1787938108374-l09zt",
+      "action": "delete",
+      "description": "6 produtos excluídos do estoque",
+      "userName": "bardatenda",
+      "timestamp": "2026-08-28T17:28:28.374Z",
+      "module": "estoque"
+    },
+    {
+      "id": "act-1787938308976-x004p",
+      "description": "Produto \"Alcatrão\" removido",
+      "module": "estoque",
+      "userName": "bardatenda",
+      "action": "delete",
+      "timestamp": "2026-08-28T17:31:48.976Z"
+    },
+    {
+      "id": "act-1787938315511-u684k",
+      "description": "Produto \"Black White 1L\" removido",
+      "timestamp": "2026-08-28T17:31:55.511Z",
+      "action": "delete",
+      "userName": "bardatenda",
+      "module": "estoque"
+    },
+    {
+      "id": "act-1787938322061-814xe",
+      "module": "estoque",
+      "description": "Produto \"Campari\" removido",
+      "timestamp": "2026-08-28T17:32:02.061Z",
+      "userName": "bardatenda",
+      "action": "delete"
+    },
+    {
+      "id": "act-1787938325234-mt2e5",
+      "module": "estoque",
+      "userName": "bardatenda",
+      "description": "Produto \"Cavalo Branco 1L\" removido",
+      "action": "delete",
+      "timestamp": "2026-08-28T17:32:05.234Z"
+    },
+    {
+      "id": "act-1787938482249-37tp1",
+      "description": "Produto \"Black White\" salvo no estoque (2 UN)",
+      "module": "estoque",
+      "userName": "bardatenda",
+      "timestamp": "2026-08-28T17:34:42.249Z",
+      "action": "update"
+    },
+    {
+      "id": "act-1787938500065-oh5o6",
+      "userName": "bardatenda",
+      "module": "estoque",
+      "timestamp": "2026-08-28T17:35:00.065Z",
+      "action": "update",
+      "description": "Produto \"Black White\" salvo no estoque (2 UN)"
+    },
+    {
+      "id": "act-1787938554831-bih3c",
+      "action": "update",
+      "timestamp": "2026-08-28T17:35:54.831Z",
+      "description": "Produto \"Vodka Orloff\" salvo no estoque (14 unid)",
+      "userName": "bardatenda",
+      "module": "estoque"
+    },
+    {
+      "id": "act-1787938557512-2yrp3",
+      "timestamp": "2026-08-28T17:35:57.512Z",
+      "action": "delete",
+      "module": "estoque",
+      "userName": "bardatenda",
+      "description": "Produto \"Vodka Orloff\" removido"
+    },
+    {
+      "id": "act-1787938573105-pvxy8",
+      "timestamp": "2026-08-28T17:36:13.105Z",
+      "action": "delete",
+      "userName": "bardatenda",
+      "module": "estoque",
+      "description": "Produto \"Johnnie\" removido"
+    },
+    {
+      "id": "act-1787938589468-wquti",
+      "action": "update",
+      "userName": "bardatenda",
+      "description": "Produto \"Johnnie\" salvo no estoque (6 unid)",
+      "module": "estoque",
+      "timestamp": "2026-08-28T17:36:29.468Z"
+    },
+    {
+      "id": "act-1787938629060-uyvhm",
+      "module": "estoque",
+      "userName": "bardatenda",
+      "timestamp": "2026-08-28T17:37:09.060Z",
+      "description": "Produto \"Black White\" salvo no estoque (2 UN)",
+      "action": "update"
+    },
+    {
+      "id": "act-1787938902347-iprlv",
+      "timestamp": "2026-08-28T17:41:42.347Z",
+      "module": "estoque",
+      "action": "update",
+      "description": "Estoque limpo: observações e datas de reposição zeradas, duplicatas removidas",
+      "userName": "Sistema"
+    },
+    {
+      "id": "act-1787938902495-ckm2j",
+      "action": "update",
+      "description": "Estoque limpo: observações e datas de reposição zeradas, duplicatas removidas",
+      "userName": "Sistema",
+      "timestamp": "2026-08-28T17:41:42.495Z",
+      "module": "estoque"
+    },
+    {
+      "id": "act-1787939110818-ceto6",
+      "timestamp": "2026-08-28T17:45:10.818Z",
+      "action": "delete",
+      "description": "Show \"Pablo\" removido da agenda",
+      "userName": "bardatenda",
+      "module": "bandas"
+    },
+    {
+      "id": "act-1787939116895-qcs4w",
+      "action": "delete",
+      "userName": "bardatenda",
+      "description": "Show \"Thiaginho\" removido da agenda",
+      "timestamp": "2026-08-28T17:45:16.895Z",
+      "module": "bandas"
+    },
+    {
+      "id": "act-1787939134534-he15l",
+      "module": "bandas",
+      "timestamp": "2026-08-28T17:45:34.534Z",
+      "userName": "bardatenda",
+      "description": "Show \"Luana\" em 2026-09-07 atualizado/agendado",
+      "action": "update"
+    },
+    {
+      "id": "act-1787939144657-5rbjs",
+      "userName": "bardatenda",
+      "action": "delete",
+      "module": "bandas",
+      "description": "Show \"Pablo\" removido da agenda",
+      "timestamp": "2026-08-28T17:45:44.657Z"
+    },
+    {
+      "id": "act-1787939159539-y2b6x",
+      "description": "Show \"Samba 6\" em 2026-09-27 atualizado/agendado",
+      "action": "update",
+      "module": "bandas",
+      "userName": "bardatenda",
+      "timestamp": "2026-08-28T17:45:59.539Z"
+    },
+    {
+      "id": "act-1787939195904-zkdje",
+      "module": "bandas",
+      "timestamp": "2026-08-28T17:46:35.904Z",
+      "description": "Show \"Luana\" em 2026-09-07 atualizado/agendado",
+      "action": "update",
+      "userName": "bardatenda"
+    },
+    {
+      "id": "act-1787939258068-dgpqi",
+      "timestamp": "2026-08-28T17:47:38.068Z",
+      "module": "bandas",
+      "action": "update",
+      "description": "Show \"Samba do Mês\" em 2026-10-04 atualizado/agendado",
+      "userName": "bardatenda"
+    },
+    {
+      "id": "act-1787939278719-tyi3m",
+      "timestamp": "2026-08-28T17:47:58.719Z",
+      "module": "estoque",
+      "action": "delete",
+      "userName": "bardatenda",
+      "description": "6 produtos excluídos do estoque"
+    },
+    {
+      "id": "act-1787939323014-r17l3",
+      "userName": "bardatenda",
+      "action": "delete",
+      "description": "Produto \"Black White 1L\" removido",
+      "module": "estoque",
+      "timestamp": "2026-08-28T17:48:43.014Z"
+    },
+    {
+      "id": "act-1787939343315-y7akq",
+      "description": "Produto \"Cavalo Branco\" removido",
+      "timestamp": "2026-08-28T17:49:03.315Z",
+      "module": "estoque",
+      "action": "delete",
+      "userName": "bardatenda"
+    },
+    {
+      "id": "act-1787939378697-096ri",
+      "userName": "bardatenda",
+      "action": "update",
+      "timestamp": "2026-08-28T17:49:38.697Z",
+      "description": "Produto \"Campari\" salvo no estoque (5 UN)",
+      "module": "estoque"
+    },
+    {
+      "id": "act-1787939412925-mnc6o",
+      "timestamp": "2026-08-28T17:50:12.925Z",
+      "action": "update",
+      "userName": "bardatenda",
+      "module": "estoque",
+      "description": "Produto \"Alcatrão\" salvo no estoque (22 UN)"
+    },
+    {
+      "id": "act-1787939436740-3w66l",
+      "description": "Produto \"Heineken Zero\" removido",
+      "module": "estoque",
+      "timestamp": "2026-08-28T17:50:36.740Z",
+      "action": "delete",
+      "userName": "bardatenda"
+    },
+    {
+      "id": "act-1787939455432-dknjt",
+      "description": "Produto \"Heineken Zero Long\" salvo no estoque (42 CX)",
+      "userName": "bardatenda",
+      "module": "estoque",
+      "action": "update",
+      "timestamp": "2026-08-28T17:50:55.432Z"
+    },
+    {
+      "id": "act-1787939486666-kpveg",
+      "description": "Produto \"Ice Cabaré Limão\" salvo no estoque (7 CX)",
+      "module": "estoque",
+      "timestamp": "2026-08-28T17:51:26.666Z",
+      "action": "update",
+      "userName": "bardatenda"
+    },
+    {
+      "id": "act-1787939589475-rkjgu",
+      "userName": "bardatenda",
+      "module": "estoque",
+      "timestamp": "2026-08-28T17:53:09.475Z",
+      "description": "Produto \"Coca-Cola Lata\" salvo no estoque (13 CX)",
+      "action": "update"
+    },
+    {
+      "id": "act-1787939669462-a6xej",
+      "userName": "bardatenda",
+      "module": "estoque",
+      "timestamp": "2026-08-28T17:54:29.462Z",
+      "action": "delete",
+      "description": "Produto \"Coca Cola 2L Zero\" removido"
+    },
+    {
+      "id": "act-1787939677629-0mkl5",
+      "module": "estoque",
+      "description": "Produto \"Coca Cola 2L\" removido",
+      "userName": "bardatenda",
+      "timestamp": "2026-08-28T17:54:37.629Z",
+      "action": "delete"
+    },
+    {
+      "id": "act-1787939702593-e4xhp",
+      "description": "Produto \"Coca Cola 1L\" removido",
+      "module": "estoque",
+      "timestamp": "2026-08-28T17:55:02.594Z",
+      "action": "delete",
+      "userName": "bardatenda"
+    },
+    {
+      "id": "act-1787939717397-npk3e",
+      "userName": "bardatenda",
+      "action": "update",
+      "module": "estoque",
+      "description": "Produto \"Coca-Cola 1L\" salvo no estoque (20 pct)",
+      "timestamp": "2026-08-28T17:55:17.397Z"
+    },
+    {
+      "id": "act-1787939742883-mk1lo",
+      "userName": "bardatenda",
+      "module": "estoque",
+      "timestamp": "2026-08-28T17:55:42.883Z",
+      "action": "update",
+      "description": "Produto \"Coca-Cola 1L Zero\" salvo no estoque (23 PCT)"
+    },
+    {
+      "id": "act-1787939780183-07q34",
+      "userName": "bardatenda",
+      "action": "delete",
+      "timestamp": "2026-08-28T17:56:20.183Z",
+      "description": "Produto \"Coca Cola 1L Zero\" removido",
+      "module": "estoque"
+    },
+    {
+      "id": "act-1787939897432-zzvdr",
+      "module": "estoque",
+      "description": "Produto \"Coca-Cola Zero Lata\" salvo no estoque (7 CX)",
+      "userName": "bardatenda",
+      "timestamp": "2026-08-28T17:58:17.432Z",
+      "action": "update"
+    },
+    {
+      "id": "act-1787939914348-kazfo",
+      "description": "Produto \"Coca-Cola Zero Lata\" salvo no estoque (7 CX)",
+      "timestamp": "2026-08-28T17:58:34.348Z",
+      "module": "estoque",
+      "action": "update",
+      "userName": "bardatenda"
+    },
+    {
+      "id": "act-1787939967145-hegz1",
+      "timestamp": "2026-08-28T17:59:27.145Z",
+      "action": "update",
+      "module": "estoque",
+      "description": "Produto \"Fanta Lata\" salvo no estoque (3 CX)",
+      "userName": "bardatenda"
+    },
+    {
+      "id": "act-1787940010670-jsoki",
+      "timestamp": "2026-08-28T18:00:10.670Z",
+      "action": "update",
+      "module": "estoque",
+      "userName": "bardatenda",
+      "description": "Produto \"Sprite lata\" salvo no estoque (19 CX)"
+    },
+    {
+      "id": "act-1787940044045-jy7k0",
+      "description": "Produto \"Guaraná lata\" salvo no estoque (24 UNID)",
+      "module": "estoque",
+      "userName": "bardatenda",
+      "action": "update",
+      "timestamp": "2026-08-28T18:00:44.045Z"
+    },
+    {
+      "id": "act-1787940105720-90dox",
+      "module": "estoque",
+      "description": "Produto \"Guaraná lata\" salvo no estoque (4 CX)",
+      "timestamp": "2026-08-28T18:01:45.720Z",
+      "userName": "bardatenda",
+      "action": "update"
+    },
+    {
+      "id": "act-1787940130968-tq9mp",
+      "action": "update",
+      "userName": "bardatenda",
+      "timestamp": "2026-08-28T18:02:10.968Z",
+      "description": "Produto \"Limoneto\" salvo no estoque (3 PCT)",
+      "module": "estoque"
+    },
+    {
+      "id": "act-1787940177650-06pt0",
+      "description": "Produto \"Coca-Cola 1L\" salvo no estoque (20 UNID)",
+      "userName": "bardatenda",
+      "module": "estoque",
+      "action": "update",
+      "timestamp": "2026-08-28T18:02:57.650Z"
+    },
+    {
+      "id": "act-1787940192493-8u18w",
+      "module": "estoque",
+      "description": "Produto \"Coca-Cola 1L\" salvo no estoque (20 UNID)",
+      "timestamp": "2026-08-28T18:03:12.493Z",
+      "userName": "bardatenda",
+      "action": "update"
+    },
+    {
+      "id": "act-1787940240129-d1bbn",
+      "module": "estoque",
+      "timestamp": "2026-08-28T18:04:00.129Z",
+      "userName": "bardatenda",
+      "description": "Produto \"Coca-Cola 1L Zero\" salvo no estoque (23 UNID)",
+      "action": "update"
+    },
+    {
+      "id": "act-1787940281394-k0rut",
+      "action": "update",
+      "userName": "bardatenda",
+      "description": "Produto \"Coca-Cola 2L\" salvo no estoque (15 UNID)",
+      "timestamp": "2026-08-28T18:04:41.394Z",
+      "module": "estoque"
+    },
+    {
+      "id": "act-1787940319961-ig5ic",
+      "action": "update",
+      "timestamp": "2026-08-28T18:05:19.961Z",
+      "description": "Produto \"Red Bull pequeno\" salvo no estoque (19 UN)",
+      "module": "estoque",
+      "userName": "bardatenda"
+    },
+    {
+      "id": "act-1787940340192-bnfzq",
+      "timestamp": "2026-08-28T18:05:40.192Z",
+      "description": "Produto \"Red Bull latão\" salvo no estoque (12 UN)",
+      "action": "update",
+      "userName": "bardatenda",
+      "module": "estoque"
+    },
+    {
+      "id": "act-1787940356126-vcm3a",
+      "timestamp": "2026-08-28T18:05:56.126Z",
+      "module": "estoque",
+      "action": "update",
+      "description": "Produto \"Monster\" salvo no estoque (18 UN)",
+      "userName": "bardatenda"
+    },
+    {
+      "id": "act-1787940411969-webg6",
+      "timestamp": "2026-08-28T18:06:51.969Z",
+      "module": "estoque",
+      "userName": "bardatenda",
+      "action": "update",
+      "description": "Produto \"Pitu lata\" salvo no estoque (12 UN)"
+    },
+    {
+      "id": "act-1787940476635-leqju",
+      "description": "Show \"Valdir\" em 2026-08-29 atualizado/agendado",
+      "module": "bandas",
+      "action": "update",
+      "timestamp": "2026-08-28T18:07:56.635Z",
+      "userName": "bardatenda"
+    },
+    {
+      "id": "act-1787940482217-ebz77",
+      "timestamp": "2026-08-28T18:08:02.217Z",
+      "description": "Show \"Herminho\" em 2026-08-30 atualizado/agendado",
+      "action": "update",
+      "module": "bandas",
+      "userName": "bardatenda"
+    },
+    {
+      "id": "act-1787944114841-wm86a",
+      "timestamp": "2026-08-28T19:08:34.841Z",
+      "module": "equipe",
+      "action": "create",
+      "description": "Escalas de 29.08 (12 pessoas) e 30.08 (16 pessoas) sincronizadas com sucesso",
+      "userName": "Sistema"
+    },
+    {
+      "id": "act-1787947063906-d8spb",
+      "module": "estoque",
+      "timestamp": "2026-08-28T19:57:43.906Z",
+      "userName": "Sistema",
+      "action": "update",
+      "description": "Estoque limpo: observações e datas de reposição zeradas, duplicatas removidas"
+    },
+    {
+      "id": "act-1787947064022-fo61o",
+      "module": "estoque",
+      "description": "Estoque limpo: observações e datas de reposição zeradas, duplicatas removidas",
+      "userName": "Sistema",
+      "action": "update",
+      "timestamp": "2026-08-28T19:57:44.022Z"
+    },
+    {
+      "id": "act-1787947578493-340oq",
+      "description": "13 plantões removidos da escala",
+      "timestamp": "2026-08-28T20:06:18.493Z",
+      "module": "equipe",
+      "action": "delete",
+      "userName": "bardatenda"
+    },
+    {
+      "id": "act-1787947722766-ypo8t",
+      "timestamp": "2026-08-28T20:08:42.766Z",
+      "module": "estoque",
+      "description": "Produto \"Itaipava normal\" salvo no estoque (2 G)",
+      "action": "update",
+      "userName": "bardatenda"
+    },
+    {
+      "id": "act-1787947820179-x9vig",
+      "action": "update",
+      "userName": "bardatenda",
+      "module": "estoque",
+      "description": "Produto \"Johnnie\" salvo no estoque (6 UN)",
+      "timestamp": "2026-08-28T20:10:20.180Z"
+    },
+    {
+      "id": "act-1787947901679-nniy3",
+      "timestamp": "2026-08-28T20:11:41.680Z",
+      "module": "estoque",
+      "userName": "bardatenda",
+      "description": "Produto \"Black White\" salvo no estoque (2 UN)",
+      "action": "update"
+    },
+    {
+      "id": "act-1787947962953-fklcw",
+      "description": "Produto \"Cavalo Branco\" salvo no estoque (3 UN)",
+      "timestamp": "2026-08-28T20:12:42.953Z",
+      "action": "update",
+      "userName": "bardatenda",
+      "module": "estoque"
+    },
+    {
+      "id": "act-1787948015710-t2mz3",
+      "module": "estoque",
+      "description": "Produto \"Sprite lata\" salvo no estoque (4 CX)",
+      "timestamp": "2026-08-28T20:13:35.710Z",
+      "userName": "bardatenda",
+      "action": "update"
+    },
+    {
+      "id": "act-1787948066208-6j2eq",
+      "description": "Produto \"Fanta Lata\" salvo no estoque (3 CX)",
+      "action": "update",
+      "module": "estoque",
+      "userName": "bardatenda",
+      "timestamp": "2026-08-28T20:14:26.208Z"
+    },
+    {
+      "id": "act-1787948140381-7y23x",
+      "timestamp": "2026-08-28T20:15:40.381Z",
+      "action": "update",
+      "description": "Produto \"Limoneto\" salvo no estoque (3 PCT)",
+      "userName": "bardatenda",
+      "module": "estoque"
+    },
+    {
+      "id": "act-1787948232385-tu49g",
+      "userName": "bardatenda",
+      "action": "update",
+      "module": "estoque",
+      "timestamp": "2026-08-28T20:17:12.385Z",
+      "description": "Produto \"Coca Cola 1L\" salvo no estoque (20 UN)"
+    },
+    {
+      "id": "act-1787948282185-syzwt",
+      "userName": "bardatenda",
+      "action": "update",
+      "description": "Produto \"Black White 1L\" salvo no estoque (2 unid)",
+      "module": "estoque",
+      "timestamp": "2026-08-28T20:18:02.185Z"
+    },
+    {
+      "id": "act-1787948287257-b68n3",
+      "module": "estoque",
+      "timestamp": "2026-08-28T20:18:07.257Z",
+      "userName": "bardatenda",
+      "description": "Produto \"Pão de Alho Especial\" removido",
+      "action": "delete"
+    },
+    {
+      "id": "act-1787948384200-2offt",
+      "userName": "bardatenda",
+      "action": "update",
+      "description": "Produto \"Guaraná lata\" salvo no estoque (42 UNID)",
+      "timestamp": "2026-08-28T20:19:44.200Z",
+      "module": "estoque"
+    },
+    {
+      "id": "act-1787948448407-silfn",
+      "module": "estoque",
+      "userName": "bardatenda",
+      "timestamp": "2026-08-28T20:20:48.407Z",
+      "description": "Produto \"Monster\" salvo no estoque (18 UN)",
+      "action": "update"
+    },
+    {
+      "id": "act-1787948884100-lzwm1",
+      "action": "update",
+      "description": "Produto \"Pitu lata\" salvo no estoque (12 UN)",
+      "timestamp": "2026-08-28T20:28:04.100Z",
+      "module": "estoque",
+      "userName": "bardatenda"
+    },
+    {
+      "id": "act-1787948955784-rq2nz",
+      "timestamp": "2026-08-28T20:29:15.784Z",
+      "userName": "bardatenda",
+      "action": "update",
+      "module": "estoque",
+      "description": "Produto \"Tonica lata\" salvo no estoque (8 UN)"
+    },
+    {
+      "id": "act-1787949216799-9yt86",
+      "description": "Produto \"Itaipava Premium\" salvo no estoque (21 G)",
+      "module": "estoque",
+      "timestamp": "2026-08-28T20:33:36.799Z",
+      "action": "update",
+      "userName": "bardatenda"
+    },
+    {
+      "id": "act-1787949241315-e56mo",
+      "module": "estoque",
+      "description": "Produto \"Petra\" salvo no estoque (11 G)",
+      "userName": "bardatenda",
+      "action": "update",
+      "timestamp": "2026-08-28T20:34:01.315Z"
+    },
+    {
+      "id": "act-1787949311948-ykxo7",
+      "module": "estoque",
+      "description": "Produto \"Vodka Orloff\" salvo no estoque (14 UN)",
+      "timestamp": "2026-08-28T20:35:11.948Z",
+      "userName": "bardatenda",
+      "action": "update"
+    },
+    {
+      "id": "act-1787949404531-pf1cp",
+      "module": "estoque",
+      "userName": "bardatenda",
+      "description": "Produto \"Campari\" salvo no estoque (5 UN)",
+      "action": "update",
+      "timestamp": "2026-08-28T20:36:44.531Z"
+    },
+    {
+      "id": "act-1787949462768-1l7ve",
+      "action": "update",
+      "userName": "bardatenda",
+      "module": "estoque",
+      "description": "Produto \"Alcatrão\" salvo no estoque (22 UN)",
+      "timestamp": "2026-08-28T20:37:42.768Z"
+    },
+    {
+      "id": "act-1787949545669-9msh7",
+      "action": "update",
+      "timestamp": "2026-08-28T20:39:05.669Z",
+      "description": "Produto \"Heineken Zero\" salvo no estoque (4 CX)",
+      "module": "estoque",
+      "userName": "bardatenda"
+    },
+    {
+      "id": "act-1787949612643-8xxx0",
+      "module": "estoque",
+      "timestamp": "2026-08-28T20:40:12.643Z",
+      "userName": "bardatenda",
+      "action": "update",
+      "description": "Produto \"Ice Cabaré Limão\" salvo no estoque (7 CX)"
+    },
+    {
+      "id": "act-1787949674481-21rpc",
+      "description": "Produto \"Coca-Cola Lata\" salvo no estoque (13 CX)",
+      "module": "estoque",
+      "timestamp": "2026-08-28T20:41:14.482Z",
+      "action": "update",
+      "userName": "bardatenda"
+    },
+    {
+      "id": "act-1787949714689-1wr8m",
+      "description": "Produto \"Coca-Cola Zero Lata\" salvo no estoque (7 CX)",
+      "module": "estoque",
+      "timestamp": "2026-08-28T20:41:54.689Z",
+      "action": "update",
+      "userName": "bardatenda"
+    },
+    {
+      "id": "act-1787949873547-qdr32",
+      "description": "Produto \"Coca Cola 1L Zero\" salvo no estoque (23 UN)",
+      "userName": "bardatenda",
+      "module": "estoque",
+      "action": "update",
+      "timestamp": "2026-08-28T20:44:33.547Z"
+    },
+    {
+      "id": "act-1787949905677-0rwgk",
+      "action": "update",
+      "description": "Produto \"Coca Cola 2L\" salvo no estoque (15 UN)",
+      "userName": "bardatenda",
+      "timestamp": "2026-08-28T20:45:05.677Z",
+      "module": "estoque"
+    },
+    {
+      "id": "act-1787949942183-8uipx",
+      "userName": "bardatenda",
+      "module": "estoque",
+      "description": "Produto \"Coca Cola 2L Zero\" salvo no estoque (18 UN)",
+      "action": "update",
+      "timestamp": "2026-08-28T20:45:42.183Z"
+    },
+    {
+      "id": "act-1787950008808-9jxtm",
+      "userName": "bardatenda",
+      "module": "estoque",
+      "action": "update",
+      "description": "Produto \"Red Bull pequeno\" salvo no estoque (19 UN)",
+      "timestamp": "2026-08-28T20:46:48.809Z"
+    },
+    {
+      "id": "act-1787950037097-e5sqb",
+      "action": "update",
+      "userName": "bardatenda",
+      "timestamp": "2026-08-28T20:47:17.097Z",
+      "description": "Produto \"Red Bull latão\" salvo no estoque (12 UN)",
+      "module": "estoque"
+    },
+    {
+      "id": "act-1788009025427-fzn8j",
+      "userName": "Equipe Bar da Tenda",
+      "description": "5 produtos excluídos do estoque",
+      "action": "delete",
+      "module": "estoque",
+      "timestamp": "2026-08-29T13:10:25.427Z"
+    },
+    {
+      "id": "act-1788009142088-ee3z2",
+      "userName": "Equipe Bar da Tenda",
+      "action": "update",
+      "module": "estoque",
+      "description": "Produto \"Copo Caipirosca\" salvo no estoque (3 PCT)",
+      "timestamp": "2026-08-29T13:12:22.088Z"
+    },
+    {
+      "id": "act-1788009176138-dxojs",
+      "userName": "Equipe Bar da Tenda",
+      "action": "update",
+      "description": "Produto \"Bandeja P\" salvo no estoque (7 PCT)",
+      "module": "estoque",
+      "timestamp": "2026-08-29T13:12:56.138Z"
+    },
+    {
+      "id": "act-1788009261984-6gegb",
+      "module": "estoque",
+      "timestamp": "2026-08-29T13:14:21.985Z",
+      "action": "update",
+      "description": "Produto \"Sacola M 5kg\" salvo no estoque (5 KG)",
+      "userName": "Equipe Bar da Tenda"
+    },
+    {
+      "id": "act-1788009270542-9yk3a",
+      "userName": "Equipe Bar da Tenda",
+      "module": "estoque",
+      "timestamp": "2026-08-29T13:14:30.542Z",
+      "action": "update",
+      "description": "Produto \"Sacola M 5kg\" salvo no estoque (5 KG)"
+    },
+    {
+      "id": "act-1788009289991-bs7zk",
+      "action": "update",
+      "timestamp": "2026-08-29T13:14:49.991Z",
+      "description": "Produto \"Sacola G 5kg\" salvo no estoque (5 KG)",
+      "userName": "Equipe Bar da Tenda",
+      "module": "estoque"
+    },
+    {
+      "id": "act-1788009305213-05lss",
+      "module": "estoque",
+      "userName": "Equipe Bar da Tenda",
+      "timestamp": "2026-08-29T13:15:05.213Z",
+      "description": "Produto \"Sacola GG lixo 5kg\" salvo no estoque (5 KG)",
+      "action": "update"
+    },
+    {
+      "id": "act-1788009322854-x2psy",
+      "action": "update",
+      "description": "Produto \"Quentinha de Alumínio\" salvo no estoque (2 CX)",
+      "userName": "Equipe Bar da Tenda",
+      "timestamp": "2026-08-29T13:15:22.854Z",
+      "module": "estoque"
+    },
+    {
+      "id": "act-1788009354544-cpfod",
+      "userName": "Equipe Bar da Tenda",
+      "action": "update",
+      "timestamp": "2026-08-29T13:15:54.544Z",
+      "module": "estoque",
+      "description": "Produto \"Copo 300ml\" salvo no estoque (11 PCT)"
+    },
+    {
+      "id": "act-1788009385419-riwbs",
+      "action": "update",
+      "timestamp": "2026-08-29T13:16:25.419Z",
+      "description": "Produto \"Copo 150ml\" salvo no estoque (2 CX)",
+      "userName": "Equipe Bar da Tenda",
+      "module": "estoque"
+    },
+    {
+      "id": "act-1788009403827-kpb9p",
+      "timestamp": "2026-08-29T13:16:43.827Z",
+      "module": "estoque",
+      "description": "Produto \"Pote 100ml\" salvo no estoque (9 PCT)",
+      "action": "update",
+      "userName": "Equipe Bar da Tenda"
+    },
+    {
+      "id": "act-1788009426595-m1z41",
+      "userName": "Equipe Bar da Tenda",
+      "timestamp": "2026-08-29T13:17:06.595Z",
+      "module": "estoque",
+      "action": "update",
+      "description": "Produto \"Colher Descartável P\" salvo no estoque (1 CX)"
+    },
+    {
+      "id": "act-1788009443979-bjglf",
+      "description": "Produto \"Colher Descartável G\" salvo no estoque (1 CX)",
+      "module": "estoque",
+      "userName": "Equipe Bar da Tenda",
+      "action": "update",
+      "timestamp": "2026-08-29T13:17:23.979Z"
+    },
+    {
+      "id": "act-1788009470668-tvyxg",
+      "action": "update",
+      "timestamp": "2026-08-29T13:17:50.668Z",
+      "userName": "Equipe Bar da Tenda",
+      "description": "Produto \"MR500\" salvo no estoque (11 PCT)",
+      "module": "estoque"
+    },
+    {
+      "id": "act-1788009485647-97578",
+      "description": "Produto \"M50\" salvo no estoque (2 PCT)",
+      "module": "estoque",
+      "userName": "Equipe Bar da Tenda",
+      "timestamp": "2026-08-29T13:18:05.647Z",
+      "action": "update"
+    },
+    {
+      "id": "act-1788009493823-i2ggf",
+      "timestamp": "2026-08-29T13:18:13.823Z",
+      "description": "Produto \"M50\" salvo no estoque (2 PCT)",
+      "action": "update",
+      "module": "estoque",
+      "userName": "Equipe Bar da Tenda"
+    },
+    {
+      "id": "act-1788009507103-pooqy",
+      "userName": "Equipe Bar da Tenda",
+      "action": "update",
+      "description": "Produto \"M65\" salvo no estoque (3 PCT)",
+      "module": "estoque",
+      "timestamp": "2026-08-29T13:18:27.103Z"
+    },
+    {
+      "id": "act-1788009546917-kdk3c",
+      "module": "estoque",
+      "timestamp": "2026-08-29T13:19:06.917Z",
+      "userName": "Equipe Bar da Tenda",
+      "description": "Produto \"Colher Descartável P\" salvo no estoque (20 Pct)",
+      "action": "update"
+    },
+    {
+      "id": "act-1788009568920-olyxq",
+      "userName": "Equipe Bar da Tenda",
+      "module": "estoque",
+      "timestamp": "2026-08-29T13:19:28.920Z",
+      "action": "update",
+      "description": "Produto \"Colher Descartável G\" salvo no estoque (20 PCT)"
+    },
+    {
+      "id": "act-1788009769095-mi1eu",
+      "timestamp": "2026-08-29T13:22:49.095Z",
+      "action": "update",
+      "description": "Produto \"Cavalo Branco 1L\" salvo no estoque (3 unid)",
+      "userName": "Equipe Bar da Tenda",
+      "module": "estoque"
+    },
+    {
+      "id": "act-1788013535481-zyjo3",
+      "description": "Show \"Luana\" em 2026-09-20 atualizado/agendado",
+      "action": "update",
+      "userName": "Equipe Bar da Tenda",
+      "module": "bandas",
+      "timestamp": "2026-08-29T14:25:35.481Z"
+    },
+    {
+      "id": "act-1788173347024-y84pv",
+      "action": "update",
+      "userName": "Equipe Bar da Tenda",
+      "description": "Lançamento \"Movimento 29/08 e 30/08\" (R$ 27000.00) registrado",
+      "timestamp": "2026-08-31T10:49:07.024Z",
+      "module": "financeiro"
+    },
+    {
+      "id": "act-1788173483422-p5eo7",
+      "module": "financeiro",
+      "timestamp": "2026-08-31T10:51:23.422Z",
+      "description": "Lançamento \"Pagamento funcionário\" (R$ 5370.00) registrado",
+      "userName": "Equipe Bar da Tenda",
+      "action": "update"
+    },
+    {
+      "id": "act-1788173577416-nbv3r",
+      "module": "financeiro",
+      "action": "update",
+      "timestamp": "2026-08-31T10:52:57.416Z",
+      "description": "Lançamento \"Feira para o proximo FDS\" (R$ 3000.00) registrado",
+      "userName": "Equipe Bar da Tenda"
+    },
+    {
+      "id": "act-1788173603063-a8wvl",
+      "timestamp": "2026-08-31T10:53:23.063Z",
+      "action": "update",
+      "description": "Lançamento \"Pagamento de banda\" (R$ 1000.00) registrado",
+      "userName": "Equipe Bar da Tenda",
+      "module": "financeiro"
+    },
+    {
+      "id": "act-1788173625694-4dv5w",
+      "module": "financeiro",
+      "timestamp": "2026-08-31T10:53:45.694Z",
+      "description": "Lançamento \"Feira para o proximo FDS\" (R$ 3000.00) registrado",
+      "action": "update",
+      "userName": "Equipe Bar da Tenda"
+    },
+    {
+      "id": "act-1788173628286-m40qp",
+      "userName": "Equipe Bar da Tenda",
+      "action": "update",
+      "module": "financeiro",
+      "description": "Lançamento \"Pagamento de banda\" (R$ 1000.00) registrado",
+      "timestamp": "2026-08-31T10:53:48.286Z"
+    },
+    {
+      "id": "act-1788173633759-jv2e4",
+      "action": "update",
+      "userName": "Equipe Bar da Tenda",
+      "description": "Lançamento \"Movimento 29/08 e 30/08\" (R$ 27000.00) registrado",
+      "timestamp": "2026-08-31T10:53:53.759Z",
+      "module": "financeiro"
+    },
+    {
+      "id": "act-1788173639908-34q3t",
+      "description": "Lançamento \"Pagamento funcionário\" (R$ 5370.00) registrado",
+      "userName": "Equipe Bar da Tenda",
+      "module": "financeiro",
+      "action": "update",
+      "timestamp": "2026-08-31T10:53:59.908Z"
+    },
+    {
+      "id": "act-1788188903174-4iiuq",
+      "userName": "Equipe Bar da Tenda",
+      "action": "delete",
+      "timestamp": "2026-08-31T15:08:23.174Z",
+      "description": "Show \"Thiaginho\" removido da agenda",
+      "module": "bandas"
+    },
+    {
+      "id": "act-1788188913421-e4ns9",
+      "userName": "Equipe Bar da Tenda",
+      "description": "Show \"Pablo\" removido da agenda",
+      "module": "bandas",
+      "timestamp": "2026-08-31T15:08:33.421Z",
+      "action": "delete"
+    },
+    {
+      "id": "act-1788192668639-lxv2n",
+      "description": "Produto \"Guaraná lata\" salvo no estoque (36 UNID)",
+      "module": "estoque",
+      "userName": "Equipe Bar da Tenda",
+      "action": "update",
+      "timestamp": "2026-08-31T16:11:08.639Z"
+    },
+    {
+      "id": "act-1788192673592-6r81a",
+      "timestamp": "2026-08-31T16:11:13.592Z",
+      "description": "Produto \"Guaraná lata\" salvo no estoque (36 UNID)",
+      "module": "estoque",
+      "userName": "Equipe Bar da Tenda",
+      "action": "update"
+    },
+    {
+      "id": "act-1788192688287-lrvsj",
+      "description": "Produto \"Monster\" salvo no estoque (12 UN)",
+      "module": "estoque",
+      "userName": "Equipe Bar da Tenda",
+      "action": "update",
+      "timestamp": "2026-08-31T16:11:28.287Z"
+    },
+    {
+      "id": "act-1788192698269-3573y",
+      "module": "estoque",
+      "userName": "Equipe Bar da Tenda",
+      "timestamp": "2026-08-31T16:11:38.269Z",
+      "description": "Produto \"Pitu lata\" salvo no estoque (9 UN)",
+      "action": "update"
+    },
+    {
+      "id": "act-1788192707976-rdptb",
+      "userName": "Equipe Bar da Tenda",
+      "action": "update",
+      "description": "Produto \"Tonica lata\" salvo no estoque (6 UN)",
+      "timestamp": "2026-08-31T16:11:47.976Z",
+      "module": "estoque"
+    },
+    {
+      "id": "act-1788192722998-o3xr1",
+      "action": "update",
+      "timestamp": "2026-08-31T16:12:02.998Z",
+      "userName": "Equipe Bar da Tenda",
+      "module": "estoque",
+      "description": "Produto \"Vodka Orloff\" salvo no estoque (10 UN)"
+    },
+    {
+      "id": "act-1788192735008-xtohe",
+      "description": "Produto \"Johnnie\" salvo no estoque (3 UN)",
+      "timestamp": "2026-08-31T16:12:15.008Z",
+      "module": "estoque",
+      "action": "update",
+      "userName": "Equipe Bar da Tenda"
+    },
+    {
+      "id": "act-1788192748210-ix8ay",
+      "action": "update",
+      "module": "estoque",
+      "userName": "Equipe Bar da Tenda",
+      "timestamp": "2026-08-31T16:12:28.210Z",
+      "description": "Produto \"Cavalo Branco\" salvo no estoque (1 UN)"
+    },
+    {
+      "id": "act-1788192758698-4ki27",
+      "module": "estoque",
+      "description": "Produto \"Black White\" salvo no estoque (1 UN)",
+      "userName": "Equipe Bar da Tenda",
+      "timestamp": "2026-08-31T16:12:38.698Z",
+      "action": "update"
+    },
+    {
+      "id": "act-1788192766959-uznjq",
+      "action": "update",
+      "userName": "Equipe Bar da Tenda",
+      "description": "Produto \"Sprite lata\" salvo no estoque (3 CX)",
+      "timestamp": "2026-08-31T16:12:46.959Z",
+      "module": "estoque"
+    },
+    {
+      "id": "act-1788192776352-18g3k",
+      "module": "estoque",
+      "timestamp": "2026-08-31T16:12:56.352Z",
+      "userName": "Equipe Bar da Tenda",
+      "description": "Produto \"Campari\" salvo no estoque (4 UN)",
+      "action": "update"
+    },
+    {
+      "id": "act-1788192790070-dxays",
+      "action": "update",
+      "description": "Produto \"Alcatrão\" salvo no estoque (18 UN)",
+      "timestamp": "2026-08-31T16:13:10.070Z",
+      "userName": "Equipe Bar da Tenda",
+      "module": "estoque"
+    },
+    {
+      "id": "act-1788192809998-0m5fz",
+      "description": "Produto \"Heineken Zero\" salvo no estoque (2 CX)",
+      "action": "update",
+      "module": "estoque",
+      "timestamp": "2026-08-31T16:13:29.998Z",
+      "userName": "Equipe Bar da Tenda"
+    },
+    {
+      "id": "act-1788192832025-l2vmr",
+      "description": "Produto \"Coca-Cola Lata\" salvo no estoque (7 CX)",
+      "userName": "Equipe Bar da Tenda",
+      "action": "update",
+      "module": "estoque",
+      "timestamp": "2026-08-31T16:13:52.025Z"
+    },
+    {
+      "id": "act-1788192839721-4heaq",
+      "userName": "Equipe Bar da Tenda",
+      "description": "Produto \"Coca-Cola Zero Lata\" salvo no estoque (5 CX)",
+      "timestamp": "2026-08-31T16:13:59.721Z",
+      "module": "estoque",
+      "action": "update"
+    },
+    {
+      "id": "act-1788192849444-4y09k",
+      "timestamp": "2026-08-31T16:14:09.444Z",
+      "module": "estoque",
+      "userName": "Equipe Bar da Tenda",
+      "description": "Produto \"Fanta Lata\" salvo no estoque (1 CX)",
+      "action": "update"
+    },
+    {
+      "id": "act-1788192859830-ju9tr",
+      "module": "estoque",
+      "timestamp": "2026-08-31T16:14:19.830Z",
+      "userName": "Equipe Bar da Tenda",
+      "description": "Produto \"Limoneto\" salvo no estoque (1 PCT)",
+      "action": "update"
+    },
+    {
+      "id": "act-1788192879822-84mo5",
+      "module": "estoque",
+      "timestamp": "2026-08-31T16:14:39.822Z",
+      "userName": "Equipe Bar da Tenda",
+      "action": "update",
+      "description": "Produto \"Coca Cola 1L\" salvo no estoque (36 UN)"
+    },
+    {
+      "id": "act-1788192891057-w29i3",
+      "action": "update",
+      "description": "Produto \"Coca Cola 1L Zero\" salvo no estoque (12 UN)",
+      "timestamp": "2026-08-31T16:14:51.057Z",
+      "userName": "Equipe Bar da Tenda",
+      "module": "estoque"
+    },
+    {
+      "id": "act-1788192912685-uo9pm",
+      "timestamp": "2026-08-31T16:15:12.685Z",
+      "action": "update",
+      "userName": "Equipe Bar da Tenda",
+      "description": "Produto \"Coca Cola 2L\" salvo no estoque (24 UN)",
+      "module": "estoque"
+    },
+    {
+      "id": "act-1788192941948-db6e7",
+      "action": "update",
+      "userName": "Equipe Bar da Tenda",
+      "description": "Produto \"Coca Cola 2L Zero\" salvo no estoque (12 UN)",
+      "timestamp": "2026-08-31T16:15:41.948Z",
+      "module": "estoque"
+    },
+    {
+      "id": "act-1788192950535-83x1d",
+      "userName": "Equipe Bar da Tenda",
+      "action": "update",
+      "module": "estoque",
+      "description": "Produto \"Coca Cola 2L\" salvo no estoque (12 UN)",
+      "timestamp": "2026-08-31T16:15:50.535Z"
+    },
+    {
+      "id": "act-1788192964301-1zax0",
+      "description": "Produto \"Red Bull pequeno\" salvo no estoque (12 UN)",
+      "userName": "Equipe Bar da Tenda",
+      "module": "estoque",
+      "timestamp": "2026-08-31T16:16:04.301Z",
+      "action": "update"
+    },
+    {
+      "id": "act-1788192989780-szdow",
+      "description": "Produto \"Red Bull latão\" salvo no estoque (5 UN)",
+      "action": "update",
+      "userName": "Equipe Bar da Tenda",
+      "module": "estoque",
+      "timestamp": "2026-08-31T16:16:29.780Z"
+    },
+    {
+      "id": "act-1788193017028-6gnxd",
+      "userName": "Equipe Bar da Tenda",
+      "action": "update",
+      "timestamp": "2026-08-31T16:16:57.028Z",
+      "description": "Produto \"Black White 1L\" salvo no estoque (1 unid)",
+      "module": "estoque"
+    },
+    {
+      "id": "act-1788193050991-53ckp",
+      "timestamp": "2026-08-31T16:17:30.991Z",
+      "action": "update",
+      "userName": "Equipe Bar da Tenda",
+      "module": "estoque",
+      "description": "Produto \"Cavalo Branco 1L\" salvo no estoque (1 unid)"
+    },
+    {
+      "id": "act-1788193074479-kuz0d",
+      "description": "Produto \"Coca-Cola 1L\" salvo no estoque (36 unid)",
+      "timestamp": "2026-08-31T16:17:54.479Z",
+      "module": "estoque",
+      "action": "update",
+      "userName": "Equipe Bar da Tenda"
+    },
+    {
+      "id": "act-1788193095674-di9wg",
+      "module": "estoque",
+      "timestamp": "2026-08-31T16:18:15.674Z",
+      "description": "Produto \"Coca-Cola 1L Zero\" salvo no estoque (12 unid)",
+      "userName": "Equipe Bar da Tenda",
+      "action": "update"
+    },
+    {
+      "id": "act-1788193133263-3royb",
+      "userName": "Equipe Bar da Tenda",
+      "action": "update",
+      "module": "estoque",
+      "description": "Produto \"Heineken Zero Long\" salvo no estoque (48 unid)",
+      "timestamp": "2026-08-31T16:18:53.264Z"
+    },
+    {
+      "id": "act-1788193191646-20ey7",
+      "module": "estoque",
+      "timestamp": "2026-08-31T16:19:51.646Z",
+      "userName": "Equipe Bar da Tenda",
+      "description": "Produto \"Coca-Cola 2L\" salvo no estoque (12 unid)",
+      "action": "update"
+    },
+    {
+      "id": "act-1788193199412-cey7q",
+      "action": "update",
+      "description": "Produto \"Coca-Cola 2L Zero\" salvo no estoque (12 unid)",
+      "userName": "Equipe Bar da Tenda",
+      "timestamp": "2026-08-31T16:19:59.412Z",
+      "module": "estoque"
+    },
+    {
+      "id": "act-1788207568363-rp11e",
+      "userName": "bardatenda",
+      "action": "update",
+      "module": "estoque",
+      "description": "Produto \"teste\" salvo no estoque (5 UN)",
+      "timestamp": "2026-08-31T20:19:28.363Z"
+    },
+    {
+      "id": "act-1788207600462-gfgoy",
+      "module": "estoque",
+      "timestamp": "2026-08-31T20:20:00.462Z",
+      "userName": "bardatenda",
+      "description": "Produto \"teste\" salvo no estoque (8 UN)",
+      "action": "update"
+    },
+    {
+      "id": "act-1788269408884-yr5j2",
+      "timestamp": "2026-09-01T13:30:08.884Z",
+      "action": "delete",
+      "userName": "Equipe Bar da Tenda",
+      "module": "estoque",
+      "description": "Produto \"teste\" removido"
+    }
+  ],
+  "app_settings": [
+    {
+      "id": "init",
+      "version": "4.0",
+      "initializedAt": "2026-08-28T19:57:43.415Z",
+      "initialized": true
+    }
+  ]
+}
