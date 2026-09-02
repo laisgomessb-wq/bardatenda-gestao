@@ -17,28 +17,34 @@ import {
   Globe,
   Radio,
   Edit3,
+  LogOut,
+  ShieldCheck,
 } from 'lucide-react';
 import { NotificationSettings } from '../../types';
 import { updateCredentials } from '../../utils/storage';
 
 interface ProfileModuleProps {
   currentUsername: string;
+  userEmail?: string;
   theme: 'dark' | 'light';
   onToggleTheme: (theme: 'dark' | 'light') => void;
   notificationSettings: NotificationSettings;
   onUpdateNotificationSettings: (settings: NotificationSettings) => void;
   onCredentialsUpdated: (newUsername: string, newPass: string) => void;
   showToast: (msg: string) => void;
+  onLogout?: () => void;
 }
 
 export const ProfileModule: React.FC<ProfileModuleProps> = ({
   currentUsername,
+  userEmail,
   theme,
   onToggleTheme,
   notificationSettings,
   onUpdateNotificationSettings,
   onCredentialsUpdated,
   showToast,
+  onLogout,
 }) => {
   // Alterar identificação do operador
   const [operatorNameInput, setOperatorNameInput] = useState(currentUsername || 'Equipe Bar da Tenda');
@@ -120,7 +126,7 @@ export const ProfileModule: React.FC<ProfileModuleProps> = ({
 
   return (
     <div id="module-profile" className="space-y-5 pb-28 animate-in fade-in duration-200">
-      {/* Cabeçalho do Perfil / Acesso Aberto */}
+      {/* Cabeçalho do Perfil / Sessão Autenticada */}
       <div className={`p-4 sm:p-5 rounded-3xl border shadow-lg flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 ${
         isDark 
           ? 'bg-gradient-to-r from-amber-500/15 via-zinc-900 to-zinc-950 border-amber-500/30' 
@@ -128,41 +134,55 @@ export const ProfileModule: React.FC<ProfileModuleProps> = ({
       }`}>
         <div className="flex items-center gap-3.5">
           <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-amber-500 to-amber-600 text-zinc-950 flex items-center justify-center font-black text-xl shadow-md border border-amber-400/40 shrink-0">
-            <Globe className="w-7 h-7" />
+            <User className="w-7 h-7" />
           </div>
           <div>
             <div className="flex items-center gap-2 flex-wrap">
               <h2 className={`text-lg font-black tracking-tight ${isDark ? 'text-zinc-100' : 'text-zinc-900'}`}>
-                Acesso Aberto & Compartilhado
+                {currentUsername || 'Gestor Bar da Tenda'}
               </h2>
               <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center gap-1">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                Sem Senha • 100% Livre
+                <ShieldCheck className="w-3 h-3 text-emerald-400" />
+                Sessão Ativa
               </span>
             </div>
             <p className={`text-xs mt-1 ${isDark ? 'text-zinc-400' : 'text-zinc-600'}`}>
-              Qualquer pessoa com o link do app pode acessar, consultar e gerenciar em tempo real.
+              {userEmail ? `Conectado como: ${userEmail}` : 'Acesso Seguro Protegido por Autenticação'}
             </p>
           </div>
         </div>
 
-        <button
-          onClick={handleCopyLink}
-          id="btn-copy-share-link"
-          className="py-2.5 px-4 rounded-xl bg-amber-500 hover:bg-amber-450 text-zinc-950 font-bold text-xs flex items-center gap-2 transition-all active:scale-95 shadow-md shadow-amber-500/20 shrink-0"
-        >
-          {copiedLink ? (
-            <>
-              <Check className="w-4 h-4 stroke-[3]" />
-              <span>Link Copiado!</span>
-            </>
-          ) : (
-            <>
-              <Share2 className="w-4 h-4" />
-              <span>Copiar Link do App</span>
-            </>
+        <div className="flex items-center gap-2 self-stretch sm:self-auto">
+          {onLogout && (
+            <button
+              type="button"
+              onClick={onLogout}
+              id="btn-logout-profile"
+              className="py-2.5 px-3.5 rounded-xl bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 border border-rose-500/30 font-bold text-xs flex items-center gap-1.5 transition-all active:scale-95 shrink-0"
+            >
+              <LogOut className="w-4 h-4" />
+              <span>Sair da Conta</span>
+            </button>
           )}
-        </button>
+
+          <button
+            onClick={handleCopyLink}
+            id="btn-copy-share-link"
+            className="py-2.5 px-4 rounded-xl bg-amber-500 hover:bg-amber-450 text-zinc-950 font-bold text-xs flex items-center gap-2 transition-all active:scale-95 shadow-md shadow-amber-500/20 shrink-0"
+          >
+            {copiedLink ? (
+              <>
+                <Check className="w-4 h-4 stroke-[3]" />
+                <span>Link Copiado!</span>
+              </>
+            ) : (
+              <>
+                <Share2 className="w-4 h-4" />
+                <span>Copiar Link do App</span>
+              </>
+            )}
+          </button>
+        </div>
       </div>
 
       {/* Grid: Aparência & Link de Acesso */}

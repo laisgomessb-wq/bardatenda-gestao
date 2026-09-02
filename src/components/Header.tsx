@@ -11,6 +11,7 @@ import {
   Radio,
   Share2,
   Check,
+  LogOut,
 } from 'lucide-react';
 import { formatDateBR, getTodayISO } from '../utils/formatters';
 import { ActiveTab } from '../types';
@@ -26,6 +27,7 @@ interface HeaderProps {
   isLiveSync?: boolean;
   onOpenActivityDrawer?: () => void;
   recentActivityCount?: number;
+  onLogout?: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -39,6 +41,7 @@ export const Header: React.FC<HeaderProps> = ({
   isLiveSync = true,
   onOpenActivityDrawer,
   recentActivityCount = 0,
+  onLogout,
 }) => {
   const [showMenu, setShowMenu] = useState(false);
   const [showConfirmReset, setShowConfirmReset] = useState(false);
@@ -229,6 +232,20 @@ export const Header: React.FC<HeaderProps> = ({
                   <Sparkles className="w-3.5 h-3.5 text-amber-400" />
                   <span>Sobre o Gestão Bar da tenda</span>
                 </button>
+
+                {onLogout && (
+                  <button
+                    id="menu-item-logout"
+                    onClick={() => {
+                      setShowMenu(false);
+                      onLogout();
+                    }}
+                    className="w-full text-left px-3 py-2 rounded-lg text-rose-400 hover:text-rose-300 hover:bg-rose-500/10 flex items-center gap-2 border-t border-zinc-800/60 mt-1 pt-1.5 font-medium transition-colors"
+                  >
+                    <LogOut className="w-3.5 h-3.5 text-rose-400" />
+                    <span>Sair da Conta (Logout)</span>
+                  </button>
+                )}
 
                 <button
                   id="menu-item-reset"

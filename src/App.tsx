@@ -78,8 +78,11 @@ import { StaffModule } from './components/staff/StaffModule';
 import { ProfileModule } from './components/profile/ProfileModule';
 import { LiveActivityDrawer } from './components/common/LiveActivityDrawer';
 import { Check } from 'lucide-react';
+import { AuthProvider, useAuth } from './contexts/AuthContext';
+import { ProtectedRoute } from './routes/ProtectedRoute';
 
-export default function App() {
+function DashboardApp() {
+  const { user, logout } = useAuth();
   const [activeTab, setActiveTab] = useState<ActiveTab>('dashboard');
   const [products, setProducts] = useState<Product[]>(() => loadProducts());
   const [gigs, setGigs] = useState<BandGig[]>(() => loadGigs());
@@ -662,6 +665,7 @@ export default function App() {
         isLiveSync={isConnected}
         onOpenActivityDrawer={() => setIsActivityDrawerOpen(true)}
         recentActivityCount={activities.length}
+        onLogout={logout}
       />
 
       {/* Main Content Area */}
@@ -742,13 +746,15 @@ export default function App() {
 
         {activeTab === 'perfil' && (
           <ProfileModule
-            currentUsername={authData.username}
+            currentUsername={user?.name || authData.username}
+            userEmail={user?.email}
             theme={theme}
             onToggleTheme={handleToggleTheme}
             notificationSettings={notificationSettings}
             onUpdateNotificationSettings={handleUpdateNotificationSettings}
             onCredentialsUpdated={handleCredentialsUpdated}
             showToast={showToast}
+            onLogout={logout}
           />
         )}
       </main>
@@ -785,5 +791,15 @@ export default function App() {
         totalSyncedCount={totalSyncedCount}
       />
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <AuthProvider>
+      <ProtectedRoute>
+        <DashboardApp />
+      </ProtectedRoute>
+    </AuthProvider>
   );
 }
