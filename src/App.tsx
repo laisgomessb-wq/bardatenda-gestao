@@ -10,6 +10,7 @@ import {
   CashTransaction,
   NotificationSettings,
   ActivityLog,
+  ThemeMode,
 } from './types';
 import {
   loadProducts,
@@ -76,7 +77,6 @@ import { BillsModule } from './components/bills/BillsModule';
 import { FinanceModule } from './components/finance/FinanceModule';
 import { StaffModule } from './components/staff/StaffModule';
 import { Equipe } from './pages/Equipe';
-import { Usuarios } from './pages/Usuarios';
 import { ProfileModule } from './components/profile/ProfileModule';
 import { LiveActivityDrawer } from './components/common/LiveActivityDrawer';
 import { Check } from 'lucide-react';
@@ -86,13 +86,16 @@ import { RoleGuard } from './components/common/RoleGuard';
 
 function DashboardApp() {
   const { user, logout, role, canAccessFinance } = useAuth();
+  const [profileSubTab, setProfileSubTab] = useState<'perfil' | 'usuarios'>('perfil');
 
   // Detecção de Rota Inicial pela URL (/usuarios, /equipe, etc.)
   const getInitialTab = (): ActiveTab => {
     if (typeof window !== 'undefined') {
       const path = window.location.pathname.toLowerCase();
       const hash = window.location.hash.toLowerCase();
-      if (path === '/usuarios' || hash === '#/usuarios' || hash === '#usuarios') return 'usuarios';
+      if (path === '/usuarios' || hash === '#/usuarios' || hash === '#usuarios') {
+        return 'perfil';
+      }
       if (path === '/equipe' || hash === '#/equipe' || hash === '#equipe') return 'equipe';
       if (path === '/estoque' || hash === '#/estoque' || hash === '#estoque') return 'estoque';
       if (path === '/bandas' || hash === '#/bandas' || hash === '#bandas') return 'bandas';
@@ -111,9 +114,11 @@ function DashboardApp() {
       const path = window.location.pathname.toLowerCase();
       const hash = window.location.hash.toLowerCase();
       if (path === '/usuarios' || hash === '#/usuarios' || hash === '#usuarios') {
-        setActiveTab('usuarios');
+        setProfileSubTab('usuarios');
+        setActiveTab('perfil');
       }
     };
+    handleLocationChange();
     window.addEventListener('popstate', handleLocationChange);
     window.addEventListener('hashchange', handleLocationChange);
     return () => {
@@ -142,11 +147,17 @@ function DashboardApp() {
       setActiveTab('estoque');
       return;
     }
+    if (targetTab === 'usuarios') {
+      setProfileSubTab('usuarios');
+      setActiveTab('perfil');
+      try {
+        window.history.pushState(null, '', '/usuarios');
+      } catch (e) {}
+      return;
+    }
     // Atualiza a URL do navegador para permitir acesso direto e roteamento limpo
     try {
-      if (targetTab === 'usuarios') {
-        window.history.pushState(null, '', '/usuarios');
-      } else if (targetTab === 'dashboard') {
+      if (targetTab === 'dashboard') {
         window.history.pushState(null, '', '/');
       } else {
         window.history.pushState(null, '', `/${targetTab}`);
@@ -169,10 +180,35 @@ function DashboardApp() {
 
   // Profile, Theme and Notifications
   const [authData, setAuthData] = useState(() => loadAuth());
-  const [theme, setTheme] = useState<'dark' | 'light'>('dark');
+  const [theme, setTheme] = useState<ThemeMode>(() => loadTheme());
   const [notificationSettings, setNotificationSettings] = useState<NotificationSettings>(() =>
     loadNotificationSettings()
   );
+
+  // Sincroniza atributo data-theme, classe e meta theme-color para PWA / mobile
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    document.body.setAttribute('data-theme', theme);
+
+    if (theme === 'light') {
+      document.documentElement.classList.remove('dark');
+      document.documentElement.classList.add('light');
+    } else {
+      document.documentElement.classList.remove('light');
+      document.documentElement.classList.add('dark');
+    }
+
+    const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+    if (themeColorMeta) {
+      if (theme === 'light') {
+        themeColorMeta.setAttribute('content', '#f4f6fa');
+      } else if (theme === 'midnight') {
+        themeColorMeta.setAttribute('content', '#080d1a');
+      } else {
+        themeColorMeta.setAttribute('content', '#0d0f14');
+      }
+    }
+  }, [theme]);
 
   // Sincronização em Tempo Real (Full Time) com Firestore
   useEffect(() => {
@@ -297,11 +333,17 @@ function DashboardApp() {
     showToast('Nome de identificação salvo!');
   };
 
-  // Theme handler
-  const handleToggleTheme = (newTheme: 'dark' | 'light') => {
+  // Theme handler (Dark, Midnight Blue Premium, Light)
+  const handleToggleTheme = (newTheme: ThemeMode) => {
     setTheme(newTheme);
     saveTheme(newTheme);
-    showToast(newTheme === 'dark' ? 'Modo Escuro ativado.' : 'Modo Claro ativado.');
+    if (newTheme === 'midnight') {
+      showToast('Modo Azul Escuro Premium ativado.');
+    } else if (newTheme === 'light') {
+      showToast('Modo Claro ativado.');
+    } else {
+      showToast('Modo Escuro Clássico ativado.');
+    }
   };
 
   // Notification settings handler
@@ -719,9 +761,12 @@ function DashboardApp() {
   return (
     <div
       id="app-root"
+      data-theme={theme}
       className={`min-h-screen flex flex-col font-sans transition-colors duration-200 pb-20 ${
         theme === 'light'
-          ? 'bg-zinc-100 text-zinc-900 selection:bg-amber-500 selection:text-zinc-950'
+          ? 'bg-[#f4f6fa] text-zinc-900 selection:bg-amber-500 selection:text-zinc-950'
+          : theme === 'midnight'
+          ? 'bg-[#080d1a] text-zinc-100 selection:bg-amber-500 selection:text-zinc-950'
           : 'bg-[#0d0f14] text-zinc-100 selection:bg-amber-500 selection:text-zinc-950'
       }`}
     >
@@ -847,17 +892,7 @@ function DashboardApp() {
           )
         )}
 
-        {activeTab === 'usuarios' && (
-          <ProtectedRoute
-            allowedRoles={['criador', 'dono']}
-            fallbackTabName="Estoque"
-            onRedirect={() => handleNavigateTab('estoque')}
-          >
-            <Usuarios onNavigateTab={handleNavigateTab} />
-          </ProtectedRoute>
-        )}
-
-        {activeTab === 'perfil' && (
+        {(activeTab === 'perfil' || activeTab === 'usuarios') && (
           <ProfileModule
             currentUsername={user?.name || authData.username}
             userEmail={user?.email}
@@ -868,6 +903,9 @@ function DashboardApp() {
             onCredentialsUpdated={handleCredentialsUpdated}
             showToast={showToast}
             onLogout={logout}
+            initialSubTab={activeTab === 'usuarios' ? 'usuarios' : profileSubTab}
+            onSubTabChange={setProfileSubTab}
+            onNavigateTab={handleNavigateTab}
           />
         )}
       </main>

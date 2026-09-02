@@ -7,7 +7,6 @@ import {
   TrendingUp,
   Users,
   User,
-  UserCheck,
 } from 'lucide-react';
 import { ActiveTab } from '../types';
 import { useAuth } from '../contexts/AuthContext';
@@ -34,7 +33,6 @@ export const Navigation: React.FC<NavigationProps> = ({
   // Regra de Acesso: 'administrador' NÃO pode visualizar nem acessar as abas "Contas" e "Caixa"
   // 'criador' e 'dono' têm acesso total
   const showFinanceTabs = canAccessFinance ?? (role === 'criador' || role === 'dono');
-  const showUserManagementTab = role === 'criador' || role === 'dono';
 
   return (
     <nav
@@ -43,7 +41,7 @@ export const Navigation: React.FC<NavigationProps> = ({
     >
       <div
         className={`max-w-md sm:max-w-xl md:max-w-3xl lg:max-w-4xl mx-auto grid ${
-          showUserManagementTab ? 'grid-cols-8' : showFinanceTabs ? 'grid-cols-7' : 'grid-cols-5'
+          showFinanceTabs ? 'grid-cols-7' : 'grid-cols-5'
         } gap-0.5 sm:gap-1.5 md:gap-2`}
       >
         {/* 1. Início / Dashboard */}
@@ -232,34 +230,7 @@ export const Navigation: React.FC<NavigationProps> = ({
           )}
         </button>
 
-        {/* 7. Usuários (Gestão de Acesso - Exclusivo Criador e Dono) */}
-        {showUserManagementTab && (
-          <button
-            id="nav-tab-usuarios"
-            onClick={() => setActiveTab('usuarios')}
-            className={`flex flex-col items-center justify-center py-1 sm:py-1.5 px-0.5 rounded-xl transition-all duration-150 relative min-h-[44px] sm:min-h-[48px] select-none ${
-              activeTab === 'usuarios'
-                ? 'bg-amber-500/15 text-amber-400 font-bold'
-                : 'text-zinc-400 hover:text-zinc-200'
-            }`}
-          >
-            <div className="relative">
-              <UserCheck
-                className={`w-3.5 h-3.5 sm:w-4 sm:h-4 mb-0.5 transition-transform ${
-                  activeTab === 'usuarios' ? 'scale-110' : ''
-                }`}
-              />
-            </div>
-            <span className="text-[9px] sm:text-[10px] tracking-tight leading-none truncate max-w-full">
-              Usuários
-            </span>
-            {activeTab === 'usuarios' && (
-              <span className="w-2.5 sm:w-3 h-0.5 bg-amber-400 rounded-full mt-0.5"></span>
-            )}
-          </button>
-        )}
-
-        {/* 8. Perfil */}
+        {/* 7. Perfil */}
         <button
           id="nav-tab-perfil"
           onClick={() => setActiveTab('perfil')}

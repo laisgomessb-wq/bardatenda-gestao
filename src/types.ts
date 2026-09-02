@@ -137,6 +137,8 @@ export interface CashTransaction {
 
 export type UserRole = 'criador' | 'dono' | 'administrador';
 
+export type ThemeMode = 'dark' | 'light' | 'midnight';
+
 export type ActiveTab = 'dashboard' | 'estoque' | 'bandas' | 'contas' | 'financeiro' | 'equipe' | 'perfil' | 'usuarios';
 
 export interface NotificationSettings {

@@ -57,3 +57,173 @@
     background: #3f3f46;
   }
 }
+
+/* ========================================================================= */
+/* TEMA 1: MODO CLARO REFINADO (Light Clean / Daylight)                      */
+/* Adaptação completa, eliminando fundos cinzentos sujos ou textos ilegíveis */
+/* ========================================================================= */
+html[data-theme="light"],
+[data-theme="light"] {
+  --color-zinc-950: #ffffff;
+  --color-zinc-900: #ffffff;
+  --color-zinc-800: #f1f5f9;
+  --color-zinc-700: #e2e8f0;
+  --color-zinc-600: #94a3b8;
+  --color-zinc-500: #64748b;
+  --color-zinc-400: #475569;
+  --color-zinc-300: #334155;
+  --color-zinc-200: #1e293b;
+  --color-zinc-100: #0f172a;
+  --color-zinc-50: #020617;
+
+  color-scheme: light;
+}
+
+[data-theme="light"] body {
+  background-color: #f4f6fa;
+  color: #0f172a;
+}
+
+/* Sombras suaves e bordas refinadas em cards e painéis no modo claro */
+[data-theme="light"] .bg-zinc-900,
+[data-theme="light"] .bg-zinc-950 {
+  box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.05), 0 1px 2px -1px rgba(15, 23, 42, 0.05);
+}
+
+/* Ajustes de legibilidade de texto e contrastes no modo claro */
+[data-theme="light"] .text-amber-400 {
+  color: #d97706 !important;
+}
+[data-theme="light"] .text-amber-300 {
+  color: #b45309 !important;
+}
+[data-theme="light"] .text-zinc-400 {
+  color: #475569 !important;
+}
+[data-theme="light"] .text-zinc-500 {
+  color: #64748b !important;
+}
+[data-theme="light"] .text-zinc-300 {
+  color: #334155 !important;
+}
+[data-theme="light"] .text-zinc-200 {
+  color: #1e293b !important;
+}
+[data-theme="light"] .text-zinc-100 {
+  color: #0f172a !important;
+}
+
+/* Header e Navigation no Modo Claro */
+[data-theme="light"] #app-header {
+  background-color: rgba(255, 255, 255, 0.94) !important;
+  border-bottom-color: #e2e8f0 !important;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.04) !important;
+}
+[data-theme="light"] #bottom-navigation {
+  background-color: rgba(255, 255, 255, 0.96) !important;
+  border-top-color: #e2e8f0 !important;
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.04) !important;
+}
+
+/* Inputs, Selects e Textareas no Modo Claro */
+[data-theme="light"] input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+[data-theme="light"] select,
+[data-theme="light"] textarea {
+  background-color: #f8fafc !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+}
+[data-theme="light"] input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):focus,
+[data-theme="light"] select:focus,
+[data-theme="light"] textarea:focus {
+  background-color: #ffffff !important;
+  border-color: #f59e0b !important;
+  box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.2) !important;
+}
+[data-theme="light"] input::placeholder,
+[data-theme="light"] textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
+/* Modais, Bordas e Divisores no Modo Claro */
+[data-theme="light"] .border-zinc-800 {
+  border-color: #e2e8f0 !important;
+}
+[data-theme="light"] .border-zinc-700 {
+  border-color: #cbd5e1 !important;
+}
+
+/* Scrollbars no Modo Claro */
+[data-theme="light"] ::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+}
+[data-theme="light"] ::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* ========================================================================= */
+/* TEMA 2: AZUL ESCURO PREMIUM (Midnight Navy Executive)                     */
+/* Atmosfera noturna sofisticada em tons de azul escuro com acentos dourados */
+/* ========================================================================= */
+html[data-theme="midnight"],
+[data-theme="midnight"] {
+  --color-zinc-950: #070c18;
+  --color-zinc-900: #0f172a;
+  --color-zinc-800: #1e293b;
+  --color-zinc-700: #2d3b55;
+  --color-zinc-600: #475569;
+  --color-zinc-500: #64748b;
+  --color-zinc-400: #94a3b8;
+  --color-zinc-300: #cbd5e1;
+  --color-zinc-200: #e2e8f0;
+  --color-zinc-100: #f8fafc;
+  --color-zinc-50: #ffffff;
+
+  color-scheme: dark;
+}
+
+[data-theme="midnight"] body {
+  background-color: #080d1a;
+  color: #f8fafc;
+}
+
+/* Header e Navigation no Modo Midnight */
+[data-theme="midnight"] #app-header {
+  background-color: rgba(7, 12, 24, 0.94) !important;
+  border-bottom-color: #1e293b !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+}
+[data-theme="midnight"] #bottom-navigation {
+  background-color: rgba(7, 12, 24, 0.96) !important;
+  border-top-color: #1e293b !important;
+  box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.45) !important;
+}
+
+/* Acabamento refinado de painéis no Modo Midnight */
+[data-theme="midnight"] .bg-zinc-900 {
+  border-color: #1e293b;
+}
+
+/* Inputs no Modo Midnight */
+[data-theme="midnight"] input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+[data-theme="midnight"] select,
+[data-theme="midnight"] textarea {
+  background-color: #0b1222 !important;
+  border-color: #1e293b !important;
+  color: #f8fafc !important;
+}
+[data-theme="midnight"] input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):focus,
+[data-theme="midnight"] select:focus,
+[data-theme="midnight"] textarea:focus {
+  background-color: #0f172a !important;
+  border-color: #f59e0b !important;
+  box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.25) !important;
+}
+
+/* Scrollbar no Modo Midnight */
+[data-theme="midnight"] ::-webkit-scrollbar-thumb {
+  background: #1e293b;
+}
+[data-theme="midnight"] ::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}

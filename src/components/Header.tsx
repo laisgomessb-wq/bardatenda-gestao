@@ -14,7 +14,7 @@ import {
   UserCheck,
 } from 'lucide-react';
 import { formatDateBR, getTodayISO } from '../utils/formatters';
-import { ActiveTab } from '../types';
+import { ActiveTab, ThemeMode } from '../types';
 import { useAuth } from '../contexts/AuthContext';
 import { BarDaTendaLogo } from './common/BarDaTendaLogo';
 
@@ -23,8 +23,8 @@ interface HeaderProps {
   onResetData: () => void;
   activeTab?: ActiveTab;
   onNavigateTab?: (tab: ActiveTab) => void;
-  theme?: 'dark' | 'light';
-  onToggleTheme?: (theme: 'dark' | 'light') => void;
+  theme?: ThemeMode;
+  onToggleTheme?: (theme: ThemeMode) => void;
   onShareLink?: () => void;
   isLiveSync?: boolean;
   onOpenActivityDrawer?: () => void;
@@ -120,15 +120,37 @@ export const Header: React.FC<HeaderProps> = ({
             </button>
           )}
 
-          {/* Quick theme toggle */}
+          {/* Quick theme toggle (Dark -> Midnight -> Light -> Dark) */}
           {onToggleTheme && (
             <button
               id="header-theme-toggle"
-              onClick={() => onToggleTheme(theme === 'dark' ? 'light' : 'dark')}
-              className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-amber-400 flex items-center justify-center transition-colors"
-              title={theme === 'dark' ? 'Mudar para Modo Claro' : 'Mudar para Modo Escuro'}
+              onClick={() => {
+                if (theme === 'dark') onToggleTheme('midnight');
+                else if (theme === 'midnight') onToggleTheme('light');
+                else onToggleTheme('dark');
+              }}
+              className={`w-7 h-7 sm:w-8 sm:h-8 rounded-lg border flex items-center justify-center transition-all ${
+                theme === 'midnight'
+                  ? 'bg-slate-900 border-sky-500/40 text-sky-400 hover:text-sky-300'
+                  : theme === 'light'
+                  ? 'bg-amber-50 border-amber-300 text-amber-600 hover:text-amber-700'
+                  : 'bg-zinc-900 border-zinc-800 text-zinc-400 hover:text-amber-400'
+              }`}
+              title={
+                theme === 'dark'
+                  ? 'Tema Escuro (Clique para Modo Azul Escuro Premium)'
+                  : theme === 'midnight'
+                  ? 'Tema Azul Escuro (Clique para Modo Claro)'
+                  : 'Tema Claro (Clique para Modo Escuro Clássico)'
+              }
             >
-              {theme === 'dark' ? <Sun className="w-3.5 h-3.5 sm:w-4 sm:h-4" /> : <Moon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />}
+              {theme === 'dark' ? (
+                <Moon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-zinc-300" />
+              ) : theme === 'midnight' ? (
+                <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-sky-400" />
+              ) : (
+                <Sun className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-500" />
+              )}
             </button>
           )}
 
@@ -242,7 +264,7 @@ export const Header: React.FC<HeaderProps> = ({
                     className="w-full text-left px-3 py-2 rounded-lg text-amber-400 hover:bg-zinc-800 flex items-center gap-2 font-bold"
                   >
                     <UserCheck className="w-3.5 h-3.5 text-amber-400" />
-                    <span>Gestão de Usuários (/usuarios)</span>
+                    <span>Gestão de Usuários (Perfil)</span>
                   </button>
                 )}
 

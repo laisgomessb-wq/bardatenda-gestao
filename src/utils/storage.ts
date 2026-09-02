@@ -1,4 +1,4 @@
-import { Product, BandGig, StaffMember, StaffShift, BillAccount, CashTransaction } from '../types';
+import { Product, BandGig, StaffMember, StaffShift, BillAccount, CashTransaction, ThemeMode } from '../types';
 import {
   INITIAL_PRODUCTS,
   INITIAL_GIGS,
@@ -280,18 +280,18 @@ export const updateCredentials = (newUsername?: string, _newPassword?: string) =
   }
 };
 
-// 9. Tema (Modo Escuro / Claro)
-export const loadTheme = (): 'dark' | 'light' => {
+// 9. Tema (Modo Escuro / Azul Escuro Premium / Claro)
+export const loadTheme = (): ThemeMode => {
   try {
     const saved = localStorage.getItem('bardatenda_theme');
-    if (saved === 'light' || saved === 'dark') return saved;
+    if (saved === 'light' || saved === 'dark' || saved === 'midnight') return saved;
   } catch (e) {
     console.error('Erro ao carregar tema:', e);
   }
   return 'dark';
 };
 
-export const saveTheme = (theme: 'dark' | 'light') => {
+export const saveTheme = (theme: ThemeMode) => {
   try {
     localStorage.setItem('bardatenda_theme', theme);
   } catch (e) {

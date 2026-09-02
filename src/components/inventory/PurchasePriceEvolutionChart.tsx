@@ -214,7 +214,7 @@ export const PurchasePriceEvolutionChart: React.FC<PurchasePriceEvolutionChartPr
     <div
       ref={containerRef}
       id="purchase-price-evolution-card"
-      className={`w-full bg-[#0c0d12] border border-zinc-800/90 rounded-2xl p-4 sm:p-6 shadow-2xl relative overflow-hidden transition-all ${className}`}
+      className={`w-full bg-zinc-950 border border-zinc-800/90 rounded-2xl p-4 sm:p-6 shadow-2xl relative overflow-hidden transition-all ${className}`}
     >
       {/* 🌟 1. CABEÇALHO DO CARD */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-3 border-b border-zinc-800/70 relative z-10">
