@@ -1,13 +1,16 @@
 // Service Worker para Gestão Bar da Tenda (PWA)
-const CACHE_NAME = 'bar-da-tenda-v1';
+const CACHE_NAME = 'bar-da-tenda-v2';
 const ASSETS = [
   '/',
   '/index.html',
   '/manifest.json',
   '/logo.svg',
   '/icon.svg',
+  '/logo.png',
   '/pwa-192x192.png',
   '/pwa-512x512.png',
+  '/pwa-maskable-192x192.png',
+  '/pwa-maskable-512x512.png',
   '/apple-touch-icon.png',
   '/favicon.ico',
 ];
