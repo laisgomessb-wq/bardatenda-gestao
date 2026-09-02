@@ -39,14 +39,12 @@ export const Login: React.FC = () => {
     setIsLoading(true);
 
     try {
-      // Simulação rápida para feedback visual
-      await new Promise((resolve) => setTimeout(resolve, 400));
       const res = await login(email, password);
       if (!res.success) {
-        setErrorMessage(res.message || 'Erro ao realizar login. Verifique seus dados.');
+        setErrorMessage(res.message || 'Erro ao autenticar com o Firebase. Verifique seus dados.');
       }
     } catch (err: any) {
-      setErrorMessage(err?.message || 'Ocorreu um erro ao entrar.');
+      setErrorMessage(err?.message || 'Ocorreu um erro ao conectar com o Firebase.');
     } finally {
       setIsLoading(false);
     }
@@ -191,30 +189,15 @@ export const Login: React.FC = () => {
             </button>
           </form>
 
-          {/* Atalhos Rápidos para Acesso de Demonstração / Gestor */}
+          {/* Informação sobre autenticação Firebase */}
           <div className="mt-6 pt-5 border-t border-zinc-800/80">
-            <div className="flex items-center gap-1.5 text-[11px] font-semibold text-zinc-400 mb-2.5">
+            <div className="flex items-center gap-1.5 text-[11px] font-semibold text-zinc-400 mb-1.5">
               <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-              <span>Acesso Rápido de Gestão:</span>
+              <span>Autenticação Firebase:</span>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-              <button
-                type="button"
-                onClick={() => handleQuickFill('gerente@bardatenda.com.br', 'admin123')}
-                className="text-left px-3 py-2 rounded-xl bg-zinc-950/60 hover:bg-zinc-800/80 border border-zinc-800 text-zinc-300 hover:text-amber-300 transition-all text-xs flex flex-col group"
-              >
-                <span className="font-semibold text-zinc-200 group-hover:text-amber-400">Gerente Geral</span>
-                <span className="text-[10px] text-zinc-400">gerente@bardatenda...</span>
-              </button>
-              <button
-                type="button"
-                onClick={() => handleQuickFill('caixa@bardatenda.com.br', 'caixa123')}
-                className="text-left px-3 py-2 rounded-xl bg-zinc-950/60 hover:bg-zinc-800/80 border border-zinc-800 text-zinc-300 hover:text-amber-300 transition-all text-xs flex flex-col group"
-              >
-                <span className="font-semibold text-zinc-200 group-hover:text-amber-400">Operador de Caixa</span>
-                <span className="text-[10px] text-zinc-400">caixa@bardatenda...</span>
-              </button>
-            </div>
+            <p className="text-[11px] text-zinc-400 leading-relaxed">
+              O acesso é autenticado diretamente no <strong className="text-zinc-300">Firebase Auth</strong> do projeto <code className="text-amber-400 font-mono text-[10px]">bardatenda-gestao</code>. Cadastre ou gerencie os usuários no painel do Firebase Console.
+            </p>
           </div>
         </div>
 
