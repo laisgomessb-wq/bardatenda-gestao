@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-BR" class="dark">
+<html lang="pt-BR" class="dark" style="background-color: #0d0f14; color-scheme: dark;">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
@@ -25,9 +25,44 @@
     <meta property="og:title" content="Gestão Bar da tenda" />
     <meta property="og:description" content="App de gestão completo para o Bar da Tenda: Estoque, Agenda de Bandas, Equipe e Financeiro." />
     <meta property="og:image" content="/logo.png" />
+    <style>
+      body {
+        margin: 0;
+        background-color: #0d0f14;
+        color: #f4f4f5;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      }
+      @keyframes spin-loader {
+        to { transform: rotate(360deg); }
+      }
+    </style>
   </head>
-  <body class="bg-[#0d0f14] text-zinc-100 antialiased">
-    <div id="root"></div>
+  <body class="bg-[#0d0f14] text-zinc-100 antialiased" style="background-color: #0d0f14; color: #f4f4f5; margin: 0; min-height: 100vh;">
+    <div id="root">
+      <!-- Pre-loader visual imediato contra tela branca -->
+      <div id="app-preloader" style="min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: #0d0f14; color: #f4f4f5; padding: 20px; text-align: center;">
+        <div style="width: 64px; height: 64px; border-radius: 20px; background: rgba(245, 158, 11, 0.15); border: 1px solid rgba(245, 158, 11, 0.35); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; box-shadow: 0 0 25px rgba(245, 158, 11, 0.2);">
+          <span style="font-size: 32px;">⛺</span>
+        </div>
+        <h1 style="font-size: 20px; font-weight: 800; margin: 0 0 6px 0; color: #f4f4f5; letter-spacing: -0.02em;">Bar da Tenda</h1>
+        <p style="font-size: 13px; color: #a1a1aa; margin: 0 0 20px 0;">Carregando sistema de gestão...</p>
+        <div style="width: 30px; height: 30px; border: 3px solid rgba(245, 158, 11, 0.2); border-top-color: #f59e0b; border-radius: 50%; animation: spin-loader 0.8s linear infinite;"></div>
+        <div id="preloader-fallback-btn" style="display: none; margin-top: 24px;">
+          <button onclick="localStorage.clear(); sessionStorage.clear(); window.location.reload();" style="padding: 10px 18px; background: #f59e0b; color: #09090b; font-weight: 700; font-size: 12px; border: none; border-radius: 10px; cursor: pointer;">
+            Recarregar Limpando Cache
+          </button>
+        </div>
+      </div>
+      <script>
+        // Exibe botão de emergência se o app demorar mais de 6 segundos para inicializar
+        setTimeout(function() {
+          var btn = document.getElementById('preloader-fallback-btn');
+          if (btn && document.getElementById('app-preloader')) {
+            btn.style.display = 'block';
+          }
+        }, 6000);
+      </script>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
