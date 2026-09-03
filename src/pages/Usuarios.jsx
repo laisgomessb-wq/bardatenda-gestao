@@ -107,6 +107,9 @@ export const Usuarios = ({ onNavigateTab }) => {
         const users = [];
         snapshot.forEach((docSnap) => {
           const data = docSnap.data();
+          // Ocultar o usuário criador de todas as listagens nas telas
+          if (data.role === 'criador') return;
+
           users.push({
             id: docSnap.id,
             uid: docSnap.id,
@@ -114,7 +117,7 @@ export const Usuarios = ({ onNavigateTab }) => {
           });
         });
 
-        // Ordenação inteligente: Criadores > Donos > Administradores > Nome
+        // Ordenação inteligente: Donos > Administradores > Nome
         users.sort((a, b) => {
           const roleWeight = { criador: 3, dono: 2, administrador: 1 };
           const weightA = roleWeight[a.role] || 0;
@@ -319,6 +322,9 @@ export const Usuarios = ({ onNavigateTab }) => {
   // Filtragem da Lista
   const filteredUsers = useMemo(() => {
     return usersList.filter((u) => {
+      // Ocultar qualquer usuário criador das telas
+      if (u.role === 'criador') return false;
+
       const matchesSearch =
         !searchTerm ||
         (u.name && u.name.toLowerCase().includes(searchTerm.toLowerCase())) ||
@@ -334,12 +340,6 @@ export const Usuarios = ({ onNavigateTab }) => {
   const renderRoleBadge = (roleStr) => {
     switch (roleStr) {
       case 'criador':
-        return (
-          <span className="inline-flex items-center gap-1 text-[11px] font-black px-2.5 py-1 rounded-lg bg-purple-500/20 text-purple-300 border border-purple-500/40 shadow-sm">
-            <Crown className="w-3.5 h-3.5 text-purple-400" />
-            <span>Criador</span>
-          </span>
-        );
       case 'dono':
         return (
           <span className="inline-flex items-center gap-1 text-[11px] font-black px-2.5 py-1 rounded-lg bg-amber-500/20 text-amber-300 border border-amber-500/40 shadow-sm">
@@ -393,14 +393,14 @@ export const Usuarios = ({ onNavigateTab }) => {
             </span>
             <h2 className="text-xl font-black text-zinc-100">Gestão de Usuários</h2>
             <p className="text-xs text-zinc-400 max-w-sm mx-auto leading-relaxed">
-              Esta seção e o gerenciamento de credenciais do Firebase são exclusivos para os perfis{' '}
-              <strong className="text-purple-300">Criador</strong> e <strong className="text-amber-300">Dono</strong>.
+              Esta seção e o gerenciamento de credenciais do Firebase são exclusivos para o perfil{' '}
+              <strong className="text-amber-300">Dono</strong>.
             </p>
           </div>
 
           <div className="p-3.5 bg-zinc-950/80 rounded-2xl border border-zinc-800 text-left text-xs text-zinc-400 space-y-1">
             <p className="font-semibold text-zinc-300">
-              Seu perfil atual: <span className="uppercase text-amber-400 font-black">{currentRole}</span>
+              Seu perfil atual: <span className="uppercase text-amber-400 font-black">{currentRole === 'criador' ? 'DONO' : currentRole}</span>
             </p>
             <p className="text-[11px] text-zinc-500">
               Como Administrador, você possui permissão total para gerenciar Estoque, Bandas e a Escala de Trabalho.
@@ -437,14 +437,8 @@ export const Usuarios = ({ onNavigateTab }) => {
                 <h1 className="text-lg sm:text-xl font-black text-zinc-100 tracking-tight">
                   Gestão de Usuários e Equipe
                 </h1>
-                <span
-                  className={`text-[10px] font-extrabold px-2 py-0.5 rounded-md border ${
-                    currentRole === 'criador'
-                      ? 'bg-purple-500/20 text-purple-300 border-purple-500/40'
-                      : 'bg-amber-500/20 text-amber-300 border-amber-500/40'
-                  }`}
-                >
-                  {currentRole === 'criador' ? '👑 Criador' : '⭐ Dono'}
+                <span className="text-[10px] font-extrabold px-2 py-0.5 rounded-md border bg-amber-500/20 text-amber-300 border-amber-500/40">
+                  ⭐ Dono
                 </span>
                 <span className="text-[10px] bg-zinc-800 text-zinc-300 px-2 py-0.5 rounded-md border border-zinc-700">
                   Firebase Auth & Firestore
@@ -609,7 +603,6 @@ export const Usuarios = ({ onNavigateTab }) => {
                   >
                     <option value="administrador">🛡️ Administrador (Estoque, Bandas & Equipe)</option>
                     <option value="dono">⭐ Dono (Acesso Total + Caixa e Contas)</option>
-                    <option value="criador">👑 Criador (Acesso Supremo do Sistema)</option>
                   </select>
                 </div>
                 <span className="text-[10px] text-zinc-500 block mt-1">
@@ -650,17 +643,6 @@ export const Usuarios = ({ onNavigateTab }) => {
           </div>
 
           <div className="space-y-3 text-xs">
-            {/* Criador */}
-            <div className="p-3 bg-purple-950/30 border border-purple-500/30 rounded-xl space-y-1">
-              <div className="flex items-center gap-1.5 text-purple-300 font-black text-[11px]">
-                <Crown className="w-3.5 h-3.5 text-purple-400" />
-                <span>👑 Criador</span>
-              </div>
-              <p className="text-[11px] text-zinc-400">
-                Acesso irrestrito a todas as operações, banco de dados, relatórios e gestão de equipe.
-              </p>
-            </div>
-
             {/* Dono */}
             <div className="p-3 bg-amber-950/30 border border-amber-500/30 rounded-xl space-y-1">
               <div className="flex items-center gap-1.5 text-amber-300 font-black text-[11px]">
@@ -731,7 +713,7 @@ export const Usuarios = ({ onNavigateTab }) => {
 
             {/* Filtro por Role */}
             <div className="flex items-center p-1 bg-zinc-950 rounded-xl border border-zinc-800">
-              {['todos', 'criador', 'dono', 'administrador'].map((r) => (
+              {['todos', 'dono', 'administrador'].map((r) => (
                 <button
                   key={r}
                   onClick={() => setRoleFilter(r)}
@@ -1032,7 +1014,6 @@ export const Usuarios = ({ onNavigateTab }) => {
                 >
                   <option value="administrador">🛡️ Administrador (Operacional)</option>
                   <option value="dono">⭐ Dono (Acesso Total)</option>
-                  <option value="criador">👑 Criador (Acesso Supremo)</option>
                 </select>
               </div>
             </div>

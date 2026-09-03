@@ -55,10 +55,10 @@ export const RoleGuard: React.FC<RoleGuardProps> = ({
         <div>
           <h3 className="text-sm font-bold text-zinc-100">Acesso Restrito</h3>
           <p className="text-xs text-zinc-400 mt-1">
-            Seu perfil de <strong className="text-amber-400 uppercase">{currentRole}</strong> não possui permissão para visualizar {moduleName}.
+            Seu perfil de <strong className="text-amber-400 uppercase">{currentRole === 'criador' ? 'DONO' : currentRole}</strong> não possui permissão para visualizar {moduleName}.
           </p>
           <p className="text-[11px] text-zinc-500 mt-1">
-            Acesso permitido apenas para os perfis <strong className="text-zinc-300">Criador</strong> e <strong className="text-zinc-300">Dono</strong>.
+            Acesso permitido apenas para o perfil <strong className="text-zinc-300">Dono</strong>.
           </p>
         </div>
 

@@ -8,7 +8,7 @@ export const firebaseConfig = {
   projectId: "bardatenda-gestao",
   storageBucket: "bardatenda-gestao.firebasestorage.app",
   messagingSenderId: "143249175796",
-  appId: "1:143249175796:web:df3c805dd997947ca85aa1"
+  appId: "1:143249175796:web:915766d19ab0d40da85aa1"
 };
 
 const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApp();

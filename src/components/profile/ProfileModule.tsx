@@ -173,14 +173,14 @@ export const ProfileModule: React.FC<ProfileModuleProps> = ({
                     : 'bg-amber-500/20 text-amber-400 border border-amber-500/30'
                 }`}
               >
-                {role === 'criador' ? 'Criador' : 'Dono'}
+                Dono
               </span>
             </button>
           </div>
 
           <div className="hidden sm:flex items-center gap-2 text-xs text-zinc-400">
             <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
-            <span>Perfil: <strong className="text-zinc-200 capitalize">{role || 'Administrador'}</strong></span>
+            <span>Perfil: <strong className="text-zinc-200 capitalize">{role === 'criador' ? 'Dono' : role || 'Administrador'}</strong></span>
           </div>
         </div>
       )}
@@ -222,7 +222,7 @@ export const ProfileModule: React.FC<ProfileModuleProps> = ({
                   </span>
                   {role && (
                     <span className="text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 uppercase tracking-wider">
-                      {role}
+                      {role === 'criador' ? 'DONO' : role}
                     </span>
                   )}
                 </div>

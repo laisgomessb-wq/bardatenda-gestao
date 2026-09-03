@@ -224,14 +224,12 @@ export const Header: React.FC<HeaderProps> = ({
                     <div className="flex items-center gap-1.5 mt-1">
                       <span
                         className={`text-[10px] font-extrabold px-2 py-0.5 rounded-md border ${
-                          role === 'criador'
-                            ? 'bg-purple-500/20 text-purple-300 border-purple-500/40'
-                            : role === 'dono'
+                          role === 'criador' || role === 'dono'
                             ? 'bg-amber-500/20 text-amber-300 border-amber-500/40'
                             : 'bg-blue-500/20 text-blue-300 border-blue-500/40'
                         }`}
                       >
-                        {role === 'criador' ? '👑 Criador' : role === 'dono' ? '⭐ Dono' : '🛡️ Administrador'}
+                        {role === 'criador' || role === 'dono' ? '⭐ Dono' : '🛡️ Administrador'}
                       </span>
                     </div>
                     <p className="text-[10px] text-zinc-400 mt-1">
